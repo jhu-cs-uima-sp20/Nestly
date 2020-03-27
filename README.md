@@ -30,6 +30,6 @@ Go to Github, click on the branches page, and open a new pull request for your b
 |        Name         | Github Username |
 | :-----------------: | :-------------: |
 |     Jennifer He     |    sul-bing     |
-|     Max Torres      |                 |
-|     Emily Zeng      |                 |
-|     Thomas Zheng    |                 |
+|     Max Torres      |   maxrtorres    |
+|     Emily Zeng      |     zz328       |
+|     Thomas Zheng    |   guangyaoz     |
