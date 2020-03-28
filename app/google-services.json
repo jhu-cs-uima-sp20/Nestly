@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "367239429326",
+    "firebase_url": "https://nestly-database.firebaseio.com",
+    "project_id": "nestly-database",
+    "storage_bucket": "nestly-database.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367239429326:android:754f0290795ebd9454649f",
+        "android_client_info": {
+          "package_name": "com.example.nestly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367239429326-5ip95ahgbv59ukvs0rhmvf8vp1keimom.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_QSmR4fUnhkogexbjz4b8TuGqubmn9uU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367239429326-5ip95ahgbv59ukvs0rhmvf8vp1keimom.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
