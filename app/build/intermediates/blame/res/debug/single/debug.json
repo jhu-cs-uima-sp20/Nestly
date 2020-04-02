@@ -924,6 +924,10 @@
         "source": "/Users/max/.gradle/caches/transforms-2/files-2.1/88b8882e6a15c728169a63194a12dedc/material-1.1.0/res/drawable/design_fab_background.xml"
     },
     {
+        "merged": "/Users/max/AndroidStudioProjects/Nestly/app/build/intermediates/res/merged/debug/drawable_logo.png.flat",
+        "source": "/Users/max/AndroidStudioProjects/Nestly/app/src/main/res/drawable/logo.png"
+    },
+    {
         "merged": "/Users/max/AndroidStudioProjects/Nestly/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_abc_scrubber_track_mtrl_alpha.9.png.flat",
         "source": "/Users/max/.gradle/caches/transforms-2/files-2.1/fb8f7031ef66b8147647717c2aecca12/appcompat-1.1.0/res/drawable-mdpi-v4/abc_scrubber_track_mtrl_alpha.9.png"
     },
