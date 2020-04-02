@@ -5,31 +5,25 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/home_tab"
+            android:title="Home" />
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/my_profile_tab"
+            android:title="My Profile" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/favorites_tab"
+            android:title="Favorites" />
+
     </group>
 
-    <item android:title="Fragments">
+    <item android:title="">
         <menu>
             <item
-                android:id="@+id/frag1"
-                android:title="Fragment 1" />
+                android:id="@+id/hide_acc_tab"
+                android:title="Hide Account" />
             <item
-                android:id="@+id/frag2"
-                android:title="Fragment 2" />
+                android:id="@+id/delete_acc_tab"
+                android:title="Delete Account" />
         </menu>
     </item>
 
