@@ -1408,6 +1408,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable logo
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
 drawable mtrl_ic_arrow_drop_down
@@ -1581,6 +1582,7 @@ id icon_only
 id ifRoom
 id image
 id imageView
+id imageView2
 id info
 id invisible
 id italic
@@ -1594,7 +1596,7 @@ id line3
 id listMode
 id list_item
 id loading
-id login
+id login_button
 id masked
 id media_actions
 id message
@@ -1684,6 +1686,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id signup_button
 id skipCollapsed
 id slide
 id smallLabel
