@@ -12,6 +12,9 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class SignupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private TextView name;
     private TextView email;
@@ -19,6 +22,9 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
     private ImageButton signup;
     private Spinner year;
     private Spinner gender;
+
+    private FirebaseDatabase myBase;
+    private DatabaseReference dbref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +50,9 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 R.array.gender_options, android.R.layout.simple_spinner_dropdown_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         gender.setAdapter(adapter2);
+
+        myBase = FirebaseDatabase.getInstance();
+        dbref = myBase.getReference();
 
     }
 
