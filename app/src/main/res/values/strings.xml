@@ -22,4 +22,27 @@
     <string name="login_failed" />
     <string name="title_activity_login" />
     <string name="action_sign_in" />
+
+    <string-array name="year_options">
+        <iterm>Year</iterm>
+        <item>Freshman</item>
+        <item>Sophomore</item>
+        <item>Junior</item>
+        <item>Senior</item>
+    </string-array>
+
+    <string-array name="gender_options">
+        <item>M</item>
+        <item>F</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-arry name="major_options">
+        <item>Major(s)</item>
+        <item>Computer Science</item>
+        <item>BME</item>
+        <item>ChemBE</item>
+        <item>Writing Seminars</item>
+    </string-arry>
 </resources>
+

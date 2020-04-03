@@ -6,4 +6,100 @@
     android:layout_height="match_parent"
     tools:context=".SignupActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="-144dp">
+
+        <ImageView
+            android:id="@+id/logo2"
+            android:layout_width="186dp"
+            android:layout_height="147dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="112dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="112dp"
+            app:srcCompat="@drawable/logo" />
+
+        <EditText
+            android:id="@+id/name_txt"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="233dp"
+            android:layout_marginEnd="49dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName" />
+
+        <Spinner
+            android:id="@+id/year"
+            android:layout_width="208dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="305dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+
+        <Spinner
+            android:id="@+id/gender"
+            android:layout_width="79dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="305dp"
+            android:layout_marginEnd="49dp"
+            android:layout_toEndOf="@+id/year"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="43dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="252dp"
+            android:ems="10"
+            android:hint="jhedid@jh.edu"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="43dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="187dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPersonName" />
+
+        <ImageButton
+            android:id="@+id/signup_btn"
+            android:layout_width="320dp"
+            android:layout_height="71dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="586dp"
+            android:src="@drawable/signup_button"
+            android:background="@drawable/roundedbutton"/>
+
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
