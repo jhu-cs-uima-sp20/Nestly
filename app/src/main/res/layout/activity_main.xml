@@ -16,7 +16,19 @@
         app:headerLayout="@layout/nav_header_main"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/activity_main_drawer" />
+        app:menu="@menu/activity_main_drawer" >
+
+    </com.google.android.material.navigation.NavigationView>
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.nestly.GridFragment"
+        android:layout_width="146dp"
+        android:layout_height="167dp"
+        android:layout_marginStart="280dp"
+        android:layout_marginTop="296dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
