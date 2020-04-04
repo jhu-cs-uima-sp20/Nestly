@@ -45,6 +45,9 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array gender_options
+array major_options
+array year_options
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -1446,7 +1449,9 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable roundedbutton
 drawable side_nav_bar
+drawable signup_button
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1568,6 +1573,7 @@ id direct
 id disableHome
 id dropdown_menu
 id edit_query
+id email
 id end
 id end_padder
 id enterAlways
@@ -1586,6 +1592,7 @@ id fitToContents
 id fixed
 id forever
 id form_grid
+id gender
 id ghost_view
 id ghost_view_holder
 id gone
@@ -1616,6 +1623,7 @@ id line3
 id listMode
 id list_item
 id loading
+id logo2
 id masked
 id media_actions
 id message
@@ -1649,6 +1657,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
 id my_profile_tab
+id name_txt
 id nav_view
 id navigation_header_container
 id never
@@ -1703,7 +1712,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
-id signup_button
+id signup_btn
 id skipCollapsed
 id slide
 id smallLabel
@@ -1772,6 +1781,7 @@ id wide
 id withText
 id wrap
 id wrap_content
+id year
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration

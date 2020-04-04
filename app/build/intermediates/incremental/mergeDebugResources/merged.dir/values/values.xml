@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+    <string-array name="gender_options">
+        <item>M</item>
+        <item>F</item>
+        <item>Other</item>
+    </string-array>
+    <string-array name="major_options">
+        <item>Major(s)</item>
+        <item>Computer Science</item>
+        <item>BME</item>
+        <item>ChemBE</item>
+        <item>Writing Seminars</item>
+    </string-array>
+    <string-array name="year_options">
+        <item>Year</item>
+        <item>Freshman</item>
+        <item>Sophomore</item>
+        <item>Junior</item>
+        <item>Senior</item>
+    </string-array>
     <attr name="appBarLayoutStyle"/>
     <attr format="reference" name="badgeStyle"/>
     <attr format="boolean" name="barrierAllowsGoneWidgets"/>

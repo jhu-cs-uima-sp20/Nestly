@@ -24,7 +24,7 @@
     <string name="action_sign_in" />
 
     <string-array name="year_options">
-        <iterm>Year</iterm>
+        <item>Year</item>
         <item>Freshman</item>
         <item>Sophomore</item>
         <item>Junior</item>
