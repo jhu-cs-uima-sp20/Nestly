@@ -22,4 +22,12 @@
     <string name="login_failed" />
     <string name="title_activity_login" />
     <string name="action_sign_in" />
+
+    <string-array name="identify_as">
+        <item>Extrovert</item>
+        <item>Introvert</item>
+        <item>...</item>
+        <item>...</item>
+        <item>...</item>
+    </string-array>
 </resources>
