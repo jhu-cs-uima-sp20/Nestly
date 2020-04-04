@@ -43,8 +43,22 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
-            android:layout_marginStart="38dp"
-            android:layout_marginTop="305dp"
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="307dp"
+            android:background="@android:drawable/btn_dropdown"
+            android:spinnerMode="dropdown" />
+
+        <Spinner
+            android:id="@+id/major"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="42dp"
+            android:layout_marginTop="368dp"
+            android:layout_marginEnd="44dp"
             android:background="@android:drawable/btn_dropdown"
             android:spinnerMode="dropdown" />
 
@@ -90,7 +104,7 @@
             android:hint="Password"
             android:inputType="textPersonName" />
 
-        <ImageButton
+        <Button
             android:id="@+id/signup_btn"
             android:layout_width="320dp"
             android:layout_height="71dp"
@@ -98,8 +112,12 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="43dp"
             android:layout_marginTop="586dp"
-            android:src="@drawable/signup_button"
-            android:background="@drawable/roundedbutton"/>
+            android:background="@drawable/roundedbutton"
+            android:backgroundTint="#F1B6B8"
+            android:text="Sign Up"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
