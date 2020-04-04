@@ -37,12 +37,12 @@
         <item>Other</item>
     </string-array>
 
-    <string-arry name="major_options">
+    <string-array name="major_options">
         <item>Major(s)</item>
         <item>Computer Science</item>
         <item>BME</item>
         <item>ChemBE</item>
         <item>Writing Seminars</item>
-    </string-arry>
+    </string-array>
 </resources>
 
