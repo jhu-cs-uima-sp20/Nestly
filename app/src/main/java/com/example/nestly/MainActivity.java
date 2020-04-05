@@ -2,6 +2,8 @@ package com.example.nestly;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,6 +41,14 @@ public class MainActivity extends AppCompatActivity
         navView = findViewById(R.id.nav_view);
         navHeader = navView.getHeaderView(0);
         navView.setNavigationItemSelectedListener(this);
+        myDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        GridFragment myGridFrag = new GridFragment();
+
+        FragmentTransaction tr = getSupportFragmentManager().beginTransaction();
+        tr.replace(R.id.home_frag, myGridFrag);
+        tr.addToBackStack(null);
+        tr.commit();
     }
 
     @Override

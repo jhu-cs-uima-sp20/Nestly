@@ -1451,7 +1451,6 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable roundedbutton
 drawable side_nav_bar
-drawable signup_button
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1593,7 +1592,6 @@ id fitToContents
 id fixed
 id forever
 id form_grid
-id fragment
 id gender
 id ghost_view
 id ghost_view_holder
@@ -1605,6 +1603,7 @@ id hide_acc_tab
 id hideable
 id home
 id homeAsUp
+id home_frag
 id home_tab
 id horizontal
 id icon
@@ -1626,7 +1625,11 @@ id line3
 id listMode
 id list_item
 id loading
+id login_btn
+id login_button
 id logo2
+id logo3
+id major
 id masked
 id media_actions
 id message
@@ -1716,6 +1719,7 @@ id showCustom
 id showHome
 id showTitle
 id signup_btn
+id signup_button
 id skipCollapsed
 id slide
 id smallLabel

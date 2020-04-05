@@ -8,12 +8,12 @@
 
     <TextView
         android:id="@+id/username"
-        android:layout_width="277dp"
-        android:layout_height="96dp"
-        android:layout_marginStart="116dp"
-        android:layout_marginTop="288dp"
+        android:layout_width="136dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="60dp"
         android:text="name"
-        android:textSize="64sp"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

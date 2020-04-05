@@ -29,13 +29,21 @@
         <activity android:name="com.example.nestly.LongAnswerActivity" />
         <activity android:name="com.example.nestly.SituationalActivity" />
         <activity android:name="com.example.nestly.HabitsActivity" />
-        <activity android:name="com.example.nestly.SignupActivity" />
-        <activity android:name="com.example.nestly.LoginActivity" />
+        <activity android:name="com.example.nestly.SignupActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".StartActivity" />
+        </activity>
+        <activity android:name="com.example.nestly.LoginActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".StartActivity" />
+        </activity>
         <activity android:name="com.example.nestly.StartActivity" />
         <activity android:name="com.example.nestly.MyProfileActivity" />
         <activity
             android:name="com.example.nestly.MainActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="fullSensor" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

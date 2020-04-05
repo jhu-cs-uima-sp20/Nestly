@@ -10,6 +10,7 @@ import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.google.android.gms.tasks.Task;
@@ -44,6 +45,14 @@ public class GridFragment extends Fragment {
         profiles.add(new User("bob"));
 
         myAdapter = new ProfileAdapter(myContext, R.layout.profile_layout, profiles);
+
+        grid.setAdapter(myAdapter);
+
+        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
 
         return root;
     }
