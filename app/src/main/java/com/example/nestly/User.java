@@ -3,21 +3,30 @@ package com.example.nestly;
 public class User {
 
     private static long idTracker = 0;
-
-    public String username;
     public long id;
+    public String username;
 
-    public User(String name) {
-        this.username = name;
+    public String name;
+
+    public User(String username) {
+        this.username = username;
         this.id = idTracker;
         idTracker++;
+    }
+
+    public long getId() {
+        return this.id;
     }
 
     public String getUsername() {
         return this.username;
     }
 
-    public long getId() {
-        return this.id;
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

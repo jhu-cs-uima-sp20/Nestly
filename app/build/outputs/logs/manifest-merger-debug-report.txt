@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-36:12
-INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-36:12
-INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-36:12
-INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-36:12
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-41:12
+INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-41:12
+INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-41:12
+INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-41:12
 MERGED from [com.google.android.material:material:1.1.0] /Users/max/.gradle/caches/transforms-2/files-2.1/88b8882e6a15c728169a63194a12dedc/material-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/max/.gradle/caches/transforms-2/files-2.1/fb8f7031ef66b8147647717c2aecca12/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/max/.gradle/caches/transforms-2/files-2.1/81a362b35962fa2496d450cbee5c4ecc/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
@@ -66,25 +66,25 @@ MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/max/.gradle/cach
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/max/.gradle/caches/transforms-2/files-2.1/3576101df1addecb45ee4a121a0809b3/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/max/.gradle/caches/transforms-2/files-2.1/6518c549eca7c8c139a4cbcfbf192b2e/savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-database-collection:17.0.0] /Users/max/.gradle/caches/transforms-2/files-2.1/7189998640d03cd8247a01f86409460d/firebase-database-collection-17.0.0/AndroidManifest.xml:2:1-7:12
-INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-36:12
-INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-36:12
-INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-41:12
+INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-41:12
+INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-41:12
 	package
 		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:3:5-33
 		INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-36:12
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-41:12
 		INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-36:12
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-41:12
 		INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:11-69
 application
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:5:5-34:19
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:5:5-39:19
 MERGED from [com.google.android.material:material:1.1.0] /Users/max/.gradle/caches/transforms-2/files-2.1/88b8882e6a15c728169a63194a12dedc/material-1.1.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0] /Users/max/.gradle/caches/transforms-2/files-2.1/88b8882e6a15c728169a63194a12dedc/material-1.1.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/max/.gradle/caches/transforms-2/files-2.1/81a362b35962fa2496d450cbee5c4ecc/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
@@ -147,56 +147,62 @@ MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/max/.gradle/cach
 		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:6:9-35
 	android:theme
 		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:11:9-40
+activity#com.example.nestly.ViewProfileActivity
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:12:9-14:20
+	android:parentActivityName
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:13:13-55
+	android:name
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:12:19-54
 activity#com.example.nestly.LongAnswerActivity
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:12:9-65
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:15:9-56
 	android:name
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:12:19-53
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:15:19-53
 activity#com.example.nestly.SituationalActivity
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:13:9-57
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:16:9-57
 	android:name
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:13:19-54
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:16:19-54
 activity#com.example.nestly.HabitsActivity
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:14:9-52
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:17:9-52
 	android:name
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:14:19-49
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:17:19-49
 activity#com.example.nestly.SignupActivity
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:15:9-18:61
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:18:9-22:20
 	android:name
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:15:19-49
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:18:19-49
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:16:13-18:50
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:19:13-21:50
 	android:value
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:18:17-47
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:21:17-47
 	android:name
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:17:17-63
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:20:17-63
 activity#com.example.nestly.LoginActivity
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:19:9-22:61
-	android:name
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:19:19-48
-activity#com.example.nestly.StartActivity
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:23:9-51
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:23:9-27:20
 	android:name
 		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:23:19-48
+activity#com.example.nestly.StartActivity
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:28:9-51
+	android:name
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:28:19-48
 activity#com.example.nestly.MyProfileActivity
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:24:9-55
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:29:9-55
 	android:name
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:24:19-52
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:29:19-52
 activity#com.example.nestly.MainActivity
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:25:9-33:20
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:30:9-38:20
 	android:screenOrientation
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:27:13-51
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:32:13-51
 	android:name
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:26:13-41
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:31:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:28:13-32:29
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:33:13-37:29
 action#android.intent.action.MAIN
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:29:17-69
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:34:17-69
 	android:name
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:29:25-66
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:34:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:31:17-77
+ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:36:17-77
 	android:name
-		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:31:27-74
+		ADDED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:36:27-74
 uses-sdk
 INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/max/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml

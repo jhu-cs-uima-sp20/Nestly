@@ -41,6 +41,8 @@ public class ProfileAdapter extends ArrayAdapter<User> {
 
         TextView username = (TextView) profileView.findViewById(R.id.username);
         username.setText(curProfile.getUsername());
+        TextView name = (TextView) profileView.findViewById(R.id.given_name);
+        name.setText(curProfile.getName());
 
         return profileView;
     }

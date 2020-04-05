@@ -26,6 +26,10 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.nestly.ViewProfileActivity"
+            android:parentActivityName="com.example.nestly.MainActivity" >
+        </activity>
         <activity android:name="com.example.nestly.LongAnswerActivity" />
         <activity android:name="com.example.nestly.SituationalActivity" />
         <activity android:name="com.example.nestly.HabitsActivity" />
