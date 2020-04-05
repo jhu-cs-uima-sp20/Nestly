@@ -13,14 +13,23 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.Spinner;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class HabitsActivity extends AppCompatActivity {
+
+    private FirebaseDatabase myBase;
+    private DatabaseReference dbref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getActionBar().setTitle("Habits");
         setContentView(R.layout.activity_habits);
-
+      
+        myBase = FirebaseDatabase.getInstance();
+        dbref = myBase.getReference();
+      
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         final SharedPreferences.Editor pe = sp.edit();
 

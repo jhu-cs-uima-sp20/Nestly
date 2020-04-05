@@ -9,16 +9,27 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LongAnswerActivity"></activity>
+        <activity android:name=".ViewProfileActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".LongAnswerActivity" />
         <activity android:name=".SituationalActivity" />
         <activity android:name=".HabitsActivity" />
-        <activity android:name=".SignupActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".SignupActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".StartActivity" />
+        </activity>
+        <activity android:name=".LoginActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".StartActivity" />
+        </activity>
         <activity android:name=".StartActivity" />
         <activity android:name=".MyProfileActivity" />
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

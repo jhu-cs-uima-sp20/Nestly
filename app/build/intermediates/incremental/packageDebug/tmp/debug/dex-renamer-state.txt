@@ -1,4 +1,4 @@
-#Wed Apr 01 20:49:04 EDT 2020
+#Sun Apr 05 17:10:01 EDT 2020
 base.0=/Users/max/AndroidStudioProjects/Nestly/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

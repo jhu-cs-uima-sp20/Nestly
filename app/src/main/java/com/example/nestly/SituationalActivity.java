@@ -11,14 +11,23 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class SituationalActivity extends AppCompatActivity {
+
+    private FirebaseDatabase myBase;
+    private DatabaseReference dbref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_situational);
         getActionBar().setTitle("Situations");
-
+      
+        myBase = FirebaseDatabase.getInstance();
+        dbref = myBase.getReference();
+       
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         final SharedPreferences.Editor pe = sp.edit();
 
