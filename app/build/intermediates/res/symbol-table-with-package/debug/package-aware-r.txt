@@ -924,6 +924,7 @@ color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
 color notification_material_background_media_default_color
+color pink
 color primary_dark_material_dark
 color primary_dark_material_light
 color primary_material_dark
@@ -946,8 +947,10 @@ color switch_thumb_normal_material_dark
 color switch_thumb_normal_material_light
 color test_mtrl_calendar_day
 color test_mtrl_calendar_day_selected
+color textColor
 color tooltip_background_dark
 color tooltip_background_light
+color yellow
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -1372,6 +1375,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable boy
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1405,6 +1409,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable girl
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_calendar_black_24dp
@@ -1451,7 +1456,6 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable roundedbutton
 drawable side_nav_bar
-drawable signup_button
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1593,10 +1597,10 @@ id fitToContents
 id fixed
 id forever
 id form_grid
-id fragment
 id gender
 id ghost_view
 id ghost_view_holder
+id given_name
 id gone
 id grid
 id group_divider
@@ -1605,6 +1609,7 @@ id hide_acc_tab
 id hideable
 id home
 id homeAsUp
+id home_frag
 id home_tab
 id horizontal
 id icon
@@ -1612,7 +1617,6 @@ id icon_group
 id icon_only
 id ifRoom
 id image
-id imageView
 id info
 id invisible
 id italic
@@ -1626,7 +1630,11 @@ id line3
 id listMode
 id list_item
 id loading
+id login_btn
+id login_button
 id logo2
+id logo3
+id major
 id masked
 id media_actions
 id message
@@ -1682,6 +1690,7 @@ id password
 id password_toggle
 id peekHeight
 id percent
+id percent_val
 id pin
 id progress_circular
 id progress_horizontal
@@ -1716,6 +1725,7 @@ id showCustom
 id showHome
 id showTitle
 id signup_btn
+id signup_button
 id skipCollapsed
 id slide
 id smallLabel
@@ -1854,6 +1864,7 @@ layout activity_my_profile
 layout activity_signup
 layout activity_situational
 layout activity_start
+layout activity_view_profile
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

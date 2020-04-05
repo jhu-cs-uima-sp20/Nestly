@@ -6,8 +6,12 @@
     tools:context=".GridFragment">
 
     <GridView
-        android:background="@color/colorPrimary"
         android:id="@+id/grid"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:horizontalSpacing="15dp"
+        android:numColumns="2"
+        android:verticalSpacing="15dp"
+        />
 </FrameLayout>
