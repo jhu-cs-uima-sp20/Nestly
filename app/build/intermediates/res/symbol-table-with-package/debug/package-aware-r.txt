@@ -1634,6 +1634,7 @@ id login_btn
 id login_button
 id logo2
 id logo3
+id logout_tab
 id major
 id masked
 id media_actions

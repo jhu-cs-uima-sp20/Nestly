@@ -19,6 +19,9 @@
     <item android:title="">
         <menu>
             <item
+                android:id="@+id/logout_tab"
+                android:title="Log Out" />
+            <item
                 android:id="@+id/hide_acc_tab"
                 android:title="Hide Account" />
             <item

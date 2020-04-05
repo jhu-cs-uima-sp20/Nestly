@@ -101,11 +101,11 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
             Toast.makeText(getBaseContext(),
                     "Please Enter Password!", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (!checkedMajor || !checkedYear || !checkedGender) {
+        } /*else if (!checkedMajor || !checkedYear || !checkedGender) {
             Toast.makeText(getBaseContext(),
                     "Fields Missing!", Toast.LENGTH_SHORT).show();
             return false;
-        }
+        }*/
         return true;
     }
 
