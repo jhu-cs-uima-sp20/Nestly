@@ -46,6 +46,7 @@ animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
 array gender_options
+array identify_as
 array major_options
 array year_options
 attr actionBarDivider
@@ -1545,6 +1546,12 @@ id center_horizontal
 id center_vertical
 id chains
 id checkbox
+id checkbox1
+id checkbox2
+id checkbox3
+id checkbox4
+id checkbox5
+id checkbox6
 id checked
 id chip
 id chip_group
@@ -1605,6 +1612,7 @@ id gone
 id grid
 id group_divider
 id groups
+id habits_continue
 id hide_acc_tab
 id hideable
 id home
@@ -1635,6 +1643,11 @@ id login_button
 id logo2
 id logo3
 id logout_tab
+id long_answer1
+id long_answer2
+id long_answer3
+id long_answer4
+id long_answer_finish
 id major
 id masked
 id media_actions
@@ -1700,6 +1713,9 @@ id right
 id right_icon
 id right_side
 id rounded
+id s_spinner1
+id s_spinner2
+id s_spinner3
 id save_non_transition_alpha
 id save_overlay_view
 id scale
@@ -1727,6 +1743,7 @@ id showHome
 id showTitle
 id signup_btn
 id signup_button
+id situation_continue
 id skipCollapsed
 id slide
 id smallLabel
@@ -1735,6 +1752,11 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id spinner1
+id spinner2
+id spinner3
+id spinner4
+id spinner5
 id split_action_bar
 id spread
 id spread_inside

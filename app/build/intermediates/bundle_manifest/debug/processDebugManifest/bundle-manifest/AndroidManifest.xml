@@ -30,9 +30,21 @@
             android:name="com.example.nestly.ViewProfileActivity"
             android:parentActivityName="com.example.nestly.MainActivity" >
         </activity>
-        <activity android:name="com.example.nestly.LongAnswerActivity" />
-        <activity android:name="com.example.nestly.SituationalActivity" />
-        <activity android:name="com.example.nestly.HabitsActivity" />
+        <activity android:name="com.example.nestly.LongAnswerActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SituationalActivity" />
+        </activity>
+        <activity android:name="com.example.nestly.SituationalActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HabitsActivity" />
+        </activity>
+        <activity android:name="com.example.nestly.HabitsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SignupActivity" />
+        </activity>
         <activity android:name="com.example.nestly.SignupActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

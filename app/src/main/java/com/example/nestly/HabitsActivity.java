@@ -24,7 +24,7 @@ public class HabitsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActionBar().setTitle("Habits");
+        setTitle("Habits");
         setContentView(R.layout.activity_habits);
       
         myBase = FirebaseDatabase.getInstance();
