@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
-    tools:context=".SignupActivity">
+    tools:context=".SignupActivity"
+    android:background="@color/white">
 
     <Button
         android:id="@+id/signup_btn"

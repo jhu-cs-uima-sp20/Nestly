@@ -27,7 +27,7 @@ public class LongAnswerActivity extends AppCompatActivity {
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
       
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         final SharedPreferences.Editor pe = sp.edit();
 
         Button button = findViewById(R.id.long_answer_finish);
@@ -43,6 +43,10 @@ public class LongAnswerActivity extends AppCompatActivity {
                 EditText editText4 = findViewById(R.id.long_answer4);
                 pe.putString("long_answer_4",editText4.getText().toString());
 
+                // Go to profile grid, set boolean for being logged in
+                SharedPreferences.Editor peditor = sp.edit();
+                peditor.putBoolean("loggedIn", true);
+                peditor.commit();
                 Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(main_intent);
             }
@@ -51,7 +55,9 @@ public class LongAnswerActivity extends AppCompatActivity {
     }
 
     public void gotoHome(View view) {
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
+
 }

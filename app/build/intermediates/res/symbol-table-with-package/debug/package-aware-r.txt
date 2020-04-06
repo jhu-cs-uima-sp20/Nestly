@@ -951,6 +951,7 @@ color test_mtrl_calendar_day_selected
 color textColor
 color tooltip_background_dark
 color tooltip_background_light
+color white
 color yellow
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
@@ -1787,6 +1788,12 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView2
+id textView3
+id textView4
+id textView5
+id textView6
+id textView7
 id text_input_end_icon
 id text_input_start_icon
 id textinput_counter
@@ -1796,6 +1803,7 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
+id toolbar2
 id top
 id topPanel
 id touch_outside

@@ -1,23 +1,18 @@
 package com.example.nestly;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
-
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
@@ -29,6 +24,7 @@ public class MainActivity extends AppCompatActivity
     private NavigationView navView;
     private View navHeader;
     private DrawerLayout myDrawerLayout;
+    private ActionBar myBar;
 
     private ArrayList<User> profiles;
 
@@ -75,6 +71,8 @@ public class MainActivity extends AppCompatActivity
         tr.replace(R.id.home_frag, myGridFrag);
         tr.addToBackStack(null);
         tr.commit();
+
+        myBar = getSupportActionBar();
     }
 
     @Override
@@ -89,6 +87,10 @@ public class MainActivity extends AppCompatActivity
         }
         else if (myID == R.id.favorites_tab) {
             // Change to Favorites fragment
+            FavoritesFragment myFavsFrag = new FavoritesFragment();
+            tr.replace(R.id.home_frag, myFavsFrag);
+            tr.addToBackStack(null);
+            tr.commit();
         }
         else if (myID == R.id.logout_tab) {
             SharedPreferences.Editor peditor = myPrefs.edit();

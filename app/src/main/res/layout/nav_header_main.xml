@@ -16,15 +16,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="Simon Zeng"
-        android:textColor="@color/textColor"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:text="John Doe"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/textColor" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Class of 2020"
-        android:textColor="@color/textColor"/>
+        android:text="Class of 2022"
+        android:textColor="@color/textColor" />
 
 </LinearLayout>
