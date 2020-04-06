@@ -22,6 +22,7 @@ public class LongAnswerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_long_answer);
+        setTitle("Long Answer");
       
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
@@ -41,6 +42,9 @@ public class LongAnswerActivity extends AppCompatActivity {
                 pe.putString("long_answer_3",editText3.getText().toString());
                 EditText editText4 = findViewById(R.id.long_answer4);
                 pe.putString("long_answer_4",editText4.getText().toString());
+
+                Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(main_intent);
             }
         });
 

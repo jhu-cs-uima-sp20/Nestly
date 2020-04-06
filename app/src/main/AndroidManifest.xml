@@ -12,9 +12,21 @@
         <activity android:name=".ViewProfileActivity"
             android:parentActivityName=".MainActivity">
         </activity>
-        <activity android:name=".LongAnswerActivity" />
-        <activity android:name=".SituationalActivity" />
-        <activity android:name=".HabitsActivity" />
+        <activity android:name=".LongAnswerActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SituationalActivity" />
+        </activity>
+        <activity android:name=".SituationalActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HabitsActivity" />
+        </activity>
+        <activity android:name=".HabitsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SignupActivity" />
+        </activity>
         <activity android:name=".SignupActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

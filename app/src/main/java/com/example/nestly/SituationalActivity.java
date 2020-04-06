@@ -23,7 +23,7 @@ public class SituationalActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_situational);
-        getActionBar().setTitle("Situations");
+        setTitle("Situations");
       
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();

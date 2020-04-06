@@ -42,6 +42,7 @@
     </string-array>
 
     <string-array name="gender_options">
+        <item>Gender</item>
         <item>M</item>
         <item>F</item>
         <item>Other</item>
@@ -50,6 +51,12 @@
     <string-array name="major_options">
         <item>Major(s)</item>
         <item>Computer Science</item>
+        <item>Neuroscience</item>
+        <item>Political Science</item>
+        <item>Mechanical Engineering</item>
+        <item>International Studies</item>
+        <item>Material Science</item>
+        <item>Economics</item>
         <item>BME</item>
         <item>ChemBE</item>
         <item>Public Health</item>

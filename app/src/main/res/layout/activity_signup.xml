@@ -4,120 +4,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:clickable="true"
     tools:context=".SignupActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="-144dp">
+    <Button
+        android:id="@+id/signup_btn"
+        android:layout_width="320dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/roundedbutton"
+        android:backgroundTint="#F1B6B8"
+        android:text="Sign Up"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
-        <ImageView
-            android:id="@+id/logo2"
-            android:layout_width="186dp"
-            android:layout_height="147dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="112dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="112dp"
-            app:srcCompat="@drawable/logo" />
+    <Spinner
+        android:id="@+id/gender"
+        android:layout_width="143dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="44dp"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_txt" />
 
-        <EditText
-            android:id="@+id/name_txt"
-            android:layout_width="320dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="233dp"
-            android:layout_marginEnd="49dp"
-            android:ems="10"
-            android:hint="Name"
-            android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
-        <Spinner
-            android:id="@+id/year"
-            android:layout_width="208dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_centerInParent="true"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="307dp"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown" />
+    <Spinner
+        android:id="@+id/major"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/year" />
 
-        <Spinner
-            android:id="@+id/major"
-            android:layout_width="320dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="42dp"
-            android:layout_marginTop="368dp"
-            android:layout_marginEnd="44dp"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown" />
+    <Spinner
+        android:id="@+id/year"
+        android:layout_width="181dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toStartOf="@+id/gender"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name_txt" />
 
-        <Spinner
-            android:id="@+id/gender"
-            android:layout_width="79dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="37dp"
-            android:layout_marginTop="305dp"
-            android:layout_marginEnd="49dp"
-            android:layout_toEndOf="@+id/year"
-            android:background="@android:drawable/btn_dropdown"
-            android:spinnerMode="dropdown" />
+    <EditText
+        android:id="@+id/name_txt"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo2" />
 
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="320dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="43dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="252dp"
-            android:ems="10"
-            android:hint="jhedid@jh.edu"
-            android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="jhedid@jh.edu"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/major" />
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="320dp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="43dp"
-            android:layout_marginEnd="48dp"
-            android:layout_marginBottom="187dp"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPersonName" />
+    <ImageView
+        android:id="@+id/logo2"
+        android:layout_width="150dp"
+        android:layout_height="112dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
-        <Button
-            android:id="@+id/signup_btn"
-            android:layout_width="320dp"
-            android:layout_height="71dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="43dp"
-            android:layout_marginTop="586dp"
-            android:background="@drawable/roundedbutton"
-            android:backgroundTint="#F1B6B8"
-            android:text="Sign Up"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

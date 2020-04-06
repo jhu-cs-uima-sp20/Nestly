@@ -2,8 +2,12 @@ package com.example.nestly;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -38,6 +42,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        setTitle("Signup");
 
         //get ids
         name = (TextView) findViewById(R.id.name_txt);
@@ -54,6 +59,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 if (!checkValid())
                     return;
 
+                savePreferences();
                 // move to habits portion of the quiz
                 Intent habits_intent = new Intent(getApplicationContext(), HabitsActivity.class);
                 startActivity(habits_intent);
@@ -65,19 +71,69 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 R.array.year_options, android.R.layout.simple_spinner_dropdown_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         year.setAdapter(adapter1);
-        year.setPrompt("Year");
+        year.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Context context= getApplicationContext();
+                SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor peditor = savePrefs.edit();
+
+                peditor.putInt("year_index", position);
+                checkedYear = true;
+                peditor.commit();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         //set up gender spinner
         adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.gender_options, android.R.layout.simple_spinner_dropdown_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         gender.setAdapter(adapter2);
+        gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Context context= getApplicationContext();
+                SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor peditor = savePrefs.edit();
+
+                peditor.putInt("gender_index", position);
+                checkedGender = true;
+                peditor.commit();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         // set up major spinner
         adapter3 = ArrayAdapter.createFromResource(this,
                 R.array.major_options, android.R.layout.simple_spinner_dropdown_item);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         major.setAdapter(adapter3);
+        major.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Context context= getApplicationContext();
+                SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor peditor = savePrefs.edit();
+
+                peditor.putInt("major_index", position);
+                checkedMajor = true;
+                peditor.commit();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         // database
         myBase = FirebaseDatabase.getInstance();
@@ -85,15 +141,35 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
 
     }
 
+    public void savePreferences() {
+        Context context= getApplicationContext();
+        SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor peditor = savePrefs.edit();
+
+        peditor.putString("name", name.getText().toString());
+        peditor.putString("email", email.getText().toString());
+        peditor.putString("password", name.getText().toString());
+        peditor.commit();
+    }
+
     /*
      * Checks if the information inputted is valid
      * @return true if valid, false otherwise
      */
     public boolean checkValid() {
-        // if the user puts in an incorrect JHU email
+        Context context= getApplicationContext();
+        SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int y = savePrefs.getInt("year_index", -1);
+        int m = savePrefs.getInt("major_index", -1);
+        int g = savePrefs.getInt("gender_index", -1);
+        String name_text = name.getText().toString();
         String jhu_email = email.getText().toString();
         String pass = password.getText().toString();
-        if(jhu_email.indexOf("@jh.edu") < 0) {
+        if (name_text.length() == 0) {
+            Toast.makeText(getBaseContext(),
+                    "Missing Name!", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if(jhu_email.indexOf("@jh.edu") < 0) {
             Toast.makeText(getBaseContext(),
                     "Invalid Email!", Toast.LENGTH_SHORT).show();
             return false;
@@ -101,29 +177,18 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
             Toast.makeText(getBaseContext(),
                     "Please Enter Password!", Toast.LENGTH_SHORT).show();
             return false;
-        } /*else if (!checkedMajor || !checkedYear || !checkedGender) {
+        }
+        else if (y == -1 || m == -1 || g == -1) {
             Toast.makeText(getBaseContext(),
                     "Fields Missing!", Toast.LENGTH_SHORT).show();
             return false;
-        }*/
+        }
         return true;
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view,
-                               int pos, long id) {
-
-        // checks if field was selected
-        if (parent.equals(adapter1)) {
-            checkedYear = true;
-        } else if (parent.equals(adapter2)) {
-            checkedGender = true;
-        } else if (parent.equals(adapter3)) {
-            checkedMajor = true;
-        }
-
-        // add sharing preferences here
-    }
+                               int pos, long id) { }
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) { }
