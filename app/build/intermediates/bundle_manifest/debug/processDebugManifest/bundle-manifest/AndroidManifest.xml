@@ -56,7 +56,9 @@
                 android:value=".StartActivity" />
         </activity>
         <activity android:name="com.example.nestly.StartActivity" />
-        <activity android:name="com.example.nestly.MyProfileActivity" />
+        <activity
+            android:name="com.example.nestly.MyProfileActivity"
+            android:parentActivityName="com.example.nestly.MainActivity" />
         <activity
             android:name="com.example.nestly.MainActivity"
             android:screenOrientation="fullSensor" >

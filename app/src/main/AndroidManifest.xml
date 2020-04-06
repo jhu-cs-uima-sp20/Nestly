@@ -38,7 +38,8 @@
                 android:value=".StartActivity" />
         </activity>
         <activity android:name=".StartActivity" />
-        <activity android:name=".MyProfileActivity" />
+        <activity android:name=".MyProfileActivity"
+            android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="fullSensor">
