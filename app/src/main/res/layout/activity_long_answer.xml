@@ -5,90 +5,100 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".LongAnswerActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
             android:text="What does a typical day look like for you?"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/long_answer1"
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:inputType="text"
-            android:layout_marginTop="20dp"
+            android:layout_height="120dp"
+            android:inputType="text|textMultiLine"
+            android:background="@drawable/edittextbackground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
             android:text="What is your worst habit?"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/long_answer2"
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:inputType="text"
-            android:layout_marginTop="120dp"
+            android:layout_height="120dp"
+            android:inputType="text|textMultiLine"
+            android:background="@drawable/edittextbackground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
             android:text="What are you hoping for in a roommate?"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/long_answer3"
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:inputType="text"
-            android:layout_marginTop="220dp"
+            android:layout_height="120dp"
+            android:inputType="text|textMultiLine"
+            android:background="@drawable/edittextbackground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="300dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="20dp"
             android:text="Anything else you would like to tell your future roommate?"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/long_answer4"
-            android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:inputType="text"
-            android:layout_marginTop="320dp"
+            android:layout_height="120dp"
+            android:inputType="text|textMultiLine"
+            android:background="@drawable/edittextbackground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/long_answer_finish"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="500dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:onClick="gotoHome"
+            android:layout_marginTop="100dp"
             android:text="finish"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 </ScrollView>

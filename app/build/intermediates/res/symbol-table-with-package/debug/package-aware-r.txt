@@ -1411,6 +1411,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable edittextbackground
 drawable girl
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
@@ -1803,7 +1804,6 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
-id toolbar2
 id top
 id topPanel
 id touch_outside
