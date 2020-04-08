@@ -27,9 +27,7 @@
     <string-array name="identify_as">
         <item>Extrovert</item>
         <item>Introvert</item>
-        <item>...</item>
-        <item>...</item>
-        <item>...</item>
+        <item>Ambivert</item>
     </string-array>
 
 

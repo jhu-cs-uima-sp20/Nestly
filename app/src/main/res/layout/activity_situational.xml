@@ -68,12 +68,17 @@
 
         <Button
             android:id="@+id/situation_continue"
-            android:layout_width="wrap_content"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
             android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/roundedbutton"
+            android:backgroundTint="#F1B6B8"
             android:onClick="gotoLongAnswer"
             android:text="continue"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

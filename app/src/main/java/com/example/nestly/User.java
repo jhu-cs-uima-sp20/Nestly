@@ -5,10 +5,11 @@ public class User {
     private static long idTracker = 0;
     public long id;
     public String username;
+    public String password;
 
     public String name;
 
-    public User(String username) {
+    public User(String username, String password) {
         this.username = username;
         this.id = idTracker;
         idTracker++;
@@ -25,6 +26,8 @@ public class User {
     public String getName() {
         return this.name;
     }
+
+    public String getPassword() { return this.password; }
 
     public void setName(String name) {
         this.name = name;
