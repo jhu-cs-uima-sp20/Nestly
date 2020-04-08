@@ -171,14 +171,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:layout_marginTop="100dp"
             android:id="@+id/habits_continue"
-            android:layout_width="wrap_content"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:onClick="gotoSituations"
             android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/roundedbutton"
+            android:backgroundTint="#B8C8DC"
+            android:onClick="gotoSituations"
             android:text="Continue"
             android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

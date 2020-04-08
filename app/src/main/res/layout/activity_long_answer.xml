@@ -90,12 +90,17 @@
 
         <Button
             android:id="@+id/long_answer_finish"
-            android:layout_width="wrap_content"
+            android:layout_width="320dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:onClick="gotoHome"
             android:layout_marginTop="100dp"
             android:text="finish"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:background="@drawable/roundedbutton"
+            android:backgroundTint="@color/yellow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

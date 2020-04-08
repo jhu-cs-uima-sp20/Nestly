@@ -44,6 +44,10 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.activity_signup);
         setTitle("Signup");
 
+        // Firebase database and reference
+        myBase = FirebaseDatabase.getInstance();
+        dbref = myBase.getReference();
+
         //get ids
         name = (TextView) findViewById(R.id.name_txt);
         email = (TextView) findViewById(R.id.email);
@@ -135,20 +139,25 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-        // database
-        myBase = FirebaseDatabase.getInstance();
-        dbref = myBase.getReference();
-
     }
 
     public void savePreferences() {
         Context context= getApplicationContext();
         SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor peditor = savePrefs.edit();
+        String user = email.getText().toString();
+        user = user.substring(0, user.indexOf('@'));
+        String pswd = password.getText().toString();
+
+        // create new user
+        User main = new User(user, pswd);
+        main.setName(name.getText().toString());
+
+        // add to firebase
 
         peditor.putString("name", name.getText().toString());
         peditor.putString("email", email.getText().toString());
-        peditor.putString("password", name.getText().toString());
+        peditor.putString("password", password.getText().toString());
         peditor.commit();
     }
 
