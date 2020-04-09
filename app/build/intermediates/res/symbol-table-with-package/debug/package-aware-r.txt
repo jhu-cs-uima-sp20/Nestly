@@ -1733,6 +1733,9 @@ id rounded
 id s_spinner1
 id s_spinner2
 id s_spinner3
+id s_spinner4
+id s_spinner5
+id s_spinner6
 id save_non_transition_alpha
 id save_overlay_view
 id scale
