@@ -36,7 +36,7 @@ public class GridFragment extends Fragment {
         grid = root.findViewById(R.id.grid);
 
         profiles = new ArrayList<User>();
-        User joe = new User("joe123");
+        User joe = new User("joe123", "password");
         joe.setName("Joe");
         profiles.add(joe);
         profiles.add(joe);

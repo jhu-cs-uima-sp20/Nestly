@@ -134,7 +134,7 @@ public class HabitsActivity extends AppCompatActivity {
         spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pe.putInt("habits_wakeup",Integer.parseInt(spinner3.getSelectedItem().toString()));
+                pe.putString("habits_wakeup",spinner3.getSelectedItem().toString());
             }
 
             @Override
@@ -150,7 +150,7 @@ public class HabitsActivity extends AppCompatActivity {
         spinner4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pe.putInt("habits_sleep",Integer.parseInt(spinner4.getSelectedItem().toString()));
+                pe.putString("habits_sleep",spinner4.getSelectedItem().toString());
             }
 
             @Override
@@ -168,7 +168,7 @@ public class HabitsActivity extends AppCompatActivity {
         spinner5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pe.putInt("habits_bring_friends",Integer.parseInt(spinner5.getSelectedItem().toString()));
+                pe.putString("habits_bring_friends", spinner5.getSelectedItem().toString());
             }
 
             @Override
