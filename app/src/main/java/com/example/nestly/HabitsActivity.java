@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -20,6 +21,7 @@ public class HabitsActivity extends AppCompatActivity {
 
     private FirebaseDatabase myBase;
     private DatabaseReference dbref;
+    final String[] habits_answers = new String[11];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,6 @@ public class HabitsActivity extends AppCompatActivity {
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
 
-        final String[] habits_answers = new String[11];
 
         //who do you identify as
         final Spinner spinner = findViewById(R.id.spinner1);
@@ -180,6 +181,13 @@ public class HabitsActivity extends AppCompatActivity {
     }
 
     public void gotoSituations(View view) {
+        for(String s: habits_answers) {
+            if(s.equals("")) {
+                Toast.makeText(getApplicationContext(), "You have not completed this page", Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
+        //TODO: add firebase
         Intent intent = new Intent(this, SituationalActivity.class);
         startActivity(intent);
     }
