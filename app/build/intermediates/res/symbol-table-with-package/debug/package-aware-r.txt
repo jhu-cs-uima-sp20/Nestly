@@ -1658,6 +1658,7 @@ id long_answer2
 id long_answer3
 id long_answer4
 id long_answer_finish
+id main_bar
 id major
 id masked
 id media_actions

@@ -1,6 +1,7 @@
 package com.example.nestly;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
@@ -14,6 +15,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
+import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,7 +26,9 @@ public class MainActivity extends AppCompatActivity
     private NavigationView navView;
     private View navHeader;
     private DrawerLayout myDrawerLayout;
-    private ActionBar myBar;
+    private Toolbar myBar;
+    private ActionBarDrawerToggle toggle;
+
 
     private ArrayList<User> profiles;
 
@@ -56,7 +60,8 @@ public class MainActivity extends AppCompatActivity
         profiles.add(joe);
 
         // Set action bar title
-        getSupportActionBar().setTitle("Home");
+        myBar = findViewById(R.id.main_bar);
+        myBar.setTitle("Home");
 
         // Navigation View
         navView = findViewById(R.id.nav_view);
@@ -64,6 +69,11 @@ public class MainActivity extends AppCompatActivity
         navView.setNavigationItemSelectedListener(this);
         navView.bringToFront();
         myDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        toggle = new ActionBarDrawerToggle(this, myDrawerLayout, myBar,
+               0, 0);
+        toggle.setDrawerIndicatorEnabled(true);
+        myDrawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
         // Initialize grid view fragment
         GridFragment myGridFrag = new GridFragment();
@@ -71,8 +81,6 @@ public class MainActivity extends AppCompatActivity
         tr.replace(R.id.home_frag, myGridFrag);
         tr.addToBackStack(null);
         tr.commit();
-
-        myBar = getSupportActionBar();
     }
 
     @Override

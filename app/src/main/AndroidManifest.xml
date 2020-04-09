@@ -10,39 +10,50 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ViewProfileActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".LongAnswerActivity" >
+        <activity android:name=".LongAnswerActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SituationalActivity" />
         </activity>
-        <activity android:name=".SituationalActivity">
+        <activity android:name=".SituationalActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HabitsActivity" />
         </activity>
-        <activity android:name=".HabitsActivity">
+        <activity android:name=".HabitsActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SignupActivity" />
         </activity>
-        <activity android:name=".SignupActivity">
+        <activity android:name=".SignupActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".StartActivity" />
         </activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".StartActivity" />
         </activity>
-        <activity android:name=".StartActivity" />
+        <activity android:name=".StartActivity"
+            android:screenOrientation="portrait">
+
+        </activity>
         <activity android:name=".MyProfileActivity"
+            android:screenOrientation="portrait"
             android:parentActivityName=".MainActivity"></activity>
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

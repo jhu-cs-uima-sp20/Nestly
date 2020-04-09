@@ -29,40 +29,56 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.nestly.ViewProfileActivity"
-            android:parentActivityName="com.example.nestly.MainActivity" >
+            android:parentActivityName="com.example.nestly.MainActivity"
+            android:screenOrientation="portrait" >
         </activity>
-        <activity android:name="com.example.nestly.LongAnswerActivity" >
+        <activity
+            android:name="com.example.nestly.LongAnswerActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SituationalActivity" />
         </activity>
-        <activity android:name="com.example.nestly.SituationalActivity" >
+        <activity
+            android:name="com.example.nestly.SituationalActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HabitsActivity" />
         </activity>
-        <activity android:name="com.example.nestly.HabitsActivity" >
+        <activity
+            android:name="com.example.nestly.HabitsActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".SignupActivity" />
         </activity>
-        <activity android:name="com.example.nestly.SignupActivity" >
+        <activity
+            android:name="com.example.nestly.SignupActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".StartActivity" />
         </activity>
-        <activity android:name="com.example.nestly.LoginActivity" >
+        <activity
+            android:name="com.example.nestly.LoginActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".StartActivity" />
         </activity>
-        <activity android:name="com.example.nestly.StartActivity" />
+        <activity
+            android:name="com.example.nestly.StartActivity"
+            android:screenOrientation="portrait" >
+        </activity>
         <activity
             android:name="com.example.nestly.MyProfileActivity"
-            android:parentActivityName="com.example.nestly.MainActivity" />
+            android:parentActivityName="com.example.nestly.MainActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.example.nestly.MainActivity"
-            android:screenOrientation="fullSensor" >
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
