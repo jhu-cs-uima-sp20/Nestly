@@ -11,11 +11,15 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
+
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import androidx.appcompat.widget.Toolbar;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -28,6 +32,9 @@ public class MainActivity extends AppCompatActivity
     private DrawerLayout myDrawerLayout;
     private Toolbar myBar;
     private ActionBarDrawerToggle toggle;
+
+    private TextView myName;
+    private TextView myYear;
 
 
     private ArrayList<User> profiles;
@@ -78,6 +85,14 @@ public class MainActivity extends AppCompatActivity
         toggle.setDrawerIndicatorEnabled(true);
         myDrawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        // set to what the user entered during signup
+        myName = (TextView) navHeader.findViewById(R.id.my_name);
+        myYear = (TextView) navHeader.findViewById(R.id.my_year);
+        String name = myPrefs.getString("name", "John Doe");
+        String year = myPrefs.getString("year", "2022");
+        myName.setText(name);
+        myYear.setText("Class of " + year);
 
         // Initialize grid view fragment
         GridFragment myGridFrag = new GridFragment();

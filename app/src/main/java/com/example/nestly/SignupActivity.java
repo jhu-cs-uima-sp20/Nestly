@@ -71,6 +71,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         });
 
         //set up year spinner
+        final String[] years = new String[]{"","2023", "2022", "2021", "2020"};
         adapter1 = ArrayAdapter.createFromResource(this,
                 R.array.year_options, android.R.layout.simple_spinner_dropdown_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -81,7 +82,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 Context context= getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor peditor = savePrefs.edit();
-
+                peditor.putString("year", years[position]);
                 peditor.putInt("year_index", position);
                 checkedYear = true;
                 peditor.commit();
@@ -178,7 +179,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
             Toast.makeText(getBaseContext(),
                     "Missing Name!", Toast.LENGTH_SHORT).show();
             return false;
-        } else if(jhu_email.indexOf("@jh.edu") < 0) {
+        } else if(jhu_email.indexOf("@jhu.edu") < 0) {
             Toast.makeText(getBaseContext(),
                     "Invalid Email!", Toast.LENGTH_SHORT).show();
             return false;

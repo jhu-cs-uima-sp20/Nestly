@@ -1522,11 +1522,11 @@ id action_menu_presenter
 id action_mode_bar
 id action_mode_bar_stub
 id action_mode_close_button
-id action_settings
 id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_favorite
 id adjust_height
 id adjust_width
 id alertTitle
@@ -1538,6 +1538,7 @@ id async
 id auto
 id barrier
 id beginning
+id block
 id blocking
 id bottom
 id buttonPanel
@@ -1767,6 +1768,7 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
+id socials
 id spacer
 id spinner1
 id spinner2
