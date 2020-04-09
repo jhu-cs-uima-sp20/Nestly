@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -18,6 +19,7 @@ public class SituationalActivity extends AppCompatActivity {
 
     private FirebaseDatabase myBase;
     private DatabaseReference dbref;
+    final String[] situations_answers = new String[6];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,23 +29,20 @@ public class SituationalActivity extends AppCompatActivity {
       
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
-       
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        final SharedPreferences.Editor pe = sp.edit();
 
         //question 1
-        final Spinner spinner = findViewById(R.id.s_spinner1);
+        final Spinner spinner1 = findViewById(R.id.s_spinner1);
         String[] question1 = new String[]{ "Ignore them; noise doesn’t bother you.",
                 "Ask them to quiet down, but keep going.",
                 "Have a stern talk about noise levels.",
                 "Leave and go to the library."};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, question1);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner1.setAdapter(adapter);
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pe.putString("situation_1",spinner.getSelectedItem().toString());
+                situations_answers[0]=spinner1.getSelectedItem().toString();
             }
 
             @Override
@@ -64,7 +63,7 @@ public class SituationalActivity extends AppCompatActivity {
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pe.putString("situation_2",spinner2.getSelectedItem().toString());
+                situations_answers[1]=spinner2.getSelectedItem().toString();
             }
 
             @Override
@@ -85,7 +84,70 @@ public class SituationalActivity extends AppCompatActivity {
         spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pe.putString("situation_3",spinner3.getSelectedItem().toString());
+                situations_answers[2]=spinner3.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        //question 4
+        final Spinner spinner4 = findViewById(R.id.s_spinner4);
+        String[] question4 = new String[]{"Sit them down and have a serious talk." +
+                "Send them a quick text." ,
+                "Mention it over dinner one day." ,
+                "You don’t tell them."};
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, question4);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner4.setAdapter(adapter);
+        spinner4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                situations_answers[3]=spinner4.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        //question 5
+        final Spinner spinner5 = findViewById(R.id.s_spinner5);
+        String[] question5 = new String[]{"Ask your roommate to wash their dishes." ,
+                "Those are your dishes." ,
+                "Wash all of them, even the ones that are not yours.",
+                "Have a meeting about chore assignments."};
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, question5);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner5.setAdapter(adapter);
+        spinner5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                situations_answers[4]=spinner5.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        //question 6
+        final Spinner spinner6 = findViewById(R.id.s_spinner6);
+        String[] question6 = new String[]{"Stay home and watch a movie in bed.",
+                "Go out partying.",
+                "Invite friends over to chill at your place.",
+                "Scream and break a few things."};
+        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, question6);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner6.setAdapter(adapter);
+        spinner6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                situations_answers[5]=spinner6.getSelectedItem().toString();
             }
 
             @Override
@@ -96,7 +158,15 @@ public class SituationalActivity extends AppCompatActivity {
     }
 
     public void gotoLongAnswer(View view) {
+        for(String s: situations_answers) {
+            if(s.equals("")) {
+                Toast.makeText(getApplicationContext(), "You have not completed this page", Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
+        //TODO: add firebase
         Intent intent = new Intent(this, LongAnswerActivity.class);
         startActivity(intent);
+
     }
 }

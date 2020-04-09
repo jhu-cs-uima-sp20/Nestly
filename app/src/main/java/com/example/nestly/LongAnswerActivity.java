@@ -9,6 +9,7 @@ import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -26,24 +27,33 @@ public class LongAnswerActivity extends AppCompatActivity {
       
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
-      
-        final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        final SharedPreferences.Editor pe = sp.edit();
+
+        final String [] long_answers = new String[4];
 
         Button button = findViewById(R.id.long_answer_finish);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EditText editText1 = findViewById(R.id.long_answer1);
-                pe.putString("long_answer_1",editText1.getText().toString());
+                long_answers[0]=editText1.getText().toString();
                 EditText editText2 = findViewById(R.id.long_answer2);
-                pe.putString("long_answer_2",editText2.getText().toString());
+                long_answers[1]=editText2.getText().toString();
                 EditText editText3 = findViewById(R.id.long_answer3);
-                pe.putString("long_answer_3",editText3.getText().toString());
+                long_answers[2]=editText3.getText().toString();
                 EditText editText4 = findViewById(R.id.long_answer4);
-                pe.putString("long_answer_4",editText4.getText().toString());
+                long_answers[3]=editText4.getText().toString();
+
+                for(String s: long_answers) {
+                    if(s.equals("")) {
+                        Toast.makeText(getApplicationContext(), "You have not completed this page", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                }
+                //TODO: add firebase
 
                 // Go to profile grid, set boolean for being logged in
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor pe = sp.edit();
                 SharedPreferences.Editor peditor = sp.edit();
                 peditor.putBoolean("loggedIn", true);
                 peditor.commit();
