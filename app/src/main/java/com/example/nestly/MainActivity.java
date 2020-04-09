@@ -51,6 +51,10 @@ public class MainActivity extends AppCompatActivity
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
 
+        DatabaseReference ref = dbref.child("test");
+        User testUser = new User("testname", "testpswd");
+        ref.push().setValue(testUser);
+
         profiles = new ArrayList<User>();
         User joe = new User("joe123", "password");
         joe.setName("Joe");
