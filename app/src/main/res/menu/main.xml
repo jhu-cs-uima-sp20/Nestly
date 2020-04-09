@@ -2,8 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/socials"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="jhed@jhu.edu"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/add_favorite"
+        android:orderInCategory="100"
+        android:title="Favorite"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/block"
+        android:orderInCategory="100"
+        android:title="Block"
         app:showAsAction="never" />
 </menu>

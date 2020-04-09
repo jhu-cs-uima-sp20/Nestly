@@ -56,7 +56,7 @@ public class LoginActivity extends AppCompatActivity {
     public boolean checkFields() {
         String emailtxt = username.getText().toString();
         String pswd = password.getText().toString();
-        if (emailtxt.indexOf("@jh.edu") < 0) {
+        if (emailtxt.indexOf("@jhu.edu") < 0) {
             Toast.makeText(getBaseContext(),
                     "Invalid Email!", Toast.LENGTH_SHORT).show();
             return false;
