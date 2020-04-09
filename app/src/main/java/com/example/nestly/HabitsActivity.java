@@ -29,9 +29,8 @@ public class HabitsActivity extends AppCompatActivity {
       
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
-      
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        final SharedPreferences.Editor pe = sp.edit();
+
+        final String[] habits_answers = new String[11];
 
         //who do you identify as
         final Spinner spinner = findViewById(R.id.spinner1);
@@ -42,7 +41,7 @@ public class HabitsActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pe.putString("habits_identify",spinner.getSelectedItem().toString());
+                habits_answers[0]=spinner.getSelectedItem().toString();
             }
 
             @Override
@@ -57,7 +56,7 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(cb1.isChecked()) {
-                    pe.putBoolean("habits_cb1",true);
+                    habits_answers[1]=0+"";
                 }
             }
         });
@@ -66,7 +65,7 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(cb2.isChecked()) {
-                    pe.putBoolean("habits_cb2",true);
+                    habits_answers[2]=0+"";
                 }
             }
         });
@@ -75,7 +74,7 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(cb3.isChecked()) {
-                    pe.putBoolean("habits_cb3",true);
+                    habits_answers[3]=0+"";
                 }
             }
         });
@@ -84,7 +83,7 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(cb4.isChecked()) {
-                    pe.putBoolean("habits_cb4",true);
+                    habits_answers[4]=0+"";
                 }
             }
         });
@@ -93,7 +92,7 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(cb5.isChecked()) {
-                    pe.putBoolean("habits_cb5",true);
+                    habits_answers[5]=0+"";
                 }
             }
         });
@@ -102,7 +101,7 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(cb6.isChecked()) {
-                    pe.putBoolean("habits_cb6",true);
+                    habits_answers[6]=0+"";
                 }
             }
         });
@@ -116,7 +115,7 @@ public class HabitsActivity extends AppCompatActivity {
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pe.putInt("habits_hours_inroom",Integer.parseInt(spinner2.getSelectedItem().toString()));
+                habits_answers[7] = spinner2.getSelectedItem().toString();
             }
 
             @Override
@@ -134,7 +133,7 @@ public class HabitsActivity extends AppCompatActivity {
         spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pe.putString("habits_wakeup",spinner3.getSelectedItem().toString());
+               habits_answers[8]= spinner3.getSelectedItem().toString();
             }
 
             @Override
@@ -152,7 +151,7 @@ public class HabitsActivity extends AppCompatActivity {
         spinner4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pe.putString("habits_sleep",spinner4.getSelectedItem().toString());
+                habits_answers[9]=spinner4.getSelectedItem().toString();
             }
 
             @Override
@@ -170,7 +169,7 @@ public class HabitsActivity extends AppCompatActivity {
         spinner5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                pe.putString("habits_bring_friends", spinner5.getSelectedItem().toString());
+                habits_answers[10]=spinner5.getSelectedItem().toString();
             }
 
             @Override
