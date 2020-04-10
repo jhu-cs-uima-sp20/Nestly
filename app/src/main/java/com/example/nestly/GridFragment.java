@@ -61,18 +61,16 @@ public class GridFragment extends Fragment {
                 PreferenceManager.getDefaultSharedPreferences(myContext.getApplicationContext());
         username = myPrefs.getString("username", "uh oh");
 
-        myAdapter = new ProfileAdapter(myContext, R.layout.profile_layout, profiles);
-
         listener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 myAdapter.notifyDataSetChanged();
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
                     HashMap<String, String> curUserMap = (HashMap<String, String>) snap.getValue();
-                    String username = curUserMap.get("username");
+                    String checkUser = curUserMap.get("username");
                     String password = curUserMap.get("password");
-                    if (!username.equals(username)) {
-                        profiles.add(new User(username, password));
+                    if (!checkUser.equals(username)) {
+                        profiles.add(new User(checkUser, password));
                     }
                 }
             }
@@ -81,10 +79,19 @@ public class GridFragment extends Fragment {
 
             }
         };
+
+        for (User user : profiles) {
+            System.out.println(user.getName());
+        }
+
+        myAdapter = new ProfileAdapter(myContext, R.layout.profile_layout, profiles);
+
         profilesRef.addListenerForSingleValueEvent(listener);
 
 
         grid.setAdapter(myAdapter);
+        myAdapter.notifyDataSetChanged();
+
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 main.viewProfile(position);
