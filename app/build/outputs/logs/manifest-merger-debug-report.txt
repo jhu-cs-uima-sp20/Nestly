@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-68:12
-INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-68:12
-INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-68:12
-INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-68:12
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-78:12
+INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-78:12
+INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-78:12
+INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-78:12
 MERGED from [com.google.android.material:material:1.1.0] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/88b8882e6a15c728169a63194a12dedc/material-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/fb8f7031ef66b8147647717c2aecca12/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/81a362b35962fa2496d450cbee5c4ecc/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
@@ -66,25 +66,45 @@ MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] /Users/emilyzeng/.gradl
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/3576101df1addecb45ee4a121a0809b3/lifecycle-viewmodel-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/6518c549eca7c8c139a4cbcfbf192b2e/savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:firebase-database-collection:17.0.0] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/7189998640d03cd8247a01f86409460d/firebase-database-collection-17.0.0/AndroidManifest.xml:2:1-7:12
-INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-68:12
-INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-68:12
-INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-68:12
+INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-78:12
+INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-78:12
+INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-78:12
 	package
 		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:3:5-33
 		INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-68:12
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-78:12
 		INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-68:12
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:1-78:12
 		INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:5:5-67
+MERGED from [com.google.firebase:firebase-database:19.2.0] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/1b13ddd0979a31d5382231a327fe44a7/firebase-database-19.2.0/AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-database:19.2.0] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/1b13ddd0979a31d5382231a327fe44a7/firebase-database-19.2.0/AndroidManifest.xml:26:5-67
+MERGED from [com.google.android.gms:play-services-measurement:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/ce3641f79fe4685492a0d3af52dcf29e/play-services-measurement-17.2.3/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/ce3641f79fe4685492a0d3af52dcf29e/play-services-measurement-17.2.3/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/4769d4a1eb92f11d2dcfbb59effe5dbf/play-services-measurement-api-17.2.3/AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/4769d4a1eb92f11d2dcfbb59effe5dbf/play-services-measurement-api-17.2.3/AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/e6944420289d1a34efeedd5a8d801ed9/play-services-measurement-impl-17.2.3/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/e6944420289d1a34efeedd5a8d801ed9/play-services-measurement-impl-17.2.3/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:20.0.2] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:20.0.2] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/8087f6f02715e8a768a9f07cd8f3d360/play-services-measurement-sdk-api-17.2.3/AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/8087f6f02715e8a768a9f07cd8f3d360/play-services-measurement-sdk-api-17.2.3/AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:6:5-80
+	android:name
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:6:22-77
 application
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:5:5-63:19
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:8:5-76:19
 MERGED from [com.google.android.material:material:1.1.0] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/88b8882e6a15c728169a63194a12dedc/material-1.1.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/88b8882e6a15c728169a63194a12dedc/material-1.1.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/81a362b35962fa2496d450cbee5c4ecc/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
@@ -136,113 +156,97 @@ MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /Users/emilyzeng/.gradl
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/331630a23dfa1f0594bcf54d5352aa36/core-1.1.0/AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:10:9-35
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:13:9-35
 	android:label
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:8:9-41
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:11:9-41
 	android:roundIcon
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:9:9-43
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:12:9-43
 	android:icon
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:7:9-38
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:10:9-38
 	android:allowBackup
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:6:9-35
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:9:9-35
 	android:theme
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:11:9-40
-activity#com.example.nestly.ViewProfileActivity
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:12:9-15:20
-	android:screenOrientation
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:14:13-49
-	android:parentActivityName
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:13:13-55
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:14:9-40
+activity#com.example.nestly.EditBioActivity
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:15:9-19:20
 	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:12:19-54
-activity#com.example.nestly.LongAnswerActivity
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:16:9-21:20
-	android:screenOrientation
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:17:13-49
-	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:16:19-53
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:15:19-50
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:18:13-20:56
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:16:13-18:54
 	android:value
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:20:17-53
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:18:17-51
 	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:19:17-63
-activity#com.example.nestly.SituationalActivity
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:22:9-27:20
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:17:17-63
+activity#com.example.nestly.ViewProfileActivity
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:20:9-23:52
 	android:screenOrientation
 		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:23:13-49
+	android:parentActivityName
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:22:13-55
 	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:22:19-54
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:21:13-48
+activity#com.example.nestly.LongAnswerActivity
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:24:9-30:20
+	android:screenOrientation
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:26:13-49
+	android:name
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:25:13-47
+activity#com.example.nestly.SituationalActivity
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:31:9-37:20
+	android:screenOrientation
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:33:13-49
+	android:name
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:32:13-48
 activity#com.example.nestly.HabitsActivity
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:28:9-33:20
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:38:9-44:20
 	android:screenOrientation
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:29:13-49
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:40:13-49
 	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:28:19-49
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:39:13-43
 activity#com.example.nestly.SignupActivity
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:34:9-39:20
-	android:screenOrientation
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:35:13-49
-	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:34:19-49
-activity#com.example.nestly.LoginActivity
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:40:9-45:20
-	android:screenOrientation
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:41:13-49
-	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:40:19-48
-activity#com.example.nestly.StartActivity
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:46:9-49:20
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:45:9-51:20
 	android:screenOrientation
 		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:47:13-49
 	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:46:19-48
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:46:13-43
+activity#com.example.nestly.LoginActivity
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:52:9-58:20
+	android:screenOrientation
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:54:13-49
+	android:name
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:53:13-42
+activity#com.example.nestly.StartActivity
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:59:9-61:52
+	android:screenOrientation
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:61:13-49
+	android:name
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:60:13-42
 activity#com.example.nestly.MyProfileActivity
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:50:9-52:67
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:62:9-65:52
 	android:screenOrientation
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:51:13-49
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:65:13-49
 	android:parentActivityName
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:52:13-55
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:64:13-55
 	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:50:19-52
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:63:13-46
 activity#com.example.nestly.MainActivity
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:53:9-62:20
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:66:9-75:20
 	android:screenOrientation
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:55:13-49
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:68:13-49
 	android:theme
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:56:13-56
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:69:13-56
 	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:54:13-41
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:67:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:57:13-61:29
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:70:13-74:29
 action#android.intent.action.MAIN
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:58:17-69
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:71:17-69
 	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:58:25-66
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:71:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:60:17-77
+ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:73:17-77
 	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:60:27-74
-uses-permission#android.permission.INTERNET
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:65:5-67
-MERGED from [com.google.firebase:firebase-database:19.2.0] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/1b13ddd0979a31d5382231a327fe44a7/firebase-database-19.2.0/AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-database:19.2.0] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/1b13ddd0979a31d5382231a327fe44a7/firebase-database-19.2.0/AndroidManifest.xml:26:5-67
-MERGED from [com.google.android.gms:play-services-measurement:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/ce3641f79fe4685492a0d3af52dcf29e/play-services-measurement-17.2.3/AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/ce3641f79fe4685492a0d3af52dcf29e/play-services-measurement-17.2.3/AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-api:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/4769d4a1eb92f11d2dcfbb59effe5dbf/play-services-measurement-api-17.2.3/AndroidManifest.xml:22:5-67
-MERGED from [com.google.android.gms:play-services-measurement-api:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/4769d4a1eb92f11d2dcfbb59effe5dbf/play-services-measurement-api-17.2.3/AndroidManifest.xml:22:5-67
-MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/e6944420289d1a34efeedd5a8d801ed9/play-services-measurement-impl-17.2.3/AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/e6944420289d1a34efeedd5a8d801ed9/play-services-measurement-impl-17.2.3/AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-iid:20.0.2] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-iid:20.0.2] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/946a39d7756c6b05aa38a853bdffc128/firebase-iid-20.0.2/AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/8087f6f02715e8a768a9f07cd8f3d360/play-services-measurement-sdk-api-17.2.3/AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.3] /Users/emilyzeng/.gradle/caches/transforms-2/files-2.1/8087f6f02715e8a768a9f07cd8f3d360/play-services-measurement-sdk-api-17.2.3/AndroidManifest.xml:23:5-67
-	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:65:22-64
-uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:66:5-79
-	android:name
-		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:66:22-77
+		ADDED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml:73:27-74
 uses-sdk
 INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/emilyzeng/AndroidStudioProjects/Nestly/app/src/main/AndroidManifest.xml

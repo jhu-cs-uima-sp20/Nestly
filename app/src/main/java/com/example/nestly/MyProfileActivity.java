@@ -62,10 +62,12 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         String name = myPrefs.getString("name", "John Doe");
         String year = myPrefs.getString("year", "2022");
         String major = myPrefs.getString("major", "Undeclared");
+        String bio = myPrefs.getString("bio", "[insert bio here]");
 
         my_name.setText(name);
         my_major.setText(major);
         my_year.setText("Class Of " + year);
+        my_bio.setText(bio);
 
         uploadPic.setOnClickListener(this);
         bio_btn.setOnClickListener(bioListener);
@@ -99,7 +101,8 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
     private View.OnClickListener bioListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-
+            Intent bio_intent = new Intent(getApplicationContext(), EditBioActivity.class);
+            startActivity(bio_intent);
         }
     };
 
@@ -122,6 +125,15 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
                 break;
         }
 
+    }
+
+    @Override
+    public void onResume() {
+        Context context= getApplicationContext();
+        SharedPreferences myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String bio = myPrefs.getString("bio", "[insert bio here]");
+        my_bio.setText(bio);
+        super.onResume();
     }
 
 }

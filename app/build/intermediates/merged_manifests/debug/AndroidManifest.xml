@@ -28,11 +28,15 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.nestly.EditBioActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MyProfileActivity" />
+        </activity>
         <activity
             android:name="com.example.nestly.ViewProfileActivity"
             android:parentActivityName="com.example.nestly.MainActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.example.nestly.LongAnswerActivity"
             android:screenOrientation="portrait" >
@@ -70,8 +74,7 @@
         </activity>
         <activity
             android:name="com.example.nestly.StartActivity"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.example.nestly.MyProfileActivity"
             android:parentActivityName="com.example.nestly.MainActivity"

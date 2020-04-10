@@ -1542,6 +1542,7 @@ id async
 id auto
 id barrier
 id beginning
+id bio_btn
 id block
 id blocking
 id bottom
@@ -1591,6 +1592,7 @@ id direct
 id disableHome
 id drawer_layout
 id dropdown_menu
+id editText
 id edit_query
 id email
 id end
@@ -1752,6 +1754,7 @@ id s_spinner3
 id s_spinner4
 id s_spinner5
 id s_spinner6
+id save
 id save_non_transition_alpha
 id save_overlay_view
 id scale
@@ -1928,6 +1931,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_edit_bio
 layout activity_habits
 layout activity_login
 layout activity_long_answer
