@@ -181,12 +181,15 @@ public class HabitsActivity extends AppCompatActivity {
     }
 
     public void gotoSituations(View view) {
-        for(String s: habits_answers) {
+        /*for(String s: habits_answers) {
+
             if(s.equals("")) {
                 Toast.makeText(getApplicationContext(), "You have not completed this page", Toast.LENGTH_LONG).show();
                 return;
             }
         }
+        */
+
         //TODO: add firebase
         Intent intent = new Intent(this, SituationalActivity.class);
         startActivity(intent);
