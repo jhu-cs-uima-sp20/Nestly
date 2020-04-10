@@ -1386,6 +1386,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable bullet_point
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1638,7 +1639,12 @@ id icon_group
 id icon_only
 id ifRoom
 id image
+id imageView0
+id imageView1
 id imageView2
+id imageView3
+id imageView4
+id imageView5
 id inTheRoom
 id info
 id introvert

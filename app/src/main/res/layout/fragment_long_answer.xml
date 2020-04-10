@@ -1,14 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".LongAnswerFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Your roommate is calling their friends loudly as you study for your exam the next day. What do you do?"
+        android:textSize="18sp" />
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:src="@drawable/checked_box" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:text="Have a stern talk about noise levels."
+            android:textAlignment="textStart"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Your roommate or their friends touched your stuff and broke something. How do you react?"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:src="@drawable/checked_box" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:text="Forgive your roommate after an apology."
+            android:textAlignment="textStart"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="You notice that your roommate hasn’t cleaned the room in a while. What do you do?"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:src="@drawable/checked_box" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:text="Remind your roommate to clean.."
+            android:textAlignment="textStart"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
