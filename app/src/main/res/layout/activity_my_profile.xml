@@ -68,25 +68,28 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <ScrollView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent">
             <FrameLayout
                 android:id="@android:id/tabcontent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <LinearLayout
-                    android:id="@+id/tab1"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#FFFFFF"
-                    android:orientation="vertical">
-
-                    <fragment
-                        android:id="@+id/fragment4"
-                        android:name="com.example.nestly.HabitsFragment"
+                    <LinearLayout
+                        android:id="@+id/tab1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:layout="@layout/fragment_habits" />
-                </LinearLayout>
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF"
+                        android:orientation="vertical">
+
+                        <fragment
+                            android:id="@+id/fragment4"
+                            android:name="com.example.nestly.HabitsFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:layout="@layout/fragment_habits" />
+                    </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/tab2"
@@ -116,6 +119,7 @@
                         tools:layout="@layout/fragment_long_answer" />
                 </LinearLayout>
             </FrameLayout>
+            </ScrollView>
         </LinearLayout>
     </TabHost>
 

@@ -1624,10 +1624,12 @@ id grid
 id group_divider
 id groups
 id habits_continue
+id habits_view
 id hide_acc_tab
 id hideable
 id home
 id homeAsUp
+id homeMeals
 id home_frag
 id home_tab
 id horizontal
@@ -1637,7 +1639,9 @@ id icon_only
 id ifRoom
 id image
 id imageView2
+id inTheRoom
 id info
+id introvert
 id invisible
 id italic
 id item_touch_helper_previous_elevation
@@ -1767,6 +1771,7 @@ id signup_btn
 id signup_button
 id situation_continue
 id skipCollapsed
+id sleep
 id slide
 id smallLabel
 id snackbar_action
@@ -1820,6 +1825,7 @@ id textinput_counter
 id textinput_error
 id textinput_helper_text
 id time
+id timeSpent
 id title
 id titleDividerNoCustom
 id title_template
@@ -1845,6 +1851,7 @@ id view_name
 id view_offset_helper
 id view_year
 id visible
+id wakeUp
 id wide
 id withText
 id wrap

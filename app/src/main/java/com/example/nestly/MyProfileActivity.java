@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -43,23 +44,26 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
 
-        //tab 1 -- change later into colors
         TabHost.TabSpec spec = tabHost.newTabSpec("Tag One");
         spec.setContent(R.id.tab1);
-        spec.setIndicator("Tab One");
+        spec.setIndicator("");
         tabHost.addTab(spec);
 
-        //tab2 -- change later into colors
         spec = tabHost.newTabSpec("Tag Two");
         spec.setContent(R.id.tab2);
-        spec.setIndicator("Tab Two");
+        spec.setIndicator("");
+
         tabHost.addTab(spec);
 
-        //tab3 -- change later into colors
         spec = tabHost.newTabSpec("Tag Three");
         spec.setContent(R.id.tab3);
-        spec.setIndicator("Tab Three");
+        spec.setIndicator("");
         tabHost.addTab(spec);
+
+        tabHost.getTabWidget().getChildAt(0).setBackgroundColor(Color.parseColor("#A5C5EA"));
+        tabHost.getTabWidget().getChildAt(1).setBackgroundColor(Color.parseColor("#F2ABAB"));
+        tabHost.getTabWidget().getChildAt(2).setBackgroundColor(Color.parseColor("#F0EAA8"));
+
 
     }
 
