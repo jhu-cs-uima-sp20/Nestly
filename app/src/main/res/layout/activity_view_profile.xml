@@ -104,7 +104,7 @@
 
                     <fragment
                         android:id="@+id/fragment2"
-                        android:name="com.example.nestly.SitutationFragment"
+                        android:name="com.example.nestly.SituationFragment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         tools:layout="@layout/fragment_situtation" />

@@ -1411,6 +1411,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable edit_icon
 drawable edittextbackground
 drawable girl
 drawable googleg_disabled_color_18
@@ -1434,6 +1435,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable img_140826
 drawable logo
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
@@ -1634,7 +1636,6 @@ id icon_group
 id icon_only
 id ifRoom
 id image
-id imageView
 id imageView2
 id info
 id invisible
@@ -1723,6 +1724,7 @@ id peekHeight
 id percent
 id percent_val
 id pin
+id profilePic
 id progress_circular
 id progress_horizontal
 id radio
@@ -1833,6 +1835,7 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id uploadPic
 id useLogo
 id username
 id vertical
