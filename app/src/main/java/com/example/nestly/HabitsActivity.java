@@ -3,6 +3,7 @@ package com.example.nestly;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -33,6 +34,8 @@ public class HabitsActivity extends AppCompatActivity {
         dbref = myBase.getReference();
 
 
+
+
         //who do you identify as
         final Spinner spinner = findViewById(R.id.spinner1);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -43,6 +46,11 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 habits_answers[0]=spinner.getSelectedItem().toString();
+                Context context= getApplicationContext();
+                SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor peditor = savePrefs.edit();
+                peditor.putString("intro/extrovert", habits_answers[0]);
+                peditor.commit();
             }
 
             @Override
@@ -57,6 +65,11 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(cb1.isChecked()) {
+                    Context context= getApplicationContext();
+                    SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    SharedPreferences.Editor peditor = savePrefs.edit();
+                    peditor.putBoolean("check1", true);
+                    peditor.commit();
                     habits_answers[1]=0+"";
                 }
             }
@@ -66,6 +79,11 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(cb2.isChecked()) {
+                    Context context= getApplicationContext();
+                    SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    SharedPreferences.Editor peditor = savePrefs.edit();
+                    peditor.putBoolean("check2", true);
+                    peditor.commit();
                     habits_answers[2]=0+"";
                 }
             }
@@ -75,6 +93,11 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(cb3.isChecked()) {
+                    Context context= getApplicationContext();
+                    SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    SharedPreferences.Editor peditor = savePrefs.edit();
+                    peditor.putBoolean("check3", true);
+                    peditor.commit();
                     habits_answers[3]=0+"";
                 }
             }
@@ -84,6 +107,11 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(cb4.isChecked()) {
+                    Context context= getApplicationContext();
+                    SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    SharedPreferences.Editor peditor = savePrefs.edit();
+                    peditor.putBoolean("check4", true);
+                    peditor.commit();
                     habits_answers[4]=0+"";
                 }
             }
@@ -93,6 +121,11 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(cb5.isChecked()) {
+                    Context context= getApplicationContext();
+                    SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    SharedPreferences.Editor peditor = savePrefs.edit();
+                    peditor.putBoolean("check5", true);
+                    peditor.commit();
                     habits_answers[5]=0+"";
                 }
             }
@@ -102,6 +135,11 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(cb6.isChecked()) {
+                    Context context= getApplicationContext();
+                    SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    SharedPreferences.Editor peditor = savePrefs.edit();
+                    peditor.putBoolean("check6", true);
+                    peditor.commit();
                     habits_answers[6]=0+"";
                 }
             }
@@ -117,6 +155,11 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 habits_answers[7] = spinner2.getSelectedItem().toString();
+                Context context= getApplicationContext();
+                SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor peditor = savePrefs.edit();
+                peditor.putString("room_time", habits_answers[7]);
+                peditor.commit();
             }
 
             @Override
@@ -135,6 +178,11 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                habits_answers[8]= spinner3.getSelectedItem().toString();
+                Context context= getApplicationContext();
+                SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor peditor = savePrefs.edit();
+                peditor.putString("wakeUp_time", habits_answers[8]);
+                peditor.commit();
             }
 
             @Override
@@ -153,6 +201,11 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 habits_answers[9]=spinner4.getSelectedItem().toString();
+                Context context= getApplicationContext();
+                SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor peditor = savePrefs.edit();
+                peditor.putString("sleep_time", habits_answers[9]);
+                peditor.commit();
             }
 
             @Override
@@ -171,6 +224,11 @@ public class HabitsActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 habits_answers[10]=spinner5.getSelectedItem().toString();
+                Context context= getApplicationContext();
+                SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor peditor = savePrefs.edit();
+                peditor.putString("bring_friends", habits_answers[10]);
+                peditor.commit();
             }
 
             @Override
@@ -190,7 +248,6 @@ public class HabitsActivity extends AppCompatActivity {
         }
         */
 
-        //TODO: add firebase
         Intent intent = new Intent(this, SituationalActivity.class);
         startActivity(intent);
     }

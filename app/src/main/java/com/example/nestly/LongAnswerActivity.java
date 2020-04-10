@@ -49,14 +49,59 @@ public class LongAnswerActivity extends AppCompatActivity {
                         return;
                     }
                 }
-                //TODO: add firebase
 
                 // Go to profile grid, set boolean for being logged in
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                SharedPreferences.Editor pe = sp.edit();
                 SharedPreferences.Editor peditor = sp.edit();
                 peditor.putBoolean("loggedIn", true);
+
+                // put answers in SharedPreferences
+                peditor.putString("longAnswer1", long_answers[0]);
+                peditor.putString("longAnswer2", long_answers[1]);
+                peditor.putString("longAnswer3", long_answers[2]);
+                peditor.putString("longAnswer4", long_answers[3]);
                 peditor.commit();
+
+                // add user to firebase
+                String user = sp.getString("email", "ERROR");
+                String pswd = sp.getString("password", "ERROR");
+                String myName = sp.getString("name", "ERROR");
+                User mainUser = new User(user, pswd);
+                mainUser.setName(myName);
+                mainUser.setLong_answers(long_answers);
+
+                // add situation_answers
+                String[] situation_answers = new String[6];
+                for (int i = 0; i < situation_answers.length; i++) {
+                    String key = "situation" + (i+1);
+                    String value = sp.getString(key, "N/A");
+                    situation_answers[i] = value;
+                }
+                mainUser.setSituations_answers(situation_answers);
+
+                // add habit answers
+                String[] habit_answers = new String[11];
+                habit_answers[0] = sp.getString("intro/extrovert", "Both");
+                for (int i = 1; i <= 6; i++) {
+                    String key = "check" + i;
+                     if(sp.getBoolean(key, false)){
+                         habit_answers[i] = "checked";
+                     } else {
+                         habit_answers[i] = "unchecked";
+                     }
+                }
+                habit_answers[7] = sp.getString("room_time", "5");
+                habit_answers[8] = sp.getString("wakeUp_time", "8am");
+                habit_answers[9] = sp.getString("sleep_time", "11pm");
+                habit_answers[10] = sp.getString("bring_friends", "1");
+                mainUser.setHabits_answers(habit_answers);
+
+                // add to firebase
+                DatabaseReference profilesRef = dbref.child("profiles").push();
+                // make child with key username, make its value the User class
+                profilesRef.setValue(mainUser);
+
+                // go to main activity stage
                 Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(main_intent);
             }
