@@ -37,11 +37,8 @@ public class MainActivity extends AppCompatActivity
     private TextView myYear;
     private SharedPreferences myPrefs;
 
-    private FirebaseDatabase myBase;
-    private DatabaseReference dbref;
-    private DatabaseReference profilesRef;
-    private ValueEventListener listener;
-    private ArrayList<User> profiles;
+
+    public ArrayList<User> profiles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,23 +57,7 @@ public class MainActivity extends AppCompatActivity
 
         profiles = new ArrayList<User>();
 
-        // Firebase database and references
-        myBase = FirebaseDatabase.getInstance();
-        dbref = myBase.getReference();
-        profilesRef = dbref.child("profiles");
-        listener = new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snap : dataSnapshot.getChildren()) {
-                    Object curUser = snap.getValue();
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        };
-        profilesRef.addListenerForSingleValueEvent(listener);
 
 
         // Set action bar title

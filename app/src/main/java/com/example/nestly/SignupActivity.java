@@ -172,6 +172,8 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         main.setName(name.getText().toString());
 
         // add to firebase
+        DatabaseReference profilesRef = dbref.child("profiles");
+        profilesRef.child(user).setValue(main);
 
         peditor.putString("name", name.getText().toString());
         peditor.putString("email", email.getText().toString());
