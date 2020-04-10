@@ -29,7 +29,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
     private Spinner gender;
     private ArrayAdapter<CharSequence> adapter1;
     private ArrayAdapter<CharSequence> adapter2;
-    private ArrayAdapter<CharSequence> adapter3;
+    private ArrayAdapter<String> adapter3;
 
     private boolean checkedYear;
     private boolean checkedMajor;
@@ -43,6 +43,10 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
         setTitle("Signup");
+
+        checkedYear = false;
+        checkedMajor = false;
+        checkedGender = false;
 
         // Firebase database and reference
         myBase = FirebaseDatabase.getInstance();
@@ -82,9 +86,12 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 Context context= getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor peditor = savePrefs.edit();
+                if (position > 0)
+                    checkedYear = true;
+                else
+                    return;
                 peditor.putString("year", years[position]);
                 peditor.putInt("year_index", position);
-                checkedYear = true;
                 peditor.commit();
             }
 
@@ -106,8 +113,12 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor peditor = savePrefs.edit();
 
+                if (position > 0)
+                    checkedGender = true;
+                else
+                    return;
                 peditor.putInt("gender_index", position);
-                checkedGender = true;
+
                 peditor.commit();
             }
 
@@ -118,8 +129,10 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         });
 
         // set up major spinner
-        adapter3 = ArrayAdapter.createFromResource(this,
-                R.array.major_options, android.R.layout.simple_spinner_dropdown_item);
+        final String[] majors = {"Major", "Undeclared", "Computer Science","Neuroscience","Political Science",
+                "Mechanical Engineering","International Studies", "Material Science",
+                "Economics","BME","ChemBE", "Public Health","Applied Math","Writing Seminars"};
+        adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, majors);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         major.setAdapter(adapter3);
         major.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -128,9 +141,13 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 Context context= getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor peditor = savePrefs.edit();
-
+                if (position > 0)
+                    checkedMajor = true;
+                else
+                    return;
+                peditor.putString("major", majors[position]);
                 peditor.putInt("major_index", position);
-                checkedMajor = true;
+
                 peditor.commit();
             }
 
@@ -188,7 +205,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                     "Please Enter Password!", Toast.LENGTH_SHORT).show();
             return false;
         }
-        else if (y == -1 || m == -1 || g == -1) {
+        else if (!checkedGender || !checkedMajor || !checkedYear) {
             Toast.makeText(getBaseContext(),
                     "Fields Missing!", Toast.LENGTH_SHORT).show();
             return false;

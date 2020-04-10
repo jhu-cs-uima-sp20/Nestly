@@ -3,10 +3,13 @@ package com.example.nestly;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,10 +17,13 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.w3c.dom.Text;
 
 public class MyProfileActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -27,6 +33,12 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
     private static final int RESULT_LOAD_IMAGE = 1;
     private ImageView profilePic;
     private ImageButton uploadPic;
+    private ImageButton bio_btn;
+    private TextView my_name;
+    private TextView my_major;
+    private TextView my_year;
+    private TextView my_bio;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +50,27 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
 
         profilePic = (ImageView)findViewById(R.id.profilePic);
         uploadPic = (ImageButton)findViewById(R.id.uploadPic);
+        bio_btn = (ImageButton) findViewById(R.id.bio_btn);
+
+        my_name = (TextView) findViewById(R.id.my_name);
+        my_major = (TextView) findViewById(R.id.my_major);
+        my_year = (TextView) findViewById(R.id.my_year);
+        my_bio = (TextView) findViewById(R.id.my_bio);
+
+        Context context= getApplicationContext();
+        SharedPreferences myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String name = myPrefs.getString("name", "John Doe");
+        String year = myPrefs.getString("year", "2022");
+        String major = myPrefs.getString("major", "Undeclared");
+        String bio = myPrefs.getString("bio", "[insert bio here]");
+
+        my_name.setText(name);
+        my_major.setText(major);
+        my_year.setText("Class Of " + year);
+        my_bio.setText(bio);
 
         uploadPic.setOnClickListener(this);
+        bio_btn.setOnClickListener(bioListener);
 
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
@@ -67,6 +98,14 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
 
     }
 
+    private View.OnClickListener bioListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent bio_intent = new Intent(getApplicationContext(), EditBioActivity.class);
+            startActivity(bio_intent);
+        }
+    };
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -83,9 +122,18 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
             case R.id.uploadPic:
                 Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
-
                 break;
         }
 
     }
+
+    @Override
+    public void onResume() {
+        Context context= getApplicationContext();
+        SharedPreferences myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String bio = myPrefs.getString("bio", "[insert bio here]");
+        my_bio.setText(bio);
+        super.onResume();
+    }
+
 }

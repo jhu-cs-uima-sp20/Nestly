@@ -1387,6 +1387,7 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable bullet_point
+drawable checked_box
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1541,6 +1542,7 @@ id async
 id auto
 id barrier
 id beginning
+id bio_btn
 id block
 id blocking
 id bottom
@@ -1590,6 +1592,7 @@ id direct
 id disableHome
 id drawer_layout
 id dropdown_menu
+id editText
 id edit_query
 id email
 id end
@@ -1645,6 +1648,9 @@ id imageView2
 id imageView3
 id imageView4
 id imageView5
+id imageView6
+id imageView7
+id imageView8
 id inTheRoom
 id info
 id introvert
@@ -1748,6 +1754,7 @@ id s_spinner3
 id s_spinner4
 id s_spinner5
 id s_spinner6
+id save
 id save_non_transition_alpha
 id save_overlay_view
 id scale
@@ -1924,6 +1931,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_edit_bio
 layout activity_habits
 layout activity_login
 layout activity_long_answer
@@ -1954,7 +1962,7 @@ layout fragment_grid
 layout fragment_habits
 layout fragment_home
 layout fragment_long_answer
-layout fragment_situtation
+layout fragment_situation
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
