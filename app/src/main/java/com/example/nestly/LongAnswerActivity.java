@@ -49,13 +49,15 @@ public class LongAnswerActivity extends AppCompatActivity {
                         return;
                     }
                 }
-                //TODO: add firebase
 
                 // Go to profile grid, set boolean for being logged in
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
                 SharedPreferences.Editor pe = sp.edit();
                 SharedPreferences.Editor peditor = sp.edit();
                 peditor.putBoolean("loggedIn", true);
+
+                // put answers in SharedPreferences
+
                 peditor.commit();
                 Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(main_intent);
