@@ -29,7 +29,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
     private Spinner gender;
     private ArrayAdapter<CharSequence> adapter1;
     private ArrayAdapter<CharSequence> adapter2;
-    private ArrayAdapter<CharSequence> adapter3;
+    private ArrayAdapter<String> adapter3;
 
     private boolean checkedYear;
     private boolean checkedMajor;
@@ -129,8 +129,10 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         });
 
         // set up major spinner
-        adapter3 = ArrayAdapter.createFromResource(this,
-                R.array.major_options, android.R.layout.simple_spinner_dropdown_item);
+        final String[] majors = {"Major", "Undeclared", "Computer Science","Neuroscience","Political Science",
+                "Mechanical Engineering","International Studies", "Material Science",
+                "Economics","BME","ChemBE", "Public Health","Applied Math","Writing Seminars"};
+        adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, majors);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         major.setAdapter(adapter3);
         major.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -143,6 +145,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                     checkedMajor = true;
                 else
                     return;
+                peditor.putString("major", majors[position]);
                 peditor.putInt("major_index", position);
 
                 peditor.commit();
