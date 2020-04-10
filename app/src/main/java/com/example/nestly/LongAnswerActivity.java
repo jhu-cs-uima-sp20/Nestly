@@ -52,13 +52,42 @@ public class LongAnswerActivity extends AppCompatActivity {
 
                 // Go to profile grid, set boolean for being logged in
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                SharedPreferences.Editor pe = sp.edit();
                 SharedPreferences.Editor peditor = sp.edit();
                 peditor.putBoolean("loggedIn", true);
 
                 // put answers in SharedPreferences
-
+                peditor.putString("longAnswer1", long_answers[0]);
+                peditor.putString("longAnswer2", long_answers[1]);
+                peditor.putString("longAnswer3", long_answers[2]);
+                peditor.putString("longAnswer4", long_answers[3]);
                 peditor.commit();
+
+                //TODO: add user to firebase
+                // create new user
+                String user = sp.getString("email", "ERROR");
+                String pswd = sp.getString("password", "ERROR");
+                String myName = sp.getString("name", "ERROR");
+                User mainUser = new User(user, pswd);
+                mainUser.setName(myName);
+                mainUser.setLong_answers(long_answers);
+
+                // add situation_answers
+                String[] situation_answers = new String[6];
+                for (int i = 0; i < situation_answers.length; i++) {
+                    String key = "situation" + (i+1);
+                    sp.getString(key, "N/A");
+                }
+                mainUser.setSituations_answers(situation_answers);
+
+                // add habit answers
+                String[] habit_answers = new String[11];
+                habit_answers[0] = sp.getString("intro/extrovert", "Both");
+
+                // add to firebase
+                DatabaseReference profilesRef = dbref.child("profiles").push();
+                // make child with key username, make its value the User class
+
+                profilesRef.setValue(mainUser);
                 Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(main_intent);
             }
