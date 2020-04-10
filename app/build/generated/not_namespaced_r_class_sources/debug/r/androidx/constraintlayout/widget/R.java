@@ -76,17 +76,17 @@ public final class R {
         public static final int bottom = 0x7f09004e;
         public static final int end = 0x7f09007f;
         public static final int gone = 0x7f09009b;
-        public static final int invisible = 0x7f0900b7;
-        public static final int left = 0x7f0900bc;
-        public static final int packed = 0x7f090102;
-        public static final int parent = 0x7f090104;
-        public static final int percent = 0x7f09010a;
-        public static final int right = 0x7f090111;
-        public static final int spread = 0x7f090147;
-        public static final int spread_inside = 0x7f090148;
-        public static final int start = 0x7f09014d;
-        public static final int top = 0x7f090172;
-        public static final int wrap = 0x7f09018b;
+        public static final int invisible = 0x7f0900ba;
+        public static final int left = 0x7f0900bf;
+        public static final int packed = 0x7f090105;
+        public static final int parent = 0x7f090107;
+        public static final int percent = 0x7f09010d;
+        public static final int right = 0x7f090114;
+        public static final int spread = 0x7f09014a;
+        public static final int spread_inside = 0x7f09014b;
+        public static final int start = 0x7f090150;
+        public static final int top = 0x7f090175;
+        public static final int wrap = 0x7f09018e;
     }
     public static final class styleable {
         private styleable() {}

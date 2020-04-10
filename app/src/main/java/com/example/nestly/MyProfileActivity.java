@@ -28,6 +28,7 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
     private ImageView profilePic;
     private ImageButton uploadPic;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

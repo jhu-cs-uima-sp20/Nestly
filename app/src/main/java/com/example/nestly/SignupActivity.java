@@ -44,6 +44,10 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.activity_signup);
         setTitle("Signup");
 
+        checkedYear = false;
+        checkedMajor = false;
+        checkedGender = false;
+
         // Firebase database and reference
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
@@ -82,9 +86,12 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 Context context= getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor peditor = savePrefs.edit();
+                if (position > 0)
+                    checkedYear = true;
+                else
+                    return;
                 peditor.putString("year", years[position]);
                 peditor.putInt("year_index", position);
-                checkedYear = true;
                 peditor.commit();
             }
 
@@ -106,8 +113,12 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor peditor = savePrefs.edit();
 
+                if (position > 0)
+                    checkedGender = true;
+                else
+                    return;
                 peditor.putInt("gender_index", position);
-                checkedGender = true;
+
                 peditor.commit();
             }
 
@@ -128,9 +139,12 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 Context context= getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor peditor = savePrefs.edit();
-
+                if (position > 0)
+                    checkedMajor = true;
+                else
+                    return;
                 peditor.putInt("major_index", position);
-                checkedMajor = true;
+
                 peditor.commit();
             }
 
@@ -188,7 +202,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                     "Please Enter Password!", Toast.LENGTH_SHORT).show();
             return false;
         }
-        else if (y == -1 || m == -1 || g == -1) {
+        else if (!checkedGender || !checkedMajor || !checkedYear) {
             Toast.makeText(getBaseContext(),
                     "Fields Missing!", Toast.LENGTH_SHORT).show();
             return false;
