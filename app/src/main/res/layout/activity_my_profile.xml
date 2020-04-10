@@ -102,7 +102,7 @@
                         android:name="com.example.nestly.SituationFragment"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        tools:layout="@layout/fragment_situtation" />
+                        tools:layout="@layout/fragment_situation" />
                 </LinearLayout>
 
                 <LinearLayout
