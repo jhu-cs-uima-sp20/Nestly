@@ -33,7 +33,6 @@
         android:id="@+id/my_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Class of 2022"
         android:textColor="@color/textColor" />
 
 </LinearLayout>

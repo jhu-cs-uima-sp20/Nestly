@@ -66,6 +66,11 @@ public class LongAnswerActivity extends AppCompatActivity {
 
     public void gotoHome(View view) {
 
+        SharedPreferences myPrefs =
+                PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor peditor = myPrefs.edit();
+        peditor.putBoolean("loggedIn", true);
+        peditor.commit();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

@@ -25,6 +25,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import androidx.appcompat.widget.Toolbar;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -37,9 +39,6 @@ public class MainActivity extends AppCompatActivity
     private TextView myYear;
     private SharedPreferences myPrefs;
 
-
-    public ArrayList<User> profiles;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,26 +49,20 @@ public class MainActivity extends AppCompatActivity
 
         if (!loggedIn) {
             startActivity(new Intent(this, StartActivity.class));
-            SharedPreferences.Editor peditor = myPrefs.edit();
-            peditor.putBoolean("loggedIn", true);
-            peditor.commit();
         }
-
-        profiles = new ArrayList<User>();
-
-
-
 
         // Set action bar title
         myBar = findViewById(R.id.main_bar);
         myBar.setTitle("Home");
+
+        myDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         // Navigation View
         navView = findViewById(R.id.nav_view);
         navHeader = navView.getHeaderView(0);
         navView.setNavigationItemSelectedListener(this);
         navView.bringToFront();
-        myDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
         toggle = new ActionBarDrawerToggle(this, myDrawerLayout, myBar,
                0, 0);
         toggle.setDrawerIndicatorEnabled(true);
@@ -113,6 +106,9 @@ public class MainActivity extends AppCompatActivity
         else if (myID == R.id.logout_tab) {
             SharedPreferences.Editor peditor = myPrefs.edit();
             peditor.putBoolean("loggedIn", false);
+            peditor.putString("name", null);
+            peditor.putString("email", null);
+            peditor.putString("password", null);
             peditor.commit();
             startActivity(new Intent(this, StartActivity.class));
         }

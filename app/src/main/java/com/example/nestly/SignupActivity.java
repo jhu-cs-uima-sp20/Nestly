@@ -67,7 +67,9 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
                 if (!checkValid())
                     return;
 
+                // add to firebase
                 savePreferences();
+
                 // move to habits portion of the quiz
                 Intent habits_intent = new Intent(getApplicationContext(), HabitsActivity.class);
                 startActivity(habits_intent);
@@ -164,16 +166,17 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor peditor = savePrefs.edit();
         String user = email.getText().toString();
-        user = user.substring(0, user.indexOf('@'));
         String pswd = password.getText().toString();
+        String myName = name.getText().toString();
 
         // create new user
-        User main = new User(user, pswd);
-        main.setName(name.getText().toString());
+        User mainUser = new User(user, pswd);
+        mainUser.setName(myName);
 
         // add to firebase
         DatabaseReference profilesRef = dbref.child("profiles");
-        profilesRef.child(user).setValue(main);
+        // make child with key username, make its value the User class
+        profilesRef.child("a profile").setValue(mainUser);
 
         peditor.putString("name", name.getText().toString());
         peditor.putString("email", email.getText().toString());
