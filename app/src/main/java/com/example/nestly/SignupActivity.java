@@ -169,16 +169,6 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         String pswd = password.getText().toString();
         String myName = name.getText().toString();
 
-        // create new user
-        User mainUser = new User(user, pswd);
-        mainUser.setName(myName);
-
-        // add to firebase
-        DatabaseReference profilesRef = dbref.child("profiles").push();
-        // make child with key username, make its value the User class
-
-        profilesRef.setValue(mainUser);
-
         peditor.putString("name", myName);
         peditor.putString("email", email.getText().toString());
         peditor.putString("password", password.getText().toString());

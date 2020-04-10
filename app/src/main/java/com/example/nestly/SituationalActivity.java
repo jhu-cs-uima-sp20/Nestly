@@ -43,6 +43,10 @@ public class SituationalActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 situations_answers[0]=spinner1.getSelectedItem().toString();
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor peditor = sp.edit();
+                peditor.putString("situation1", situations_answers[0]);
+                peditor.commit();
             }
 
             @Override
@@ -64,6 +68,10 @@ public class SituationalActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 situations_answers[1]=spinner2.getSelectedItem().toString();
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor peditor = sp.edit();
+                peditor.putString("situation2", situations_answers[1]);
+                peditor.commit();
             }
 
             @Override
@@ -85,6 +93,10 @@ public class SituationalActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 situations_answers[2]=spinner3.getSelectedItem().toString();
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor peditor = sp.edit();
+                peditor.putString("situation3", situations_answers[2]);
+                peditor.commit();
             }
 
             @Override
@@ -106,6 +118,10 @@ public class SituationalActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 situations_answers[3]=spinner4.getSelectedItem().toString();
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor peditor = sp.edit();
+                peditor.putString("situation4", situations_answers[3]);
+                peditor.commit();
             }
 
             @Override
@@ -127,6 +143,10 @@ public class SituationalActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 situations_answers[4]=spinner5.getSelectedItem().toString();
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor peditor = sp.edit();
+                peditor.putString("situation5", situations_answers[4]);
+                peditor.commit();
             }
 
             @Override
@@ -148,6 +168,10 @@ public class SituationalActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 situations_answers[5]=spinner6.getSelectedItem().toString();
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                SharedPreferences.Editor peditor = sp.edit();
+                peditor.putString("situation6", situations_answers[5]);
+                peditor.commit();
             }
 
             @Override
@@ -164,7 +188,7 @@ public class SituationalActivity extends AppCompatActivity {
                 return;
             }
         }
-        //TODO: add firebase
+        // go to long answers portion of the quiz
         Intent intent = new Intent(this, LongAnswerActivity.class);
         startActivity(intent);
 
