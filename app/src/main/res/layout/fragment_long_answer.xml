@@ -5,42 +5,84 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="24dp"
     tools:context=".LongAnswerFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="What does a typical day look like for you?"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/typicalDay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Eat, sleep, repeat."
         android:textSize="18sp" />
 
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:padding="16dp"
+        android:src="@drawable/bullet_point" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="What’s your worst habit?"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/worstHabit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Drinks ice water."
         android:textSize="18sp" />
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageView10"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="What are you hoping for in a roommate?"
-        android:textSize="18sp" />
+        android:layout_height="64dp"
+        android:padding="16dp"
+        android:src="@drawable/bullet_point" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="What are you hoping for in a roommate?"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/hopeRoommate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Soulmates."
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:padding="16dp"
+        android:src="@drawable/bullet_point" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Is there anything else you want to tell your future roommate?"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/other"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nope."
         android:textSize="18sp" />
 
 </LinearLayout>

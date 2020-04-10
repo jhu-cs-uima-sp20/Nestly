@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -23,6 +24,13 @@ public class HabitsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private TextView introvert;
+    private TextView inTheRoom;
+    private TextView timeSpent;
+    private TextView homeMeals;
+    private TextView wakeUp;
+    private TextView sleep;
 
     public HabitsFragment() {
         // Required empty public constructor
@@ -59,6 +67,15 @@ public class HabitsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_habits, container, false);
+        View v = inflater.inflate(R.layout.fragment_habits, container, false);
+
+        introvert = v.findViewById(R.id.introvert);
+        inTheRoom = v.findViewById(R.id.inTheRoom);
+        timeSpent = v.findViewById(R.id.timeSpent);
+        homeMeals = v.findViewById(R.id.homeMeals);
+        wakeUp = v.findViewById(R.id.wakeUp);
+        sleep = v.findViewById(R.id.sleep);
+
+        return v;
     }
 }
