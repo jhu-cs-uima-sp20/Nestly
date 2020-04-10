@@ -33,6 +33,7 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
     private static final int RESULT_LOAD_IMAGE = 1;
     private ImageView profilePic;
     private ImageButton uploadPic;
+    private ImageButton bio_btn;
     private TextView my_name;
     private TextView my_major;
     private TextView my_year;
@@ -49,6 +50,7 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
 
         profilePic = (ImageView)findViewById(R.id.profilePic);
         uploadPic = (ImageButton)findViewById(R.id.uploadPic);
+        bio_btn = (ImageButton) findViewById(R.id.bio_btn);
 
         my_name = (TextView) findViewById(R.id.my_name);
         my_major = (TextView) findViewById(R.id.my_major);
@@ -66,6 +68,7 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         my_year.setText("Class Of " + year);
 
         uploadPic.setOnClickListener(this);
+        bio_btn.setOnClickListener(bioListener);
 
         TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
         tabHost.setup();
@@ -93,6 +96,13 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
 
     }
 
+    private View.OnClickListener bioListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+        }
+    };
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -114,27 +124,4 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.profile_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.edit_bio) {
-            Toast.makeText(getBaseContext(),
-                    "User Blocked!", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }
