@@ -1386,6 +1386,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable bullet_point
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -1411,6 +1412,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable edit_icon
 drawable edittextbackground
 drawable girl
 drawable googleg_disabled_color_18
@@ -1434,6 +1436,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable img_140826
 drawable logo
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
@@ -1622,10 +1625,12 @@ id grid
 id group_divider
 id groups
 id habits_continue
+id habits_view
 id hide_acc_tab
 id hideable
 id home
 id homeAsUp
+id homeMeals
 id home_frag
 id home_tab
 id horizontal
@@ -1634,9 +1639,15 @@ id icon_group
 id icon_only
 id ifRoom
 id image
-id imageView
+id imageView0
+id imageView1
 id imageView2
+id imageView3
+id imageView4
+id imageView5
+id inTheRoom
 id info
+id introvert
 id invisible
 id italic
 id item_touch_helper_previous_elevation
@@ -1723,6 +1734,7 @@ id peekHeight
 id percent
 id percent_val
 id pin
+id profilePic
 id progress_circular
 id progress_horizontal
 id radio
@@ -1765,6 +1777,7 @@ id signup_btn
 id signup_button
 id situation_continue
 id skipCollapsed
+id sleep
 id slide
 id smallLabel
 id snackbar_action
@@ -1818,6 +1831,7 @@ id textinput_counter
 id textinput_error
 id textinput_helper_text
 id time
+id timeSpent
 id title
 id titleDividerNoCustom
 id title_template
@@ -1833,6 +1847,7 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id uploadPic
 id useLogo
 id username
 id vertical
@@ -1842,6 +1857,7 @@ id view_name
 id view_offset_helper
 id view_year
 id visible
+id wakeUp
 id wide
 id withText
 id wrap
