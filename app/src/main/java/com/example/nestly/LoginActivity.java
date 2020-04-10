@@ -1,16 +1,26 @@
 package com.example.nestly;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,6 +31,10 @@ public class LoginActivity extends AppCompatActivity {
     private TextView password;
     private Button login;
 
+    private DatabaseReference profilesRef;
+    private ValueEventListener listener;
+    private ArrayList<User> profiles;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,10 +42,37 @@ public class LoginActivity extends AppCompatActivity {
 
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
+        myBase = FirebaseDatabase.getInstance();
+        dbref = myBase.getReference();
+        profilesRef = dbref.child("profiles");
+
+        profiles = new ArrayList<User>();
+
+        listener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                    profiles = new ArrayList<User>();
+                    HashMap<String, String> curUserMap = (HashMap<String, String>) snap.getValue();
+                    String username = curUserMap.get("username");
+                    String password = curUserMap.get("password");
+                    String name = curUserMap.get("name");
+                    User curUser = new User(username, password);
+                    curUser.setName(name);
+                    profiles.add(curUser);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        profilesRef.addListenerForSingleValueEvent(listener);
 
         username = (TextView) findViewById(R.id.username);
         password = (TextView) findViewById(R.id.password);
         login = (Button) findViewById(R.id.login_btn);
+
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,9 +82,41 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                // go to main activity
-                Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(main_intent);
+                for (User u : profiles) {
+
+
+                    if (u.getUsername().equals(username.getText().toString())) {
+
+
+
+                        if (u.getPassword().equals(password.getText().toString())) {
+                            // go to main activity
+
+                            SharedPreferences savePrefs =
+                                    PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                            SharedPreferences.Editor peditor = savePrefs.edit();
+                            peditor.putString("name", u.getName());
+                            peditor.putString("email", u.getUsername());
+                            peditor.putString("password", u.getPassword());
+                            peditor.putBoolean("loggedIn", true);
+                            peditor.commit();
+
+                            Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(main_intent);
+
+
+                            return;
+                        }
+                        else {
+                            Toast.makeText(getBaseContext(),
+                                    "Password incorrect!", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                }
+                // User not found
+                Toast.makeText(getBaseContext(),
+                        "User not found!", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -60,11 +133,11 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(getBaseContext(),
                     "Invalid Email!", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (pswd.length() < 0) {
+        } else if (pswd.length() < 1) {
             // needs to be changed later for verification
             // rn only error that occurs is if password field is empty
             Toast.makeText(getBaseContext(),
-                    "Wrong Password!", Toast.LENGTH_SHORT).show();
+                    "Invalid Password!", Toast.LENGTH_SHORT).show();
             return false;
         }
 

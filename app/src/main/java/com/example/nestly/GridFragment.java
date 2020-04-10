@@ -1,12 +1,14 @@
 package com.example.nestly;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +40,8 @@ public class GridFragment extends Fragment {
     private ValueEventListener listener;
     private ArrayList<User> profiles;
 
+    private String username;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,13 +51,15 @@ public class GridFragment extends Fragment {
         grid = root.findViewById(R.id.grid);
 
         profiles = new ArrayList<User>();
-        User joe = new User("joe123", "password");
-        joe.setName("Joe");
 
         // Firebase database and references
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
         profilesRef = dbref.child("profiles");
+
+        SharedPreferences myPrefs =
+                PreferenceManager.getDefaultSharedPreferences(myContext.getApplicationContext());
+        username = myPrefs.getString("username", "uh oh");
 
         myAdapter = new ProfileAdapter(myContext, R.layout.profile_layout, profiles);
 
@@ -62,8 +68,12 @@ public class GridFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 myAdapter.notifyDataSetChanged();
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
-                    HashMap<String, String> curUser = (HashMap<String, String>) snap.getValue();
-                    profiles.add(new User(curUser.get("name"), curUser.get("username")));
+                    HashMap<String, String> curUserMap = (HashMap<String, String>) snap.getValue();
+                    String username = curUserMap.get("username");
+                    String password = curUserMap.get("password");
+                    if (!username.equals(username)) {
+                        profiles.add(new User(username, password));
+                    }
                 }
             }
             @Override
