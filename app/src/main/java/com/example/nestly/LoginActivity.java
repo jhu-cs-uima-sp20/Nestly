@@ -34,7 +34,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private DatabaseReference profilesRef;
     private ValueEventListener listener;
-    private ArrayList<User> profiles;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +46,19 @@ public class LoginActivity extends AppCompatActivity {
         dbref = myBase.getReference();
         profilesRef = dbref.child("profiles");
 
-        profiles = new ArrayList<User>();
+
 
         username = (TextView) findViewById(R.id.username);
         password = (TextView) findViewById(R.id.password);
         login = (Button) findViewById(R.id.login_btn);
-        
+
         listener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                final ArrayList<User> profiles = new ArrayList<User>();
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
 
-                    profiles = new ArrayList<User>();
+
                     HashMap<String, String> curUserMap = (HashMap<String, String>) snap.getValue();
                     String username = curUserMap.get("username");
                     String password = curUserMap.get("password");
