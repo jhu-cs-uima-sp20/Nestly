@@ -75,7 +75,7 @@ public class LongAnswerFragment extends Fragment {
         hopeRoommate = v.findViewById(R.id.hopeRoommate);
         other = v.findViewById(R.id.other);
 
-        Context context = (MyProfileActivity)getActivity();
+        Context context = (ViewProfileActivity)getActivity();
 
         SharedPreferences myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
