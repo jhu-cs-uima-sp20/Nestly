@@ -16,6 +16,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
@@ -48,10 +49,15 @@ public class LoginActivity extends AppCompatActivity {
 
         profiles = new ArrayList<User>();
 
+        username = (TextView) findViewById(R.id.username);
+        password = (TextView) findViewById(R.id.password);
+        login = (Button) findViewById(R.id.login_btn);
+        
         listener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
+
                     profiles = new ArrayList<User>();
                     HashMap<String, String> curUserMap = (HashMap<String, String>) snap.getValue();
                     String username = curUserMap.get("username");
@@ -60,7 +66,63 @@ public class LoginActivity extends AppCompatActivity {
                     User curUser = new User(username, password);
                     curUser.setName(name);
                     profiles.add(curUser);
+
+                    Toast.makeText(getBaseContext(),
+                            username, Toast.LENGTH_SHORT).show();
                 }
+
+
+
+
+                login.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // if user doesn't enter jhu address
+                        if (!checkFields()) {
+                            return;
+                        }
+
+                        for (User u : profiles) {
+
+
+                            if (u.getUsername().equals(username.getText().toString())) {
+
+
+
+                                if (u.getPassword().equals(password.getText().toString())) {
+                                    // go to main activity
+
+                                    SharedPreferences savePrefs =
+                                            PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                                    SharedPreferences.Editor peditor = savePrefs.edit();
+                                    peditor.putString("name", u.getName());
+                                    peditor.putString("email", u.getUsername());
+                                    peditor.putString("password", u.getPassword());
+                                    peditor.putBoolean("loggedIn", true);
+                                    peditor.commit();
+
+                                    Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
+                                    startActivity(main_intent);
+
+
+                                    return;
+                                }
+                                else {
+                                    Toast.makeText(getBaseContext(),
+                                            "Password incorrect!", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                            }
+                        }
+                        // User not found
+                        Toast.makeText(getBaseContext(),
+                                "User not found!", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -69,57 +131,11 @@ public class LoginActivity extends AppCompatActivity {
         };
         profilesRef.addListenerForSingleValueEvent(listener);
 
-        username = (TextView) findViewById(R.id.username);
-        password = (TextView) findViewById(R.id.password);
-        login = (Button) findViewById(R.id.login_btn);
-
-
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // if user doesn't enter jhu address
-                if (!checkFields()) {
-                    return;
-                }
-
-                for (User u : profiles) {
-
-
-                    if (u.getUsername().equals(username.getText().toString())) {
 
 
 
-                        if (u.getPassword().equals(password.getText().toString())) {
-                            // go to main activity
-
-                            SharedPreferences savePrefs =
-                                    PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                            SharedPreferences.Editor peditor = savePrefs.edit();
-                            peditor.putString("name", u.getName());
-                            peditor.putString("email", u.getUsername());
-                            peditor.putString("password", u.getPassword());
-                            peditor.putBoolean("loggedIn", true);
-                            peditor.commit();
-
-                            Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
-                            startActivity(main_intent);
 
 
-                            return;
-                        }
-                        else {
-                            Toast.makeText(getBaseContext(),
-                                    "Password incorrect!", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                    }
-                }
-                // User not found
-                Toast.makeText(getBaseContext(),
-                        "User not found!", Toast.LENGTH_SHORT).show();
-
-            }
-        });
     }
 
     /*

@@ -59,7 +59,7 @@ public class GridFragment extends Fragment {
 
         SharedPreferences myPrefs =
                 PreferenceManager.getDefaultSharedPreferences(myContext.getApplicationContext());
-        username = myPrefs.getString("username", "uh oh");
+        username = myPrefs.getString("email", "uh oh");
 
         listener = new ValueEventListener() {
             @Override
@@ -79,19 +79,12 @@ public class GridFragment extends Fragment {
 
             }
         };
-
-        for (User user : profiles) {
-            System.out.println(user.getName());
-        }
-
-        myAdapter = new ProfileAdapter(myContext, R.layout.profile_layout, profiles);
-
         profilesRef.addListenerForSingleValueEvent(listener);
 
 
+        myAdapter = new ProfileAdapter(myContext, R.layout.profile_layout, profiles);
         grid.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
-
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 main.viewProfile(position);

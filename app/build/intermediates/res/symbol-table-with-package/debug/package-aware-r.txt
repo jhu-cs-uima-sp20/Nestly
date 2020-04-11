@@ -1546,7 +1546,9 @@ id bio_btn
 id block
 id blocking
 id bottom
+id brokeStuff
 id buttonPanel
+id callFriends
 id cancel_action
 id cancel_button
 id center
@@ -1564,6 +1566,7 @@ id checked
 id chip
 id chip_group
 id chronometer
+id cleanRoom
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -1636,6 +1639,7 @@ id homeAsUp
 id homeMeals
 id home_frag
 id home_tab
+id hopeRoommate
 id horizontal
 id icon
 id icon_group
@@ -1644,6 +1648,8 @@ id ifRoom
 id image
 id imageView0
 id imageView1
+id imageView10
+id imageView11
 id imageView2
 id imageView3
 id imageView4
@@ -1651,6 +1657,7 @@ id imageView5
 id imageView6
 id imageView7
 id imageView8
+id imageView9
 id inTheRoom
 id info
 id introvert
@@ -1728,6 +1735,7 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
+id other
 id outline
 id packed
 id parallax
@@ -1850,6 +1858,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id typicalDay
 id unchecked
 id uniform
 id unlabeled
@@ -1867,6 +1876,7 @@ id visible
 id wakeUp
 id wide
 id withText
+id worstHabit
 id wrap
 id wrap_content
 id year
