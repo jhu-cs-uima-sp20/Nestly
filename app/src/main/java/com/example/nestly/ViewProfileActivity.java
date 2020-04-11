@@ -19,7 +19,7 @@ public class ViewProfileActivity extends AppCompatActivity {
         // Set action bar title
         getSupportActionBar().setTitle("");
 
-        TabHost tabHost = (TabHost) findViewById(R.id.tabHost2);
+        TabHost tabHost = findViewById(R.id.tabHost2);
         tabHost.setup();
 
         //tab 1 -- change later into colors
@@ -59,7 +59,6 @@ public class ViewProfileActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.block) {
             Toast.makeText(getBaseContext(),
                     "User Blocked!", Toast.LENGTH_SHORT).show();

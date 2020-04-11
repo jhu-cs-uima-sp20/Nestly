@@ -74,7 +74,7 @@ public class HabitsFragmentUser extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_habits_user, container, false);
 
-        Context context = (MyProfileActivity)getActivity();
+        Context context = getActivity();
 
         myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 

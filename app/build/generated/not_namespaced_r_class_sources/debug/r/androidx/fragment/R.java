@@ -9,6 +9,17 @@ package androidx.fragment;
 public final class R {
     private R() {}
 
+    public static final class anim {
+        private anim() {}
+
+        public static final int fragment_close_enter = 0x7f01001c;
+        public static final int fragment_close_exit = 0x7f01001d;
+        public static final int fragment_fade_enter = 0x7f01001e;
+        public static final int fragment_fade_exit = 0x7f01001f;
+        public static final int fragment_fast_out_extra_slow_in = 0x7f010020;
+        public static final int fragment_open_enter = 0x7f010021;
+        public static final int fragment_open_exit = 0x7f010022;
+    }
     public static final class attr {
         private attr() {}
 
@@ -62,18 +73,18 @@ public final class R {
     public static final class drawable {
         private drawable() {}
 
-        public static final int notification_action_background = 0x7f0800a7;
-        public static final int notification_bg = 0x7f0800a8;
-        public static final int notification_bg_low = 0x7f0800a9;
-        public static final int notification_bg_low_normal = 0x7f0800aa;
-        public static final int notification_bg_low_pressed = 0x7f0800ab;
-        public static final int notification_bg_normal = 0x7f0800ac;
-        public static final int notification_bg_normal_pressed = 0x7f0800ad;
-        public static final int notification_icon_background = 0x7f0800ae;
-        public static final int notification_template_icon_bg = 0x7f0800af;
-        public static final int notification_template_icon_low_bg = 0x7f0800b0;
-        public static final int notification_tile_bg = 0x7f0800b1;
-        public static final int notify_panel_notification_icon_bg = 0x7f0800b2;
+        public static final int notification_action_background = 0x7f0800a2;
+        public static final int notification_bg = 0x7f0800a3;
+        public static final int notification_bg_low = 0x7f0800a4;
+        public static final int notification_bg_low_normal = 0x7f0800a5;
+        public static final int notification_bg_low_pressed = 0x7f0800a6;
+        public static final int notification_bg_normal = 0x7f0800a7;
+        public static final int notification_bg_normal_pressed = 0x7f0800a8;
+        public static final int notification_icon_background = 0x7f0800a9;
+        public static final int notification_template_icon_bg = 0x7f0800aa;
+        public static final int notification_template_icon_low_bg = 0x7f0800ab;
+        public static final int notification_tile_bg = 0x7f0800ac;
+        public static final int notify_panel_notification_icon_bg = 0x7f0800ad;
     }
     public static final class id {
         private id() {}
@@ -120,19 +131,20 @@ public final class R {
         public static final int blocking = 0x7f09004f;
         public static final int chronometer = 0x7f090065;
         public static final int dialog_button = 0x7f09007d;
-        public static final int forever = 0x7f090097;
-        public static final int icon = 0x7f0900b1;
-        public static final int icon_group = 0x7f0900b2;
-        public static final int info = 0x7f0900c3;
-        public static final int italic = 0x7f0900c6;
-        public static final int line1 = 0x7f0900cc;
-        public static final int line3 = 0x7f0900cd;
-        public static final int normal = 0x7f090109;
-        public static final int notification_background = 0x7f09010a;
-        public static final int notification_main_column = 0x7f09010b;
-        public static final int notification_main_column_container = 0x7f09010c;
-        public static final int right_icon = 0x7f090122;
-        public static final int right_side = 0x7f090123;
+        public static final int forever = 0x7f090098;
+        public static final int fragment_container_view_tag = 0x7f0900a0;
+        public static final int icon = 0x7f0900b3;
+        public static final int icon_group = 0x7f0900b4;
+        public static final int info = 0x7f0900c2;
+        public static final int italic = 0x7f0900c5;
+        public static final int line1 = 0x7f0900cb;
+        public static final int line3 = 0x7f0900cc;
+        public static final int normal = 0x7f090108;
+        public static final int notification_background = 0x7f090109;
+        public static final int notification_main_column = 0x7f09010a;
+        public static final int notification_main_column_container = 0x7f09010b;
+        public static final int right_icon = 0x7f090121;
+        public static final int right_side = 0x7f090122;
         public static final int tag_accessibility_actions = 0x7f090169;
         public static final int tag_accessibility_clickable_spans = 0x7f09016a;
         public static final int tag_accessibility_heading = 0x7f09016b;
@@ -145,6 +157,7 @@ public final class R {
         public static final int text2 = 0x7f090174;
         public static final int time = 0x7f09017e;
         public static final int title = 0x7f090180;
+        public static final int visible_removing_fragment_view_tag = 0x7f09019a;
     }
     public static final class integer {
         private integer() {}
@@ -203,6 +216,13 @@ public final class R {
         public static final int FontFamilyFont_fontVariationSettings = 7;
         public static final int FontFamilyFont_fontWeight = 8;
         public static final int FontFamilyFont_ttcIndex = 9;
+        public static final int[] Fragment = { 0x1010003, 0x10100d0, 0x10100d1 };
+        public static final int Fragment_android_name = 0;
+        public static final int Fragment_android_id = 1;
+        public static final int Fragment_android_tag = 2;
+        public static final int[] FragmentContainerView = { 0x1010003, 0x10100d1 };
+        public static final int FragmentContainerView_android_name = 0;
+        public static final int FragmentContainerView_android_tag = 1;
         public static final int[] GradientColor = { 0x101019d, 0x101019e, 0x10101a1, 0x10101a2, 0x10101a3, 0x10101a4, 0x1010201, 0x101020b, 0x1010510, 0x1010511, 0x1010512, 0x1010513 };
         public static final int GradientColor_android_startColor = 0;
         public static final int GradientColor_android_endColor = 1;

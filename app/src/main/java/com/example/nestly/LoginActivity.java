@@ -16,10 +16,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -48,14 +46,14 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        username = (TextView) findViewById(R.id.username);
-        password = (TextView) findViewById(R.id.password);
-        login = (Button) findViewById(R.id.login_btn);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+        login = findViewById(R.id.login_btn);
 
         listener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                final ArrayList<User> profiles = new ArrayList<User>();
+                final ArrayList<User> profiles = new ArrayList<>();
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
 
 
@@ -142,7 +140,7 @@ public class LoginActivity extends AppCompatActivity {
     public boolean checkFields() {
         String emailtxt = username.getText().toString();
         String pswd = password.getText().toString();
-        if (emailtxt.indexOf("@jhu.edu") < 0) {
+        if (!emailtxt.contains("@jhu.edu")) {
             Toast.makeText(getBaseContext(),
                     "Invalid Email!", Toast.LENGTH_SHORT).show();
             return false;

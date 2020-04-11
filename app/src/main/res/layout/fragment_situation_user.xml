@@ -7,7 +7,7 @@
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <TextView
@@ -17,28 +17,16 @@
         android:text="Your roommate is calling their friends loudly as you study for your exam the next day. What do you do?"
         android:textSize="18sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/callFriends"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:src="@drawable/checked_box" />
-
-        <TextView
-            android:id="@+id/callFriends"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:padding="10dp"
-            android:text="Have a stern talk about noise levels."
-            android:textAlignment="textStart"
-            android:textSize="18sp" />
-
-    </LinearLayout>
+        android:text="Have a stern talk about noise levels."
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/checked_box" android:padding="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,28 +35,16 @@
         android:text="Your roommate or their friends touched your stuff and broke something. How do you react?"
         android:textSize="18sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/brokeStuff"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:src="@drawable/checked_box" />
-
-        <TextView
-            android:id="@+id/brokeStuff"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:padding="10dp"
-            android:text="Forgive your roommate after an apology."
-            android:textAlignment="textStart"
-            android:textSize="18sp" />
-
-    </LinearLayout>
+        android:text="Forgive your roommate after an apology."
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/checked_box" android:padding="5dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -77,28 +53,17 @@
         android:text="You notice that your roommate hasn’t cleaned the room in a while. What do you do?"
         android:textSize="18sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/cleanRoom"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
+        android:text="Remind your roommate to clean.."
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/checked_box" android:padding="5dp" />
 
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:src="@drawable/checked_box" />
-
-        <TextView
-            android:id="@+id/cleanRoom"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:padding="10dp"
-            android:text="Remind your roommate to clean.."
-            android:textAlignment="textStart"
-            android:textSize="18sp" />
-
-    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -107,28 +72,17 @@
         android:text="Your roommate does something that gets on your nerves. How do you tell them?"
         android:textSize="18sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/onNerves"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
+        android:text="Get angry."
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/checked_box" android:padding="5dp" />
 
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:src="@drawable/checked_box" />
-
-        <TextView
-            android:id="@+id/onNerves"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:padding="10dp"
-            android:text="Get angry."
-            android:textAlignment="textStart"
-            android:textSize="18sp" />
-
-    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -137,28 +91,18 @@
         android:text="Dishes have been sitting in the sink for weeks. What do you do?"
         android:textSize="18sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/dishes"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
+        android:text="Wash them."
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/checked_box" android:padding="5dp" />
 
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:src="@drawable/checked_box" />
 
-        <TextView
-            android:id="@+id/dishes"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:padding="10dp"
-            android:text="Wash them."
-            android:textAlignment="textStart"
-            android:textSize="18sp" />
-
-    </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
@@ -167,28 +111,17 @@
         android:text="You've had a really bad day. What do you do to relieve stress?"
         android:textSize="18sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/badDay"
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
+        android:text="Watch a movie in bed."
+        android:gravity="center_vertical"
+        android:textSize="18sp"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/checked_box" android:padding="5dp" />
 
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="40dp"
-            android:layout_height="60dp"
-            android:src="@drawable/checked_box" />
-
-        <TextView
-            android:id="@+id/badDay"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:padding="10dp"
-            android:text="Watch a movie in bed."
-            android:textAlignment="textStart"
-            android:textSize="18sp" />
-
-    </LinearLayout>
 
 </LinearLayout>
 </ScrollView>

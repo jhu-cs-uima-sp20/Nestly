@@ -74,7 +74,7 @@ public class SituationFragmentUser extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_situation_user, container, false);
 
-        Context context = (MyProfileActivity)getActivity();
+        Context context = getActivity();
         myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         callFriends = v.findViewById(R.id.callFriends);

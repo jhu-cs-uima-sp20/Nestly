@@ -27,6 +27,13 @@ anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
+anim fragment_close_enter
+anim fragment_close_exit
+anim fragment_fade_enter
+anim fragment_fade_exit
+anim fragment_fast_out_extra_slow_in
+anim fragment_open_enter
+anim fragment_open_exit
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
 anim mtrl_card_lowers_interpolator
@@ -1415,6 +1422,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable edit_icon
 drawable edittextbackground
+drawable filter_icon
 drawable girl
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
@@ -1427,12 +1435,6 @@ drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_menu_arrow_down_black_24dp
 drawable ic_menu_arrow_up_black_24dp
-drawable ic_menu_camera
-drawable ic_menu_gallery
-drawable ic_menu_manage
-drawable ic_menu_send
-drawable ic_menu_share
-drawable ic_menu_slideshow
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
@@ -1462,6 +1464,7 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable roundedbutton
+drawable search_icon
 drawable side_nav_bar
 drawable test_custom_background
 drawable tooltip_frame_dark
@@ -1615,6 +1618,7 @@ id fill_horizontal
 id fill_vertical
 id filled
 id filter_chip
+id filter_icon
 id fitToContents
 id fixed
 id forever
@@ -1625,6 +1629,7 @@ id fragment3
 id fragment4
 id fragment5
 id fragment6
+id fragment_container_view_tag
 id gender
 id ghost_view
 id ghost_view_holder
@@ -1656,9 +1661,6 @@ id imageView2
 id imageView3
 id imageView4
 id imageView5
-id imageView6
-id imageView7
-id imageView8
 id imageView9
 id inTheRoom
 id info
@@ -1781,6 +1783,7 @@ id search_button
 id search_close_btn
 id search_edit_frame
 id search_go_btn
+id search_icon
 id search_mag_icon
 id search_plate
 id search_src_text
@@ -1876,6 +1879,7 @@ id view_name
 id view_offset_helper
 id view_year
 id visible
+id visible_removing_fragment_view_tag
 id wakeUp
 id wide
 id withText
@@ -2042,6 +2046,7 @@ layout text_view_with_theme_line_height
 layout text_view_without_line_height
 menu activity_main_drawer
 menu main
+menu mymenu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
@@ -2894,6 +2899,8 @@ styleable FlowLayout itemSpacing lineSpacing
 styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery
 styleable FontFamilyFont android_font android_fontWeight android_fontStyle android_ttcIndex android_fontVariationSettings font fontStyle fontVariationSettings fontWeight ttcIndex
 styleable ForegroundLinearLayout android_foreground android_foregroundGravity foregroundInsidePadding
+styleable Fragment android_name android_id android_tag
+styleable FragmentContainerView android_name android_tag
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
 styleable GridLayout alignmentMode columnCount columnOrderPreserved orientation rowCount rowOrderPreserved useDefaultMargins
