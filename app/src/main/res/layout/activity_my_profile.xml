@@ -97,7 +97,7 @@
 
                         <fragment
                             android:id="@+id/fragment4"
-                            android:name="com.example.nestly.HabitsFragment"
+                            android:name="com.example.nestly.HabitsFragmentUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             tools:layout="@layout/fragment_habits" />
@@ -111,7 +111,7 @@
 
                         <fragment
                             android:id="@+id/fragment5"
-                            android:name="com.example.nestly.SituationFragment"
+                            android:name="com.example.nestly.SituationFragmentUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             tools:layout="@layout/fragment_situation" />
@@ -125,7 +125,7 @@
 
                         <fragment
                             android:id="@+id/fragment6"
-                            android:name="com.example.nestly.LongAnswerFragment"
+                            android:name="com.example.nestly.LongAnswerFragmentUser"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             tools:layout="@layout/fragment_long_answer" />

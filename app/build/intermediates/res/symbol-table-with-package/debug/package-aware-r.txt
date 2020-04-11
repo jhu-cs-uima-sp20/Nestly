@@ -1973,9 +1973,12 @@ layout design_text_input_start_icon
 layout fragment_favorites
 layout fragment_grid
 layout fragment_habits
+layout fragment_habits_user
 layout fragment_home
 layout fragment_long_answer
+layout fragment_long_answer_user
 layout fragment_situation
+layout fragment_situation_user
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
