@@ -6,169 +6,179 @@
     android:layout_height="match_parent"
     tools:context=".MyProfileActivity">
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
-
-    <ImageView
-        android:id="@+id/profilePic"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:layout_gravity="center_horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/my_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:src="@drawable/boy" />
-
-    <ImageButton
-        android:id="@+id/uploadPic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="11dp"
-        android:src="@drawable/edit_icon"
-        app:layout_constraintBottom_toTopOf="@+id/my_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/profilePic"
-        app:layout_constraintTop_toBottomOf="@+id/profilePic" />
-
-    <ImageButton
-        android:id="@+id/bio_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/edit_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toEndOf="@+id/my_bio"
-        app:layout_constraintTop_toTopOf="@id/my_year" />
-
-    <TextView
-        android:id="@+id/my_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
-        android:text="John Doe"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TabHost
-        android:id="@+id/tabHost"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="380dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <CheckBox
+            android:id="@+id/hide_profile_checkbox"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginStart="250dp"
+            android:layout_marginTop="280dp"
+            android:text="hide my profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TabWidget
-                android:id="@android:id/tabs"
+        <ImageView
+            android:id="@+id/profilePic"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/my_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:src="@drawable/boy" />
+
+        <ImageButton
+            android:id="@+id/uploadPic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginEnd="144dp"
+            android:layout_marginBottom="11dp"
+            android:src="@drawable/edit_icon"
+            app:layout_constraintBottom_toTopOf="@+id/my_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/profilePic"
+            app:layout_constraintTop_toBottomOf="@+id/profilePic" />
+
+        <ImageButton
+            android:id="@+id/bio_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/edit_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.066"
+            app:layout_constraintStart_toEndOf="@+id/my_bio"
+            app:layout_constraintTop_toTopOf="@id/my_year" />
+
+        <TextView
+            android:id="@+id/my_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="136dp"
+            android:text="John Doe"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TabHost
+            android:id="@+id/tabHost"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
-                <FrameLayout
-                    android:id="@android:id/tabcontent"
+                <ScrollView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <LinearLayout
-                        android:id="@+id/tab1"
+                    <FrameLayout
+                        android:id="@android:id/tabcontent"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#FFFFFF"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content">
 
-                        <fragment
-                            android:id="@+id/fragment4"
-                            android:name="com.example.nestly.HabitsFragmentUser"
+                        <LinearLayout
+                            android:id="@+id/tab1"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:layout="@layout/fragment_habits" />
-                    </LinearLayout>
+                            android:layout_height="match_parent"
+                            android:background="#FFFFFF"
+                            android:orientation="vertical">
 
-                    <LinearLayout
-                        android:id="@+id/tab2"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                            <fragment
+                                android:id="@+id/fragment4"
+                                android:name="com.example.nestly.HabitsFragmentUser"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:layout="@layout/fragment_habits" />
+                        </LinearLayout>
 
-                        <fragment
-                            android:id="@+id/fragment5"
-                            android:name="com.example.nestly.SituationFragmentUser"
+                        <LinearLayout
+                            android:id="@+id/tab2"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:layout="@layout/fragment_situation" />
-                    </LinearLayout>
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-                    <LinearLayout
-                        android:id="@+id/tab3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                            <fragment
+                                android:id="@+id/fragment5"
+                                android:name="com.example.nestly.SituationFragmentUser"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:layout="@layout/fragment_situation" />
+                        </LinearLayout>
 
-                        <fragment
-                            android:id="@+id/fragment6"
-                            android:name="com.example.nestly.LongAnswerFragmentUser"
+                        <LinearLayout
+                            android:id="@+id/tab3"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:layout="@layout/fragment_long_answer" />
-                    </LinearLayout>
-                </FrameLayout>
-            </ScrollView>
-        </LinearLayout>
-    </TabHost>
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/my_major"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
-        android:text="Computer Science"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+                            <fragment
+                                android:id="@+id/fragment6"
+                                android:name="com.example.nestly.LongAnswerFragmentUser"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:layout="@layout/fragment_long_answer" />
+                        </LinearLayout>
+                    </FrameLayout>
+                </ScrollView>
+            </LinearLayout>
+        </TabHost>
 
-    <TextView
-        android:id="@+id/my_year"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
-        android:text="Class of 2022"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/my_major"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="164dp"
+            android:text="Computer Science"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/my_bio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="64dp"
-        android:text="[insert bio here]"
-        app:layout_constraintBottom_toTopOf="@+id/tabHost"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_year"
-        app:layout_constraintVertical_bias="0.085" />
+        <TextView
+            android:id="@+id/my_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="196dp"
+            android:text="Class of 2022"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/my_bio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="64dp"
+            android:text="[insert bio here]"
+            app:layout_constraintBottom_toTopOf="@+id/tabHost"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/my_year"
+            app:layout_constraintVertical_bias="0.085" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
