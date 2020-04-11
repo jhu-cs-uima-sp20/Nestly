@@ -1415,6 +1415,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable edit_icon
 drawable edittextbackground
+drawable filter_icon
 drawable girl
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
@@ -1462,6 +1463,7 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable roundedbutton
+drawable search_icon
 drawable side_nav_bar
 drawable test_custom_background
 drawable tooltip_frame_dark
@@ -1615,6 +1617,7 @@ id fill_horizontal
 id fill_vertical
 id filled
 id filter_chip
+id filter_icon
 id fitToContents
 id fixed
 id forever
@@ -1636,6 +1639,7 @@ id groups
 id habits_continue
 id habits_view
 id hide_acc_tab
+id hide_profile_checkbox
 id hideable
 id home
 id homeAsUp
@@ -1781,6 +1785,7 @@ id search_button
 id search_close_btn
 id search_edit_frame
 id search_go_btn
+id search_icon
 id search_mag_icon
 id search_plate
 id search_src_text
@@ -2042,6 +2047,7 @@ layout text_view_with_theme_line_height
 layout text_view_without_line_height
 menu activity_main_drawer
 menu main
+menu mymenu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description
