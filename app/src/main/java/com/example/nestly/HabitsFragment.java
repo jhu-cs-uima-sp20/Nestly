@@ -1,9 +1,12 @@
 package com.example.nestly;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,9 +31,11 @@ public class HabitsFragment extends Fragment {
     private TextView introvert;
     private TextView inTheRoom;
     private TextView timeSpent;
-    private TextView homeMeals;
+    private TextView bringFriends;
     private TextView wakeUp;
     private TextView sleep;
+
+    private SharedPreferences myPrefs;
 
     public HabitsFragment() {
         // Required empty public constructor
@@ -69,12 +74,49 @@ public class HabitsFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_habits, container, false);
 
+        Context context = (MyProfileActivity)getActivity();
+
+        myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         introvert = v.findViewById(R.id.introvert);
         inTheRoom = v.findViewById(R.id.inTheRoom);
         timeSpent = v.findViewById(R.id.timeSpent);
-        homeMeals = v.findViewById(R.id.homeMeals);
+        bringFriends = v.findViewById(R.id.bringFriends);
         wakeUp = v.findViewById(R.id.wakeUp);
         sleep = v.findViewById(R.id.sleep);
+
+        introvert.setText("I consider myself: " + myPrefs.getString("intro/extrovert", "introvert") + "ed");
+        String listActivities = "";
+        Boolean activity = myPrefs.getBoolean("check1", false);
+        if (activity) {
+            listActivities += "do general homework, ";
+        }
+        activity = myPrefs.getBoolean("check2", false);
+        if (activity) {
+            listActivities += "hang out with friends, ";
+        }
+        activity = myPrefs.getBoolean("check3", false);
+        if (activity) {
+            listActivities += "cook food, ";
+        }
+        activity = myPrefs.getBoolean("check4", false);
+        if (activity) {
+            listActivities += "eat food, ";
+        }
+        activity = myPrefs.getBoolean("check5", false);
+        if (activity) {
+            listActivities += "study for exams, ";
+        }
+        activity = myPrefs.getBoolean("check6", false);
+        if (activity) {
+            listActivities += "throw parties, ";
+        }
+
+        inTheRoom.setText("I plan to: " + listActivities + " in the room");
+        timeSpent.setText("Not including sleeping, I plan to spend an average of " + myPrefs.getString("room_time", "0") + " hours in the room");
+        bringFriends.setText("I plan to bring friends over an average of " + myPrefs.getString("bring_friends", "0") + " times a week");
+        wakeUp.setText("I usually wake up around " + myPrefs.getString("wakeUp_time", "8am"));
+        sleep.setText("I usually sleep around " + myPrefs.getString("sleep_time", "12am"));
 
         return v;
     }
