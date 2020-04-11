@@ -1,35 +1,16 @@
-# Nestly
+t4A
+Team E
 
-## Notes on Git
+Existing logins are:
+ezeng2@jhu.edu
+password
 
-### Preparing to work on the project
+jhe40@jhu.edu
+abc
 
-The very first thing you want to do as soon as you open the project is pull the latest version by typing in the command line:
+mtorre28@jhu.edu
+123
 
-`git pull`
+So far, we have completed account creation, logging into an existing account, and basic navigation of the app. Once logged in, the user can see a grid view of all profiles that aren't theres. They can expand other people's profiles or view their own. The log out tab is functional. Profile entries are stored in a list in firebase, uniquely identified by their email.
 
-When working, edit the code on a different branch. Create a new branch by:
-
-`git checkout -b "new_branch"`
-
-Check which branch you're on by:
-
-`git branch`
-
-After you've made your edits, add, commit, then push your changes to your branch:
-
-`git add .`
-`git commit -m "some commit message"`
-`git push`
-
-Go to Github, click on the branches page, and open a new pull request for your branch. Request review from the other 3 team members and notify them on Messenger. After they have given the go, merge the branch into the master branch.
-
-
-## Contributors
-
-|        Name         | Github Username |
-| :-----------------: | :-------------: |
-|     Jennifer He     |    sul-bing     |
-|     Max Torres      |   maxrtorres    |
-|     Emily Zeng      |     zz328       |
-|     Thomas Zheng    |   guangyaoz     |
+We have not implemented the favorites tab or delete account. Grid view sorting is for next sprint.
