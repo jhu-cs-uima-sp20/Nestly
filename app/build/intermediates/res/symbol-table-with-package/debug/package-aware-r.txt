@@ -1540,12 +1540,14 @@ id all
 id always
 id async
 id auto
+id badDay
 id barrier
 id beginning
 id bio_btn
 id block
 id blocking
 id bottom
+id bringFriends
 id brokeStuff
 id buttonPanel
 id callFriends
@@ -1593,6 +1595,7 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id dishes
 id drawer_layout
 id dropdown_menu
 id editText
@@ -1636,7 +1639,6 @@ id hide_acc_tab
 id hideable
 id home
 id homeAsUp
-id homeMeals
 id home_frag
 id home_tab
 id hopeRoommate
@@ -1735,6 +1737,7 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
+id onNerves
 id other
 id outline
 id packed
@@ -1970,9 +1973,12 @@ layout design_text_input_start_icon
 layout fragment_favorites
 layout fragment_grid
 layout fragment_habits
+layout fragment_habits_user
 layout fragment_home
 layout fragment_long_answer
+layout fragment_long_answer_user
 layout fragment_situation
+layout fragment_situation_user
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title

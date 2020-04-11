@@ -1,9 +1,12 @@
 package com.example.nestly;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +31,11 @@ public class SituationFragment extends Fragment {
     private TextView callFriends;
     private TextView brokeStuff;
     private TextView cleanRoom;
+    private TextView onNerves;
+    private TextView dishes;
+    private TextView badDay;
+
+    private SharedPreferences myPrefs;
 
     public SituationFragment() {
         // Required empty public constructor
@@ -66,9 +74,22 @@ public class SituationFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_situation, container, false);
 
+        Context context = (MyProfileActivity)getActivity();
+        myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         callFriends = v.findViewById(R.id.callFriends);
         brokeStuff = v.findViewById(R.id.brokeStuff);
         cleanRoom = v.findViewById(R.id.cleanRoom);
+        onNerves = v.findViewById(R.id.onNerves);
+        dishes = v.findViewById(R.id.dishes);
+        badDay = v.findViewById(R.id.badDay);
+
+        callFriends.setText(myPrefs.getString("situation1", ""));
+        brokeStuff.setText(myPrefs.getString("situation2", ""));
+        cleanRoom.setText(myPrefs.getString("situation3", ""));
+        onNerves.setText(myPrefs.getString("situation4", ""));
+        dishes.setText(myPrefs.getString("situation5", ""));
+        badDay.setText(myPrefs.getString("situation6", ""));
 
         return v;
     }

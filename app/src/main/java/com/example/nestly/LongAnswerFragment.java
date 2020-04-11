@@ -1,9 +1,12 @@
 package com.example.nestly;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,6 +74,15 @@ public class LongAnswerFragment extends Fragment {
         worstHabit = v.findViewById(R.id.worstHabit);
         hopeRoommate = v.findViewById(R.id.hopeRoommate);
         other = v.findViewById(R.id.other);
+
+        Context context = (MyProfileActivity)getActivity();
+
+        SharedPreferences myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        typicalDay.setText(myPrefs.getString("longAnswer1", ""));
+        worstHabit.setText(myPrefs.getString("longAnswer2", ""));
+        hopeRoommate.setText(myPrefs.getString("longAnswer3", ""));
+        other.setText(myPrefs.getString("longAnswer4", ""));
 
         return v;
     }

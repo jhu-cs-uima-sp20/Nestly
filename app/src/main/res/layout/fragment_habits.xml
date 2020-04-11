@@ -25,7 +25,7 @@
             <ImageView
                 android:id="@+id/imageView0"
                 android:layout_width="40dp"
-                android:layout_height="60dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
                 android:layout_gravity="top"
                 android:src="@drawable/bullet_point" />
@@ -33,35 +33,35 @@
             <ImageView
                 android:id="@+id/imageView3"
                 android:layout_width="40dp"
-                android:layout_height="60dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
                 android:src="@drawable/bullet_point" />
 
             <ImageView
                 android:id="@+id/imageView1"
                 android:layout_width="40dp"
-                android:layout_height="60dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
                 android:src="@drawable/bullet_point" />
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="40dp"
-                android:layout_height="60dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
                 android:src="@drawable/bullet_point" />
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="40dp"
-                android:layout_height="60dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
                 android:src="@drawable/bullet_point" />
 
             <ImageView
                 android:id="@+id/imageView5"
                 android:layout_width="40dp"
-                android:layout_height="60dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
                 android:src="@drawable/bullet_point" />
 
@@ -76,8 +76,10 @@
         <TextView
             android:id="@+id/introvert"
             android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:lineSpacingExtra="8sp"
             android:padding="10dp"
             android:text="I identify as an introvert"
             android:textAlignment="textStart"
@@ -87,8 +89,9 @@
         <TextView
             android:id="@+id/inTheRoom"
             android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
+            android:gravity="center"
             android:padding="10dp"
             android:text="I plan to do homework, eat food, and throw parties in the room"
             android:textAlignment="textStart"
@@ -97,28 +100,31 @@
         <TextView
             android:id="@+id/timeSpent"
             android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
+            android:gravity="center"
             android:padding="10dp"
             android:text="Not including sleeping, I plan to spend an average of 8 hours in the room every day"
             android:textAlignment="textStart"
             android:textSize="18sp" />
 
         <TextView
-            android:id="@+id/homeMeals"
+            android:id="@+id/bringFriends"
             android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
+            android:gravity="center"
             android:padding="10dp"
-            android:text="I plan to eat an average of 18 meals at home a week"
+            android:text="I plan to bring friends over an average of 5 times a week"
             android:textAlignment="textStart"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/wakeUp"
             android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
+            android:gravity="center"
             android:padding="10dp"
             android:text="I generally wake up around 8AM"
             android:textAlignment="textStart"
@@ -127,8 +133,9 @@
         <TextView
             android:id="@+id/sleep"
             android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
+            android:gravity="center"
             android:padding="10dp"
             android:text="I generally sleep around 12AM"
             android:textAlignment="textStart"

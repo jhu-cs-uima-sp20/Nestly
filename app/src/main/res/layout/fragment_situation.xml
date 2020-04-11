@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".SituationFragment">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="wrap_content"
@@ -96,4 +100,95 @@
 
     </LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Your roommate does something that gets on your nerves. How do you tell them?"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:src="@drawable/checked_box" />
+
+        <TextView
+            android:id="@+id/onNerves"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:text="Get angry."
+            android:textAlignment="textStart"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Dishes have been sitting in the sink for weeks. What do you do?"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:src="@drawable/checked_box" />
+
+        <TextView
+            android:id="@+id/dishes"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:text="Wash them."
+            android:textAlignment="textStart"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="You've had a really bad day. What do you do to relieve stress?"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:src="@drawable/checked_box" />
+
+        <TextView
+            android:id="@+id/badDay"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:padding="10dp"
+            android:text="Watch a movie in bed."
+            android:textAlignment="textStart"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
 </LinearLayout>
+</ScrollView>
