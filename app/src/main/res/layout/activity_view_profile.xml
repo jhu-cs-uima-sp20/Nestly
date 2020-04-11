@@ -78,7 +78,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <fragment
+                    <androidx.fragment.app.FragmentContainerView
                         android:id="@+id/fragment"
                         android:name="com.example.nestly.HabitsFragment"
                         android:layout_width="match_parent"
@@ -92,7 +92,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <fragment
+                    <androidx.fragment.app.FragmentContainerView
                         android:id="@+id/fragment2"
                         android:name="com.example.nestly.SituationFragment"
                         android:layout_width="match_parent"
@@ -106,7 +106,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <fragment
+                    <androidx.fragment.app.FragmentContainerView
                         android:id="@+id/fragment3"
                         android:name="com.example.nestly.LongAnswerFragment"
                         android:layout_width="match_parent"

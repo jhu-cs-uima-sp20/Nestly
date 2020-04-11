@@ -2,14 +2,14 @@ package com.example.nestly;
 
 import java.util.List;
 
-public class User {
-    public String username;
-    public String password;
-    public List<String> habits_answers;
-    public List<String> situations_answers;
-    public List<String> long_answers;
+class User {
+    private String username;
+    private String password;
+    private List<String> habits_answers;
+    private List<String> situations_answers;
+    private List<String> long_answers;
 
-    public String name;
+    private String name;
 
     public User(String username, String password) {
         this.username = username;

@@ -2,32 +2,28 @@ package com.example.nestly;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.preference.PreferenceManager;
-import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class GridFragment extends Fragment {
+class GridFragment extends Fragment {
 
     private Context myContext;
     private ProfileAdapter myAdapter;
@@ -50,7 +46,7 @@ public class GridFragment extends Fragment {
         myContext = getActivity().getApplicationContext();
         grid = root.findViewById(R.id.grid);
 
-        profiles = new ArrayList<User>();
+        profiles = new ArrayList<>();
 
         // Firebase database and references
         myBase = FirebaseDatabase.getInstance();

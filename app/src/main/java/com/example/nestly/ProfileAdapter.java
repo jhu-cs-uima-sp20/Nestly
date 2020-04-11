@@ -5,16 +5,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.GridLayout;
-import android.widget.GridView;
-import android.widget.LinearLayout;
+
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.List;
 
-public class ProfileAdapter extends ArrayAdapter<User> {
+class ProfileAdapter extends ArrayAdapter<User> {
 
     private int myResource;
 
@@ -23,8 +22,9 @@ public class ProfileAdapter extends ArrayAdapter<User> {
         this.myResource = myResource;
     }
 
+    @NonNull
     @Override
-    public View getView(int pos, View myConvertView, ViewGroup myParent) {
+    public View getView(int pos, View myConvertView, @NonNull ViewGroup myParent) {
 
         ConstraintLayout profileView;
         User curProfile = getItem(pos);
@@ -39,9 +39,9 @@ public class ProfileAdapter extends ArrayAdapter<User> {
             profileView = (ConstraintLayout) myConvertView;
         }
 
-        TextView username = (TextView) profileView.findViewById(R.id.username);
+        TextView username = profileView.findViewById(R.id.username);
         username.setText(curProfile.getUsername());
-        TextView name = (TextView) profileView.findViewById(R.id.given_name);
+        TextView name = profileView.findViewById(R.id.given_name);
         name.setText(curProfile.getName());
 
         return profileView;

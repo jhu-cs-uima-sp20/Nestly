@@ -23,7 +23,7 @@
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
 
-        <fragment
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/home_frag"
             android:name="com.example.nestly.GridFragment"
             android:layout_width="match_parent"

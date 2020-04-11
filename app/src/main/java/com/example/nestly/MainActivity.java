@@ -1,7 +1,6 @@
 package com.example.nestly;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -10,24 +9,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.renderscript.Sampler;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
+
 import androidx.appcompat.widget.Toolbar;
 
-import org.w3c.dom.Text;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -57,7 +49,7 @@ public class MainActivity extends AppCompatActivity
         myBar = findViewById(R.id.main_bar);
         myBar.setTitle("Home");
 
-        myDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        myDrawerLayout = findViewById(R.id.drawer_layout);
 
         // Navigation View
         navView = findViewById(R.id.nav_view);
@@ -72,8 +64,8 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
 
         // set to what the user entered during signup
-        myName = (TextView) navHeader.findViewById(R.id.my_name);
-        myYear = (TextView) navHeader.findViewById(R.id.my_year);
+        myName = navHeader.findViewById(R.id.my_name);
+        myYear = navHeader.findViewById(R.id.my_year);
         String name = myPrefs.getString("name", "John Doe");
         String year = myPrefs.getString("year", "2022");
         myName.setText(name);

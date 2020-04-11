@@ -23,8 +23,8 @@ public class EditBioActivity extends AppCompatActivity {
         Context context= getApplicationContext();
         SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        bio = (EditText) findViewById(R.id.editText);
-        save = (Button) findViewById(R.id.save);
+        bio = findViewById(R.id.editText);
+        save = findViewById(R.id.save);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

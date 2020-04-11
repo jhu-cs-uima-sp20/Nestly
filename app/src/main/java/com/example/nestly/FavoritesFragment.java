@@ -1,7 +1,6 @@
 package com.example.nestly;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -15,7 +14,7 @@ import android.widget.GridView;
 import java.util.ArrayList;
 
 
-public class FavoritesFragment extends Fragment {
+class FavoritesFragment extends Fragment {
 
     private Context myContext;
     private ProfileAdapter myAdapter;
@@ -32,7 +31,7 @@ public class FavoritesFragment extends Fragment {
         myContext = getActivity().getApplicationContext();
         grid = root.findViewById(R.id.grid);
 
-        profiles = new ArrayList<User>();
+        profiles = new ArrayList<>();
 
         myAdapter = new ProfileAdapter(myContext, R.layout.profile_layout, profiles);
         grid.setAdapter(myAdapter);

@@ -19,7 +19,7 @@ public class SituationalActivity extends AppCompatActivity {
 
     private FirebaseDatabase myBase;
     private DatabaseReference dbref;
-    final String[] situations_answers = new String[6];
+    private final String[] situations_answers = new String[6];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +36,7 @@ public class SituationalActivity extends AppCompatActivity {
                 "Ask them to quiet down, but keep going.",
                 "Have a stern talk about noise levels.",
                 "Leave and go to the library."};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, question1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, question1);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner1.setAdapter(adapter);
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -61,7 +61,7 @@ public class SituationalActivity extends AppCompatActivity {
                 "Forgive your roommate if they apologize.",
         "You don’t really care.",
                 "Request that your roommate replace the item."};
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, question2);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, question2);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter);
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -86,7 +86,7 @@ public class SituationalActivity extends AppCompatActivity {
         "Have a talk about staying responsible.",
                 "Clean everything yourself.",
         "Leave it; mess doesn’t bother you."};
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, question3);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, question3);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter);
         spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -111,7 +111,7 @@ public class SituationalActivity extends AppCompatActivity {
                 "Send them a quick text." ,
                 "Mention it over dinner one day." ,
                 "You don’t tell them."};
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, question4);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, question4);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner4.setAdapter(adapter);
         spinner4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -136,7 +136,7 @@ public class SituationalActivity extends AppCompatActivity {
                 "Those are your dishes." ,
                 "Wash all of them, even the ones that are not yours.",
                 "Have a meeting about chore assignments."};
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, question5);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, question5);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner5.setAdapter(adapter);
         spinner5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -161,7 +161,7 @@ public class SituationalActivity extends AppCompatActivity {
                 "Go out partying.",
                 "Invite friends over to chill at your place.",
                 "Scream and break a few things."};
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, question6);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, question6);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner6.setAdapter(adapter);
         spinner6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

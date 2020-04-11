@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:orientation="vertical">
@@ -123,7 +123,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="100dp"
-            android:background="@drawable/roundedbutton"
+            android:background="@drawable/rounded_button"
             android:backgroundTint="#F1B6B8"
             android:onClick="gotoLongAnswer"
             android:text="continue"

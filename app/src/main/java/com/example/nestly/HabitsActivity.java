@@ -1,6 +1,5 @@
 package com.example.nestly;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -13,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -22,7 +20,7 @@ public class HabitsActivity extends AppCompatActivity {
 
     private FirebaseDatabase myBase;
     private DatabaseReference dbref;
-    final String[] habits_answers = new String[11];
+    private final String[] habits_answers = new String[11];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,7 +146,7 @@ public class HabitsActivity extends AppCompatActivity {
         //time spend in room
         final Spinner spinner2 = findViewById(R.id.spinner2);
         Integer[] items = new Integer[]{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
-        ArrayAdapter<Integer> adapter1 = new ArrayAdapter<Integer>(this,android.R.layout.simple_spinner_item, items);
+        ArrayAdapter<Integer> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter1);
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -171,7 +169,7 @@ public class HabitsActivity extends AppCompatActivity {
         //wake up time
         final Spinner spinner3 = findViewById(R.id.spinner3);
         String[] wake_times = new String[]{"4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm"};
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, wake_times);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, wake_times);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner3.setAdapter(adapter2);
         spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -194,7 +192,7 @@ public class HabitsActivity extends AppCompatActivity {
         //sleep time
         final Spinner spinner4 = findViewById(R.id.spinner4);
         String[] sleep_times = new String[]{"8pm", "9pm", "10pm", "11pm", "12am", "1am", "2am", "3am", "4am", "5am", "6am"};
-        ArrayAdapter<String> adapter4 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, sleep_times);
+        ArrayAdapter<String> adapter4 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, sleep_times);
         adapter4.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner4.setAdapter(adapter4);
         spinner4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -217,7 +215,7 @@ public class HabitsActivity extends AppCompatActivity {
         //bring friends
         final Spinner spinner5 = findViewById(R.id.spinner5);
         String [] frequency = new String[]{"1","2","3","5","6","7","8","9","10+"};
-        ArrayAdapter<String> adapter3 = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, frequency);
+        ArrayAdapter<String> adapter3 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, frequency);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner5.setAdapter(adapter3);
         spinner5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

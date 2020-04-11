@@ -74,7 +74,7 @@ public class HabitsFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_habits, container, false);
 
-        Context context = (ViewProfileActivity)getActivity();
+        Context context = getActivity();
 
         myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -87,7 +87,7 @@ public class HabitsFragment extends Fragment {
 
         introvert.setText("I consider myself: " + myPrefs.getString("intro/extrovert", "introvert") + "ed");
         String listActivities = "";
-        Boolean activity = myPrefs.getBoolean("check1", false);
+        boolean activity = myPrefs.getBoolean("check1", false);
         if (activity) {
             listActivities += "do general homework, ";
         }

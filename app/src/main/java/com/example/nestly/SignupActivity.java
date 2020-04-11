@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -53,13 +52,13 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         dbref = myBase.getReference();
 
         //get ids
-        name = (TextView) findViewById(R.id.name_txt);
-        email = (TextView) findViewById(R.id.email);
-        password = (TextView) findViewById(R.id.password);
-        signup = (Button) findViewById(R.id.signup_btn);
-        major = (Spinner) findViewById(R.id.major);
-        year = (Spinner) findViewById(R.id.year);
-        gender = (Spinner) findViewById(R.id.gender);
+        name = findViewById(R.id.name_txt);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
+        signup = findViewById(R.id.signup_btn);
+        major = findViewById(R.id.major);
+        year = findViewById(R.id.year);
+        gender = findViewById(R.id.gender);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,7 +133,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         final String[] majors = {"Major", "Undeclared", "Computer Science","Neuroscience","Political Science",
                 "Mechanical Engineering","International Studies", "Material Science",
                 "Economics","BME","ChemBE", "Public Health","Applied Math","Writing Seminars"};
-        adapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, majors);
+        adapter3 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, majors);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         major.setAdapter(adapter3);
         major.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -161,7 +160,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
 
     }
 
-    public void savePreferences() {
+    private void savePreferences() {
         Context context= getApplicationContext();
         SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor peditor = savePrefs.edit();
@@ -179,7 +178,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
      * Checks if the information inputted is valid
      * @return true if valid, false otherwise
      */
-    public boolean checkValid() {
+    private boolean checkValid() {
         Context context= getApplicationContext();
         SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
         int y = savePrefs.getInt("year_index", -1);
@@ -192,7 +191,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
             Toast.makeText(getBaseContext(),
                     "Missing Name!", Toast.LENGTH_SHORT).show();
             return false;
-        } else if(jhu_email.indexOf("@jhu.edu") < 0) {
+        } else if(!jhu_email.contains("@jhu.edu")) {
             Toast.makeText(getBaseContext(),
                     "Invalid Email!", Toast.LENGTH_SHORT).show();
             return false;

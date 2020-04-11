@@ -74,7 +74,7 @@ public class LongAnswerActivity extends AppCompatActivity {
                 mainUser.setLong_answers(long_answers);
 
                 // add situation_answers
-                List<String> situation_answers = new ArrayList<String>();
+                List<String> situation_answers = new ArrayList<>();
                 for (int i = 1; i <= 6; i++) {
                     String key = "situation" + (i);
                     String value = sp.getString(key, "N/A");

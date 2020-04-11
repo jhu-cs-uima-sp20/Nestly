@@ -21,14 +21,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo"
+        android:contentDescription="LOGO" />
 
     <Button
         android:id="@+id/signup_button"
         android:layout_width="265dp"
         android:layout_height="52dp"
         android:layout_marginTop="80dp"
-        android:background="@drawable/roundedbutton"
+        android:background="@drawable/rounded_button"
         android:backgroundTint="@color/pink"
         android:text="Sign Up"
         android:textColor="@color/white"
@@ -44,7 +45,7 @@
         android:layout_width="265dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:background="@drawable/roundedbutton"
+        android:background="@drawable/rounded_button"
         android:backgroundTint="@color/colorPrimary"
         android:text="Login"
         android:textColor="@color/white"

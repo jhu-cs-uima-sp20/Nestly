@@ -7,7 +7,7 @@
 
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <TextView
@@ -27,7 +27,8 @@
             android:id="@+id/imageView6"
             android:layout_width="40dp"
             android:layout_height="60dp"
-            android:src="@drawable/checked_box" />
+            android:src="@drawable/checked_box"
+            android:contentDescription="Checkbox" />
 
         <TextView
             android:id="@+id/callFriends"
@@ -57,7 +58,8 @@
             android:id="@+id/imageView7"
             android:layout_width="40dp"
             android:layout_height="60dp"
-            android:src="@drawable/checked_box" />
+            android:src="@drawable/checked_box"
+            android:contentDescription="Checkbox" />
 
         <TextView
             android:id="@+id/brokeStuff"
@@ -87,7 +89,8 @@
             android:id="@+id/imageView8"
             android:layout_width="40dp"
             android:layout_height="60dp"
-            android:src="@drawable/checked_box" />
+            android:src="@drawable/checked_box"
+            android:contentDescription="Checkbox" />
 
         <TextView
             android:id="@+id/cleanRoom"
@@ -114,10 +117,11 @@
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/imageView9"
             android:layout_width="40dp"
             android:layout_height="60dp"
-            android:src="@drawable/checked_box" />
+            android:src="@drawable/checked_box"
+            android:contentDescription="Checkbox" />
 
         <TextView
             android:id="@+id/onNerves"
@@ -144,10 +148,11 @@
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/imageView10"
             android:layout_width="40dp"
             android:layout_height="60dp"
-            android:src="@drawable/checked_box" />
+            android:src="@drawable/checked_box"
+            android:contentDescription="Checkbox" />
 
         <TextView
             android:id="@+id/dishes"
@@ -174,10 +179,11 @@
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/imageView11"
             android:layout_width="40dp"
             android:layout_height="60dp"
-            android:src="@drawable/checked_box" />
+            android:src="@drawable/checked_box"
+            android:contentDescription="Checkbox" />
 
         <TextView
             android:id="@+id/badDay"

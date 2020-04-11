@@ -25,8 +25,8 @@ public class StartActivity extends AppCompatActivity {
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
 
-        login = (Button) findViewById(R.id.login_button);
-        signup = (Button) findViewById(R.id.signup_button);
+        login = findViewById(R.id.login_button);
+        signup = findViewById(R.id.signup_button);
 
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
