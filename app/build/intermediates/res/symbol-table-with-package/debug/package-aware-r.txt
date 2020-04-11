@@ -1540,6 +1540,7 @@ id all
 id always
 id async
 id auto
+id badDay
 id barrier
 id beginning
 id bio_btn
@@ -1594,6 +1595,7 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id dishes
 id drawer_layout
 id dropdown_menu
 id editText
@@ -1735,6 +1737,7 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
+id onNerves
 id other
 id outline
 id packed
