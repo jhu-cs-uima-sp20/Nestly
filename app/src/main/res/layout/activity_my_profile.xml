@@ -71,7 +71,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
             <TabWidget
@@ -80,12 +80,13 @@
                 android:layout_height="wrap_content" />
 
             <ScrollView
-                android:layout_height="match_parent"
-                android:layout_width="match_parent">
-            <FrameLayout
-                android:id="@android:id/tabcontent"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <LinearLayout
                         android:id="@+id/tab1"
@@ -102,34 +103,34 @@
                             tools:layout="@layout/fragment_habits" />
                     </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/tab2"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <fragment
-                        android:id="@+id/fragment5"
-                        android:name="com.example.nestly.SituationFragment"
+                    <LinearLayout
+                        android:id="@+id/tab2"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:layout="@layout/fragment_situation" />
-                </LinearLayout>
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/tab3"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                        <fragment
+                            android:id="@+id/fragment5"
+                            android:name="com.example.nestly.SituationFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:layout="@layout/fragment_situation" />
+                    </LinearLayout>
 
-                    <fragment
-                        android:id="@+id/fragment6"
-                        android:name="com.example.nestly.LongAnswerFragment"
+                    <LinearLayout
+                        android:id="@+id/tab3"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        tools:layout="@layout/fragment_long_answer" />
-                </LinearLayout>
-            </FrameLayout>
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <fragment
+                            android:id="@+id/fragment6"
+                            android:name="com.example.nestly.LongAnswerFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            tools:layout="@layout/fragment_long_answer" />
+                    </LinearLayout>
+                </FrameLayout>
             </ScrollView>
         </LinearLayout>
     </TabHost>
