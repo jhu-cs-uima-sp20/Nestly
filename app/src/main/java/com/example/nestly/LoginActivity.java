@@ -66,9 +66,6 @@ public class LoginActivity extends AppCompatActivity {
                     User curUser = new User(username, password);
                     curUser.setName(name);
                     profiles.add(curUser);
-
-                    Toast.makeText(getBaseContext(),
-                            username, Toast.LENGTH_SHORT).show();
                 }
 
 
