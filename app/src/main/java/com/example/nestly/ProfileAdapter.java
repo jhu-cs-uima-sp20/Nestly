@@ -40,6 +40,7 @@ public class ProfileAdapter extends ArrayAdapter<User> {
         }
 
         TextView username = profileView.findViewById(R.id.username);
+        assert curProfile != null;
         username.setText(curProfile.getUsername());
         TextView name = profileView.findViewById(R.id.given_name);
         name.setText(curProfile.getName());

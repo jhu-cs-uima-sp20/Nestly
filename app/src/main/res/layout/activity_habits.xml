@@ -175,7 +175,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="100dp"
-            android:background="@drawable/roundedbutton"
+            android:background="@drawable/rounded_button"
             android:backgroundTint="#B8C8DC"
             android:onClick="gotoSituations"
             android:text="Continue"

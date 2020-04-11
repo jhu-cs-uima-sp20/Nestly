@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:inputType="text|textMultiLine"
-            android:background="@drawable/edittextbackground"
+            android:background="@drawable/edit_text_background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -47,7 +47,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:inputType="text|textMultiLine"
-            android:background="@drawable/edittextbackground"
+            android:background="@drawable/edit_text_background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:inputType="text|textMultiLine"
-            android:background="@drawable/edittextbackground"
+            android:background="@drawable/edit_text_background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -84,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:inputType="text|textMultiLine"
-            android:background="@drawable/edittextbackground"
+            android:background="@drawable/edit_text_background"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,7 +99,7 @@
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:background="@drawable/roundedbutton"
+            android:background="@drawable/rounded_button"
             android:backgroundTint="@color/yellow"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

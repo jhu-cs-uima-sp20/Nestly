@@ -22,7 +22,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:src="@drawable/boy" />
+        tools:src="@drawable/boy"
+        android:contentDescription="TODO" />
 
     <ImageButton
         android:id="@+id/uploadPic"
@@ -35,7 +36,8 @@
         app:layout_constraintBottom_toTopOf="@+id/my_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/profilePic"
-        app:layout_constraintTop_toBottomOf="@+id/profilePic" />
+        app:layout_constraintTop_toBottomOf="@+id/profilePic"
+        android:contentDescription="TODO" />
 
     <ImageButton
         android:id="@+id/bio_btn"
@@ -46,7 +48,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toEndOf="@+id/my_bio"
-        app:layout_constraintTop_toTopOf="@id/my_year" />
+        app:layout_constraintTop_toTopOf="@id/my_year"
+        android:contentDescription="TODO" />
 
     <TextView
         android:id="@+id/my_name"

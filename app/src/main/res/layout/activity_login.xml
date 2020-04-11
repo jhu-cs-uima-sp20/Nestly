@@ -67,13 +67,14 @@
         app:layout_constraintBottom_toTopOf="@+id/username"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="TODO" />
 
     <Button
         android:id="@+id/login_btn"
         android:layout_width="265dp"
         android:layout_height="54dp"
-        android:background="@drawable/roundedbutton"
+        android:background="@drawable/rounded_button"
         android:backgroundTint="@color/colorPrimary"
         android:text="Login"
         android:textColor="@color/white"

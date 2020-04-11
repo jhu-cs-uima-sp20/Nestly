@@ -5,6 +5,7 @@ INJECTED from C:\Users\19236\Downloads\Nestly\app\src\main\AndroidManifest.xml:2
 INJECTED from C:\Users\19236\Downloads\Nestly\app\src\main\AndroidManifest.xml:2:1-78:12
 INJECTED from C:\Users\19236\Downloads\Nestly\app\src\main\AndroidManifest.xml:2:1-78:12
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\19236\.gradle\caches\transforms-2\files-2.1\88b8882e6a15c728169a63194a12dedc\material-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.preference:preference:1.1.0] C:\Users\19236\.gradle\caches\transforms-2\files-2.1\a6ae4030b52671595dfce90719dd71e8\preference-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\19236\.gradle\caches\transforms-2\files-2.1\fb8f7031ef66b8147647717c2aecca12\appcompat-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\19236\.gradle\caches\transforms-2\files-2.1\81a362b35962fa2496d450cbee5c4ecc\constraintlayout-1.1.3\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-database:19.2.1] C:\Users\19236\.gradle\caches\transforms-2\files-2.1\40d203d0674822dbdfc1bb4103e3a3d4\firebase-database-19.2.1\AndroidManifest.xml:15:1-38:12
@@ -254,6 +255,8 @@ INJECTED from C:\Users\19236\Downloads\Nestly\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\19236\Downloads\Nestly\app\src\main\AndroidManifest.xml
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\19236\.gradle\caches\transforms-2\files-2.1\88b8882e6a15c728169a63194a12dedc\material-1.1.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.1.0] C:\Users\19236\.gradle\caches\transforms-2\files-2.1\88b8882e6a15c728169a63194a12dedc\material-1.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.preference:preference:1.1.0] C:\Users\19236\.gradle\caches\transforms-2\files-2.1\a6ae4030b52671595dfce90719dd71e8\preference-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.preference:preference:1.1.0] C:\Users\19236\.gradle\caches\transforms-2\files-2.1\a6ae4030b52671595dfce90719dd71e8\preference-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\19236\.gradle\caches\transforms-2\files-2.1\fb8f7031ef66b8147647717c2aecca12\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\19236\.gradle\caches\transforms-2\files-2.1\fb8f7031ef66b8147647717c2aecca12\appcompat-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] C:\Users\19236\.gradle\caches\transforms-2\files-2.1\81a362b35962fa2496d450cbee5c4ecc\constraintlayout-1.1.3\AndroidManifest.xml:5:5-7:41

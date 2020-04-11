@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -58,6 +58,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
                     HashMap<String, String> curUserMap = (HashMap<String, String>) snap.getValue();
+                    assert curUserMap != null;
                     String username = curUserMap.get("username");
                     String password = curUserMap.get("password");
                     String name = curUserMap.get("name");

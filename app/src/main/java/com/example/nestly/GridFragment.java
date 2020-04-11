@@ -3,7 +3,7 @@ package com.example.nestly;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,8 +62,10 @@ public class GridFragment extends Fragment {
                 myAdapter.notifyDataSetChanged();
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
                     HashMap<String, String> curUserMap = (HashMap<String, String>) snap.getValue();
+                    assert curUserMap != null;
                     String checkUser = curUserMap.get("username");
                     String password = curUserMap.get("password");
+                    assert checkUser != null;
                     if (!checkUser.equals(username)) {
                         profiles.add(new User(checkUser, password));
                     }

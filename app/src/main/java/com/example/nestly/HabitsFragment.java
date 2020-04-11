@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,7 +87,7 @@ public class HabitsFragment extends Fragment {
 
         introvert.setText("I consider myself: " + myPrefs.getString("intro/extrovert", "introvert") + "ed");
         String listActivities = "";
-        Boolean activity = myPrefs.getBoolean("check1", false);
+        boolean activity = myPrefs.getBoolean("check1", false);
         if (activity) {
             listActivities += "do general homework, ";
         }
