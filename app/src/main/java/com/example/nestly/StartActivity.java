@@ -15,7 +15,7 @@ public class StartActivity extends AppCompatActivity {
     private FirebaseDatabase myBase;
     private DatabaseReference dbref;
     private Button login;
-    private Button signup;
+    private Button sign_up;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +26,12 @@ public class StartActivity extends AppCompatActivity {
         dbref = myBase.getReference();
 
         login = findViewById(R.id.login_button);
-        signup = findViewById(R.id.signup_button);
+        sign_up = findViewById(R.id.signup_button);
 
-        signup.setOnClickListener(new View.OnClickListener() {
+        sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent signup_intent = new Intent(getApplicationContext(), SignupActivity.class);
+                Intent signup_intent = new Intent(getApplicationContext(), SignUpActivity.class);
                 startActivity(signup_intent);
             }
         });

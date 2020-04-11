@@ -18,11 +18,11 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class SignupActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class SignUpActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private TextView name;
     private TextView email;
     private TextView password;
-    private Button signup;
+    private Button sign_up;
     private Spinner major;
     private Spinner year;
     private Spinner gender;
@@ -41,7 +41,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        setTitle("Signup");
+        setTitle("SignUp");
 
         checkedYear = false;
         checkedMajor = false;
@@ -55,12 +55,12 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         name = findViewById(R.id.name_txt);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
-        signup = findViewById(R.id.signup_btn);
+        sign_up = findViewById(R.id.signup_btn);
         major = findViewById(R.id.major);
         year = findViewById(R.id.year);
         gender = findViewById(R.id.gender);
 
-        signup.setOnClickListener(new View.OnClickListener() {
+        sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (!checkValid())
@@ -86,14 +86,14 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Context context= getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-                SharedPreferences.Editor peditor = savePrefs.edit();
+                SharedPreferences.Editor p_editor = savePrefs.edit();
                 if (position > 0)
                     checkedYear = true;
                 else
                     return;
-                peditor.putString("year", years[position]);
-                peditor.putInt("year_index", position);
-                peditor.commit();
+                p_editor.putString("year", years[position]);
+                p_editor.putInt("year_index", position);
+                p_editor.commit();
             }
 
             @Override
@@ -165,7 +165,7 @@ public class SignupActivity extends AppCompatActivity implements AdapterView.OnI
         SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor peditor = savePrefs.edit();
         String user = email.getText().toString();
-        String pswd = password.getText().toString();
+        String pass = password.getText().toString();
         String myName = name.getText().toString();
 
         peditor.putString("name", myName);

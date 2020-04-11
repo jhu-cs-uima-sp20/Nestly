@@ -56,10 +56,10 @@
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".SignupActivity" />
+                android:value=".SignUpActivity" />
         </activity>
         <activity
-            android:name="com.example.nestly.SignupActivity"
+            android:name="com.example.nestly.SignUpActivity"
             android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

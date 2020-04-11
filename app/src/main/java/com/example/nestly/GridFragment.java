@@ -47,7 +47,7 @@ public class GridFragment extends Fragment {
 
         profiles = new ArrayList<>();
 
-        // Firebase database and references
+        // FireBase database and references
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
         profilesRef = dbref.child("profiles");

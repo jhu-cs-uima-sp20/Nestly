@@ -30,9 +30,9 @@ public class EditBioActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Context context= getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-                SharedPreferences.Editor peditor = savePrefs.edit();
-                peditor.putString("bio", bio.getText().toString());
-                peditor.commit();
+                SharedPreferences.Editor p_editor = savePrefs.edit();
+                p_editor.putString("bio", bio.getText().toString());
+                p_editor.commit();
                 EditBioActivity.super.onBackPressed();
             }
         });

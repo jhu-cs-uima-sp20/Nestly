@@ -97,12 +97,12 @@ public class MainActivity extends AppCompatActivity
             tr.commit();
         }
         else if (myID == R.id.logout_tab) {
-            SharedPreferences.Editor peditor = myPrefs.edit();
-            peditor.putBoolean("loggedIn", false);
-            peditor.putString("name", null);
-            peditor.putString("email", null);
-            peditor.putString("password", null);
-            peditor.commit();
+            SharedPreferences.Editor p_editor = myPrefs.edit();
+            p_editor.putBoolean("loggedIn", false);
+            p_editor.putString("name", null);
+            p_editor.putString("email", null);
+            p_editor.putString("password", null);
+            p_editor.commit();
             startActivity(new Intent(this, StartActivity.class));
         }
         else if (myID == R.id.hide_acc_tab) {

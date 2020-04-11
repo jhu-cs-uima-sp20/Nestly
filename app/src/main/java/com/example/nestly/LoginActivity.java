@@ -90,12 +90,12 @@ public class LoginActivity extends AppCompatActivity {
 
                                     SharedPreferences savePrefs =
                                             PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                                    SharedPreferences.Editor peditor = savePrefs.edit();
-                                    peditor.putString("name", u.getName());
-                                    peditor.putString("email", u.getUsername());
-                                    peditor.putString("password", u.getPassword());
-                                    peditor.putBoolean("loggedIn", true);
-                                    peditor.commit();
+                                    SharedPreferences.Editor p_editor = savePrefs.edit();
+                                    p_editor.putString("name", u.getName());
+                                    p_editor.putString("email", u.getUsername());
+                                    p_editor.putString("password", u.getPassword());
+                                    p_editor.putBoolean("loggedIn", true);
+                                    p_editor.commit();
 
                                     Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(main_intent);
@@ -139,13 +139,13 @@ public class LoginActivity extends AppCompatActivity {
      * @return true if valid, false otherwise
      */
     public boolean checkFields() {
-        String emailtxt = username.getText().toString();
-        String pswd = password.getText().toString();
-        if (!emailtxt.contains("@jhu.edu")) {
+        String emailText = username.getText().toString();
+        String pass = password.getText().toString();
+        if (!emailText.contains("@jhu.edu")) {
             Toast.makeText(getBaseContext(),
                     "Invalid Email!", Toast.LENGTH_SHORT).show();
             return false;
-        } else if (pswd.length() < 1) {
+        } else if (pass.length() < 1) {
             // needs to be changed later for verification
             // rn only error that occurs is if password field is empty
             Toast.makeText(getBaseContext(),

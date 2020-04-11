@@ -55,21 +55,21 @@ public class LongAnswerActivity extends AppCompatActivity {
 
                 // Go to profile grid, set boolean for being logged in
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                SharedPreferences.Editor peditor = sp.edit();
-                peditor.putBoolean("loggedIn", true);
+                SharedPreferences.Editor p_editor = sp.edit();
+                p_editor.putBoolean("loggedIn", true);
 
                 // put answers in SharedPreferences
-                peditor.putString("longAnswer1", long_answers.get(0));
-                peditor.putString("longAnswer2", long_answers.get(1));
-                peditor.putString("longAnswer3", long_answers.get(2));
-                peditor.putString("longAnswer4", long_answers.get(3));
-                peditor.commit();
+                p_editor.putString("longAnswer1", long_answers.get(0));
+                p_editor.putString("longAnswer2", long_answers.get(1));
+                p_editor.putString("longAnswer3", long_answers.get(2));
+                p_editor.putString("longAnswer4", long_answers.get(3));
+                p_editor.commit();
 
-                // add user to firebase
+                // add user to FireBase
                 String user = sp.getString("email", "ERROR");
-                String pswd = sp.getString("password", "ERROR");
+                String pass = sp.getString("password", "ERROR");
                 String myName = sp.getString("name", "ERROR");
-                User mainUser = new User(user, pswd);
+                User mainUser = new User(user, pass);
                 mainUser.setName(myName);
                 mainUser.setLong_answers(long_answers);
 
@@ -99,7 +99,7 @@ public class LongAnswerActivity extends AppCompatActivity {
                 habit_answers.add(sp.getString("bring_friends", "1"));
                 mainUser.setHabits_answers(habit_answers);
 
-                // add to firebase
+                // add to FireBase
                 DatabaseReference profilesRef = dbref.child("profiles").push();
                 // make child with key username, make its value the User class
                 profilesRef.setValue(mainUser);
@@ -116,9 +116,9 @@ public class LongAnswerActivity extends AppCompatActivity {
 
         SharedPreferences myPrefs =
                 PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        SharedPreferences.Editor peditor = myPrefs.edit();
-        peditor.putBoolean("loggedIn", true);
-        peditor.commit();
+        SharedPreferences.Editor p_editor = myPrefs.edit();
+        p_editor.putBoolean("loggedIn", true);
+        p_editor.commit();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

@@ -104,12 +104,12 @@
 57-->C:\Users\19236\Downloads\Nestly\app\src\main\AndroidManifest.xml:16:13-18:54
 58                android:name="android.support.PARENT_ACTIVITY"
 58-->C:\Users\19236\Downloads\Nestly\app\src\main\AndroidManifest.xml:17:17-63
-59                android:value=".SignupActivity" />
+59                android:value=".SignUpActivity" />
 59-->C:\Users\19236\Downloads\Nestly\app\src\main\AndroidManifest.xml:18:17-51
 60        </activity>
 61        <activity
 61-->C:\Users\19236\Downloads\Nestly\app\src\main\AndroidManifest.xml:45:9-51:20
-62            android:name="com.example.nestly.SignupActivity"
+62            android:name="com.example.nestly.SignUpActivity"
 62-->C:\Users\19236\Downloads\Nestly\app\src\main\AndroidManifest.xml:46:13-43
 63            android:screenOrientation="portrait" >
 63-->C:\Users\19236\Downloads\Nestly\app\src\main\AndroidManifest.xml:47:13-49

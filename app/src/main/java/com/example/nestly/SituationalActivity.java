@@ -44,9 +44,9 @@ public class SituationalActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 situations_answers[0]=spinner1.getSelectedItem().toString();
                 SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                SharedPreferences.Editor peditor = sp.edit();
-                peditor.putString("situation1", situations_answers[0]);
-                peditor.commit();
+                SharedPreferences.Editor p_editor = sp.edit();
+                p_editor.putString("situation1", situations_answers[0]);
+                p_editor.commit();
             }
 
             @Override

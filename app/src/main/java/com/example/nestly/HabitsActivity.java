@@ -46,9 +46,9 @@ public class HabitsActivity extends AppCompatActivity {
                 habits_answers[0]=spinner.getSelectedItem().toString();
                 Context context= getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-                SharedPreferences.Editor peditor = savePrefs.edit();
-                peditor.putString("intro/extrovert", habits_answers[0]);
-                peditor.commit();
+                SharedPreferences.Editor p_editor = savePrefs.edit();
+                p_editor.putString("intro/extrovert", habits_answers[0]);
+                p_editor.commit();
             }
 
             @Override
@@ -65,9 +65,9 @@ public class HabitsActivity extends AppCompatActivity {
                 if(cb1.isChecked()) {
                     Context context= getApplicationContext();
                     SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    SharedPreferences.Editor peditor = savePrefs.edit();
-                    peditor.putBoolean("check1", true);
-                    peditor.commit();
+                    SharedPreferences.Editor p_editor = savePrefs.edit();
+                    p_editor.putBoolean("check1", true);
+                    p_editor.commit();
                     habits_answers[1]=0+"";
                 }
             }
@@ -79,9 +79,9 @@ public class HabitsActivity extends AppCompatActivity {
                 if(cb2.isChecked()) {
                     Context context= getApplicationContext();
                     SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    SharedPreferences.Editor peditor = savePrefs.edit();
-                    peditor.putBoolean("check2", true);
-                    peditor.commit();
+                    SharedPreferences.Editor p_editor = savePrefs.edit();
+                    p_editor.putBoolean("check2", true);
+                    p_editor.commit();
                     habits_answers[2]=0+"";
                 }
             }
@@ -93,9 +93,9 @@ public class HabitsActivity extends AppCompatActivity {
                 if(cb3.isChecked()) {
                     Context context= getApplicationContext();
                     SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    SharedPreferences.Editor peditor = savePrefs.edit();
-                    peditor.putBoolean("check3", true);
-                    peditor.commit();
+                    SharedPreferences.Editor p_editor = savePrefs.edit();
+                    p_editor.putBoolean("check3", true);
+                    p_editor.commit();
                     habits_answers[3]=0+"";
                 }
             }
@@ -107,9 +107,9 @@ public class HabitsActivity extends AppCompatActivity {
                 if(cb4.isChecked()) {
                     Context context= getApplicationContext();
                     SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    SharedPreferences.Editor peditor = savePrefs.edit();
-                    peditor.putBoolean("check4", true);
-                    peditor.commit();
+                    SharedPreferences.Editor p_editor = savePrefs.edit();
+                    p_editor.putBoolean("check4", true);
+                    p_editor.commit();
                     habits_answers[4]=0+"";
                 }
             }
@@ -121,9 +121,9 @@ public class HabitsActivity extends AppCompatActivity {
                 if(cb5.isChecked()) {
                     Context context= getApplicationContext();
                     SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    SharedPreferences.Editor peditor = savePrefs.edit();
-                    peditor.putBoolean("check5", true);
-                    peditor.commit();
+                    SharedPreferences.Editor p_editor = savePrefs.edit();
+                    p_editor.putBoolean("check5", true);
+                    p_editor.commit();
                     habits_answers[5]=0+"";
                 }
             }
@@ -135,9 +135,9 @@ public class HabitsActivity extends AppCompatActivity {
                 if(cb6.isChecked()) {
                     Context context= getApplicationContext();
                     SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    SharedPreferences.Editor peditor = savePrefs.edit();
-                    peditor.putBoolean("check6", true);
-                    peditor.commit();
+                    SharedPreferences.Editor p_editor = savePrefs.edit();
+                    p_editor.putBoolean("check6", true);
+                    p_editor.commit();
                     habits_answers[6]=0+"";
                 }
             }
@@ -155,9 +155,9 @@ public class HabitsActivity extends AppCompatActivity {
                 habits_answers[7] = spinner2.getSelectedItem().toString();
                 Context context= getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-                SharedPreferences.Editor peditor = savePrefs.edit();
-                peditor.putString("room_time", habits_answers[7]);
-                peditor.commit();
+                SharedPreferences.Editor p_editor = savePrefs.edit();
+                p_editor.putString("room_time", habits_answers[7]);
+                p_editor.commit();
             }
 
             @Override
@@ -178,9 +178,9 @@ public class HabitsActivity extends AppCompatActivity {
                habits_answers[8]= spinner3.getSelectedItem().toString();
                 Context context= getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-                SharedPreferences.Editor peditor = savePrefs.edit();
-                peditor.putString("wakeUp_time", habits_answers[8]);
-                peditor.commit();
+                SharedPreferences.Editor p_editor = savePrefs.edit();
+                p_editor.putString("wakeUp_time", habits_answers[8]);
+                p_editor.commit();
             }
 
             @Override
@@ -201,9 +201,9 @@ public class HabitsActivity extends AppCompatActivity {
                 habits_answers[9]=spinner4.getSelectedItem().toString();
                 Context context= getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-                SharedPreferences.Editor peditor = savePrefs.edit();
-                peditor.putString("sleep_time", habits_answers[9]);
-                peditor.commit();
+                SharedPreferences.Editor p_editor = savePrefs.edit();
+                p_editor.putString("sleep_time", habits_answers[9]);
+                p_editor.commit();
             }
 
             @Override
@@ -224,9 +224,9 @@ public class HabitsActivity extends AppCompatActivity {
                 habits_answers[10]=spinner5.getSelectedItem().toString();
                 Context context= getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-                SharedPreferences.Editor peditor = savePrefs.edit();
-                peditor.putString("bring_friends", habits_answers[10]);
-                peditor.commit();
+                SharedPreferences.Editor p_editor = savePrefs.edit();
+                p_editor.putString("bring_friends", habits_answers[10]);
+                p_editor.commit();
             }
 
             @Override

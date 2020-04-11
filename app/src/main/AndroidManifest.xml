@@ -40,10 +40,10 @@
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".SignupActivity" />
+                android:value=".SignUpActivity" />
         </activity>
         <activity
-            android:name=".SignupActivity"
+            android:name=".SignUpActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
