@@ -14,6 +14,9 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LongAnswerActivity extends AppCompatActivity {
 
     private FirebaseDatabase myBase;
@@ -28,20 +31,20 @@ public class LongAnswerActivity extends AppCompatActivity {
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
 
-        final String [] long_answers = new String[4];
+        final List<String> long_answers = new ArrayList<>();
 
         Button button = findViewById(R.id.long_answer_finish);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EditText editText1 = findViewById(R.id.long_answer1);
-                long_answers[0]=editText1.getText().toString();
+                long_answers.add(editText1.getText().toString());
                 EditText editText2 = findViewById(R.id.long_answer2);
-                long_answers[1]=editText2.getText().toString();
+                long_answers.add(editText2.getText().toString());
                 EditText editText3 = findViewById(R.id.long_answer3);
-                long_answers[2]=editText3.getText().toString();
+                long_answers.add(editText3.getText().toString());
                 EditText editText4 = findViewById(R.id.long_answer4);
-                long_answers[3]=editText4.getText().toString();
+                long_answers.add(editText4.getText().toString());
 
                 for(String s: long_answers) {
                     if(s.equals("")) {
@@ -56,10 +59,10 @@ public class LongAnswerActivity extends AppCompatActivity {
                 peditor.putBoolean("loggedIn", true);
 
                 // put answers in SharedPreferences
-                peditor.putString("longAnswer1", long_answers[0]);
-                peditor.putString("longAnswer2", long_answers[1]);
-                peditor.putString("longAnswer3", long_answers[2]);
-                peditor.putString("longAnswer4", long_answers[3]);
+                peditor.putString("longAnswer1", long_answers.get(0));
+                peditor.putString("longAnswer2", long_answers.get(1));
+                peditor.putString("longAnswer3", long_answers.get(2));
+                peditor.putString("longAnswer4", long_answers.get(3));
                 peditor.commit();
 
                 // add user to firebase
@@ -71,29 +74,29 @@ public class LongAnswerActivity extends AppCompatActivity {
                 mainUser.setLong_answers(long_answers);
 
                 // add situation_answers
-                String[] situation_answers = new String[6];
-                for (int i = 0; i < situation_answers.length; i++) {
-                    String key = "situation" + (i+1);
+                List<String> situation_answers = new ArrayList<String>();
+                for (int i = 1; i <= 6; i++) {
+                    String key = "situation" + (i);
                     String value = sp.getString(key, "N/A");
-                    situation_answers[i] = value;
+                    situation_answers.add(value);
                 }
                 mainUser.setSituations_answers(situation_answers);
 
                 // add habit answers
-                String[] habit_answers = new String[11];
-                habit_answers[0] = sp.getString("intro/extrovert", "Both");
+                List<String> habit_answers = new ArrayList<>();
+                habit_answers.add(sp.getString("intro/extrovert", "Both"));
                 for (int i = 1; i <= 6; i++) {
                     String key = "check" + i;
                      if(sp.getBoolean(key, false)){
-                         habit_answers[i] = "checked";
+                         habit_answers.add("checked");
                      } else {
-                         habit_answers[i] = "unchecked";
+                         habit_answers.add("unchecked");
                      }
                 }
-                habit_answers[7] = sp.getString("room_time", "5");
-                habit_answers[8] = sp.getString("wakeUp_time", "8am");
-                habit_answers[9] = sp.getString("sleep_time", "11pm");
-                habit_answers[10] = sp.getString("bring_friends", "1");
+                habit_answers.add(sp.getString("room_time", "5"));
+                habit_answers.add(sp.getString("wakeUp_time", "8am"));
+                habit_answers.add(sp.getString("sleep_time", "11pm"));
+                habit_answers.add(sp.getString("bring_friends", "1"));
                 mainUser.setHabits_answers(habit_answers);
 
                 // add to firebase
