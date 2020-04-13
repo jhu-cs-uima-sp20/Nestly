@@ -1,5 +1,6 @@
 package com.example.nestly;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -15,8 +16,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     private TextView name;
@@ -37,6 +44,43 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
     private FirebaseDatabase myBase;
     private DatabaseReference dbref;
 
+    private DatabaseReference profilesRef;
+    private ValueEventListener listener;
+
+    /*
+     * Checks if the information inputted is valid
+     * @return true if valid, false otherwise
+     */
+    public boolean checkValid() {
+        Context context = getApplicationContext();
+        SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int y = savePrefs.getInt("year_index", -1);
+        int m = savePrefs.getInt("major_index", -1);
+        int g = savePrefs.getInt("gender_index", -1);
+        String name_text = name.getText().toString();
+        String jhu_email = email.getText().toString();
+        String pass = password.getText().toString();
+        if (name_text.length() == 0) {
+            Toast.makeText(getBaseContext(),
+                    "Missing Name!", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (!jhu_email.contains("@jhu.edu")) {
+            Toast.makeText(getBaseContext(),
+                    "Invalid Email!", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (pass.length() == 0) {
+            Toast.makeText(getBaseContext(),
+                    "Please Enter Password!", Toast.LENGTH_SHORT).show();
+            return false;
+        } else if (!checkedGender || !checkedMajor || !checkedYear) {
+            Toast.makeText(getBaseContext(),
+                    "Fields Missing!", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +94,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         // Firebase database and reference
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
+        profilesRef = dbref.child("profiles");
 
         //get ids
         name = findViewById(R.id.name_txt);
@@ -60,23 +105,60 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         year = findViewById(R.id.year);
         gender = findViewById(R.id.gender);
 
-        sign_up.setOnClickListener(new View.OnClickListener() {
+
+        listener = new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                if (!checkValid())
-                    return;
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                // add to firebase
-                savePreferences();
+                final ArrayList<User> profiles = new ArrayList<>();
 
-                // move to habits portion of the quiz
-                Intent habits_intent = new Intent(getApplicationContext(), HabitsActivity.class);
-                startActivity(habits_intent);
+                for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                    HashMap<String, String> curUserMap = (HashMap<String, String>) snap.getValue();
+                    assert curUserMap != null;
+                    String username = curUserMap.get("username");
+                    String password = curUserMap.get("password");
+                    String name = curUserMap.get("name");
+                    User curUser = new User(username, password);
+                    curUser.setName(name);
+                    profiles.add(curUser);
+                }
+
+                sign_up.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (!checkValid()) {
+                            return;
+                        }
+
+                        for (User u : profiles) {
+                            if (u.getUsername().equals(email.getText().toString())) {
+                                Toast.makeText(getApplicationContext(),
+                                        "Account already exists for this email!", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                        }
+
+                        // add to firebase
+                        savePreferences();
+
+                        // move to habits portion of the quiz
+                        Intent habits_intent = new Intent(getApplicationContext(), HabitsActivity.class);
+                        startActivity(habits_intent);
+                    }
+                });
             }
-        });
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+
+        profilesRef.addListenerForSingleValueEvent(listener);
+
 
         //set up year spinner
-        final String[] years = new String[]{"","2023", "2022", "2021", "2020"};
+        final String[] years = new String[]{"", "2023", "2022", "2021", "2020"};
         adapter1 = ArrayAdapter.createFromResource(this,
                 R.array.year_options, android.R.layout.simple_spinner_dropdown_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -84,7 +166,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         year.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Context context= getApplicationContext();
+                Context context = getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor p_editor = savePrefs.edit();
                 if (position > 0)
@@ -110,7 +192,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         gender.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Context context= getApplicationContext();
+                Context context = getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor peditor = savePrefs.edit();
 
@@ -130,16 +212,16 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         });
 
         // set up major spinner
-        final String[] majors = {"Major", "Undeclared", "Computer Science","Neuroscience","Political Science",
-                "Mechanical Engineering","International Studies", "Material Science",
-                "Economics","BME","ChemBE", "Public Health","Applied Math","Writing Seminars"};
+        final String[] majors = {"Major", "Undeclared", "Computer Science", "Neuroscience", "Political Science",
+                "Mechanical Engineering", "International Studies", "Material Science",
+                "Economics", "BME", "ChemBE", "Public Health", "Applied Math", "Writing Seminars"};
         adapter3 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, majors);
         adapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         major.setAdapter(adapter3);
         major.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Context context= getApplicationContext();
+                Context context = getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor peditor = savePrefs.edit();
                 if (position > 0)
@@ -161,7 +243,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     public void savePreferences() {
-        Context context= getApplicationContext();
+        Context context = getApplicationContext();
         SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor peditor = savePrefs.edit();
         String user = email.getText().toString();
@@ -174,46 +256,15 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         peditor.commit();
     }
 
-    /*
-     * Checks if the information inputted is valid
-     * @return true if valid, false otherwise
-     */
-    public boolean checkValid() {
-        Context context= getApplicationContext();
-        SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        int y = savePrefs.getInt("year_index", -1);
-        int m = savePrefs.getInt("major_index", -1);
-        int g = savePrefs.getInt("gender_index", -1);
-        String name_text = name.getText().toString();
-        String jhu_email = email.getText().toString();
-        String pass = password.getText().toString();
-        if (name_text.length() == 0) {
-            Toast.makeText(getBaseContext(),
-                    "Missing Name!", Toast.LENGTH_SHORT).show();
-            return false;
-        } else if(!jhu_email.contains("@jhu.edu")) {
-            Toast.makeText(getBaseContext(),
-                    "Invalid Email!", Toast.LENGTH_SHORT).show();
-            return false;
-        } else if (pass.length() == 0) {
-            Toast.makeText(getBaseContext(),
-                    "Please Enter Password!", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        else if (!checkedGender || !checkedMajor || !checkedYear) {
-            Toast.makeText(getBaseContext(),
-                    "Fields Missing!", Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        return true;
-    }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view,
-                               int pos, long id) { }
+                               int pos, long id) {
+    }
 
     @Override
-    public void onNothingSelected(AdapterView<?> adapterView) { }
+    public void onNothingSelected(AdapterView<?> adapterView) {
+    }
 
 
 }

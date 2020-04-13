@@ -40,8 +40,6 @@ public class LoginActivity extends AppCompatActivity {
 
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
-        myBase = FirebaseDatabase.getInstance();
-        dbref = myBase.getReference();
         profilesRef = dbref.child("profiles");
 
 
