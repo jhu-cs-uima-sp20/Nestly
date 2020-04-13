@@ -8,12 +8,14 @@ class User {
     private List<String> habits_answers;
     private List<String> situations_answers;
     private List<String> long_answers;
+    private boolean hidden;
 
     private String name;
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
+        hidden=false;
     }
 
     public String getUsername() {
@@ -47,4 +49,8 @@ class User {
     public List<String> getLong_answers() {
         return long_answers;
     }
+
+    public boolean isHidden() {return hidden; }
+
+    public void setHidden() { hidden=true; }
 }
