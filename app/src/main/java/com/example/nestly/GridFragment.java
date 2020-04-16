@@ -36,6 +36,7 @@ public class GridFragment extends Fragment {
     private ArrayList<User> profiles;
 
     private String username;
+    private String year;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,7 +56,7 @@ public class GridFragment extends Fragment {
         SharedPreferences myPrefs =
                 PreferenceManager.getDefaultSharedPreferences(myContext.getApplicationContext());
         username = myPrefs.getString("email", "uh oh");
-
+        year = myPrefs.getString("year","uh oh");
 
         listener = new ValueEventListener() {
             @Override
@@ -67,10 +68,11 @@ public class GridFragment extends Fragment {
                     String checkUser = curUserMap.get("username");
                     String password = curUserMap.get("password");
                     String hidden = curUserMap.get("hidden");
+                    String userYear = curUserMap.get("year");
                     assert checkUser != null;
                     if (hidden == null)
                         hidden = "false";
-                    if (!checkUser.equals(username) && !hidden.equals(false)) {
+                    if (!checkUser.equals(username) && !hidden.equals(false) && userYear == year) {
                         profiles.add(new User(checkUser, password));
                     }
                 }
