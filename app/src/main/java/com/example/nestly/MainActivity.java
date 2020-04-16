@@ -83,7 +83,10 @@ public class MainActivity extends AppCompatActivity
         int myID = item.getItemId();
         FragmentTransaction tr = getSupportFragmentManager().beginTransaction();
         if (myID == R.id.home_tab) {
-            // Do nothing
+            GridFragment myGridFrag = new GridFragment();
+            tr.replace(R.id.home_frag, myGridFrag);
+            tr.addToBackStack(null);
+            tr.commit();
         }
         else if (myID == R.id.my_profile_tab) {
             startActivity(new Intent(this, MyProfileActivity.class));
