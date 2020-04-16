@@ -1532,6 +1532,7 @@ drawable preference_list_divider_material
 drawable rounded_button
 drawable search_icon
 drawable side_nav_bar
+drawable sort
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -1731,6 +1732,7 @@ id imageView5
 id imageView9
 id inTheRoom
 id info
+id intro_extro_vert
 id introvert
 id invisible
 id italic
@@ -1817,6 +1819,7 @@ id parent_matrix
 id password
 id password_toggle
 id peekHeight
+id people_over
 id percent
 id percent_val
 id pin
@@ -1828,6 +1831,7 @@ id recycler_view
 id right
 id right_icon
 id right_side
+id room_use
 id rounded
 id s_spinner1
 id s_spinner2
@@ -1851,7 +1855,6 @@ id search_button
 id search_close_btn
 id search_edit_frame
 id search_go_btn
-id search_icon
 id search_mag_icon
 id search_plate
 id search_src_text
@@ -1867,8 +1870,10 @@ id showTitle
 id signup_btn
 id signup_button
 id situation_continue
+id situations
 id skipCollapsed
 id sleep
+id sleep_time
 id slide
 id smallLabel
 id snackbar_action
@@ -1925,6 +1930,7 @@ id textinput_error
 id textinput_helper_text
 id time
 id timeSpent
+id time_spent
 id title
 id titleDividerNoCustom
 id title_template
@@ -1953,6 +1959,7 @@ id view_year
 id visible
 id visible_removing_fragment_view_tag
 id wakeUp
+id wake_time
 id wide
 id withText
 id worstHabit

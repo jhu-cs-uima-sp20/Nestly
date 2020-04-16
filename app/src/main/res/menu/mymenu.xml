@@ -3,17 +3,48 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
-    <item
-        android:id="@+id/search_icon"
-        android:title=""
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/search_icon"
-        />
 
     <item
         android:id="@+id/filter_icon"
+        android:icon="@drawable/sort"
+        android:orderInCategory="100"
         android:title=""
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/filter_icon"
-        />
+        app:showAsAction="always" >
+        <menu>
+            <item
+                android:id="@+id/none"
+                android:title="None"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/intro_extro_vert"
+                android:title="Intro/Extrovert"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/room_use"
+                android:title="Room Use"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/sleep_time"
+                android:title="Sleep Time"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/wake_time"
+                android:title="Wake Time"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/time_spent"
+                android:title="Time in Dorm"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/people_over"
+                android:title="People Over"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/situations"
+                android:title="Situations"
+                app:showAsAction="never" />
+        </menu>
+
+    </item>
 </menu>

@@ -8,6 +8,7 @@ class User {
     private List<String> habits_answers;
     private List<String> situations_answers;
     private List<String> long_answers;
+    private List<String> blocked;
     private boolean hidden;
 
     private String name;
@@ -52,5 +53,5 @@ class User {
 
     public boolean isHidden() {return hidden; }
 
-    public void setHidden() { hidden=true; }
+    public void setHidden() { hidden = true; }
 }
