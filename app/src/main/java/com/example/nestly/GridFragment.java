@@ -56,6 +56,7 @@ public class GridFragment extends Fragment {
                 PreferenceManager.getDefaultSharedPreferences(myContext.getApplicationContext());
         username = myPrefs.getString("email", "uh oh");
 
+
         listener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

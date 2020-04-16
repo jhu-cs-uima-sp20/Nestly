@@ -5,6 +5,9 @@ import java.util.List;
 class User {
     final private String username;
     final private String password;
+    private String year;
+    private String major;
+    private String gender;
     private List<String> habits_answers;
     private List<String> situations_answers;
     private List<String> long_answers;
@@ -32,6 +35,18 @@ class User {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setYear(String year) { this.year=year; }
+
+    public String getYear() { return year; }
+
+    public String getMajor() { return major; }
+
+    public String getGender() { return gender; }
+
+    public void setMajor(String major) { this.major=major; }
+
+    public void setGender(String gender) { this.gender=gender; }
 
     public void setHabits_answers(List<String> habits_answers) { this.habits_answers = habits_answers; }
 
