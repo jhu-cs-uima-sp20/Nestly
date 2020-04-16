@@ -133,12 +133,16 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        if (id == R.id.none) {
+            //do nothing
+        } else if (id == R.id.sleep_time) {
+            //do something
+        } else if (id == R.id.wake_time) {
+            //sort by wake time
+        } else if (id == R.id.situations) {
 
-        if (id == R.id.search_icon) {
-            // do something here
-        }
-        else if (id == R.id.filter_icon) {
-            // do something here
+        } else if (id == R.id.time_spent) {
+
         }
         return super.onOptionsItemSelected(item);
     }
