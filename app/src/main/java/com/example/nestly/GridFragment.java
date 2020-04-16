@@ -65,8 +65,11 @@ public class GridFragment extends Fragment {
                     assert curUserMap != null;
                     String checkUser = curUserMap.get("username");
                     String password = curUserMap.get("password");
+                    String hidden = curUserMap.get("hidden");
                     assert checkUser != null;
-                    if (!checkUser.equals(username)) {
+                    if (hidden == null)
+                        hidden = "false";
+                    if (!checkUser.equals(username) && !hidden.equals("false")) {
                         profiles.add(new User(checkUser, password));
                     }
                 }
