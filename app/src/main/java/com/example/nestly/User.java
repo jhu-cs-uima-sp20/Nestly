@@ -69,4 +69,10 @@ class User {
     public boolean isHidden() {return hidden; }
 
     public void setHidden() { hidden = true; }
+
+    public List<String> getBlocked(){ return blocked; }
+
+    public void addBlock(String name){blocked.add(name);}
+
+    public void deleteBlock(String name) { blocked.remove(name); }
 }
