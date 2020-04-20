@@ -245,15 +245,22 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
     public void savePreferences() {
         Context context = getApplicationContext();
         SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor peditor = savePrefs.edit();
+        SharedPreferences.Editor p_editor = savePrefs.edit();
         String user = email.getText().toString();
         String pass = password.getText().toString();
         String myName = name.getText().toString();
+        String myYear = year.getSelectedItem().toString();
+        String myGender = gender.getSelectedItem().toString();
+        String myMajor = major.getSelectedItem().toString();
 
-        peditor.putString("name", myName);
-        peditor.putString("email", email.getText().toString());
-        peditor.putString("password", password.getText().toString());
-        peditor.commit();
+
+        p_editor.putString("name", myName);
+        p_editor.putString("email", email.getText().toString());
+        p_editor.putString("password", password.getText().toString());
+        p_editor.putString("year",myYear);
+        p_editor.putString("gender",myGender);
+        p_editor.putString("major",myMajor);
+        p_editor.commit();
     }
 
 

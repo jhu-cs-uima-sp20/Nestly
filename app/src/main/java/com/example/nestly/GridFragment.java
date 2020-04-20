@@ -72,8 +72,15 @@ public class GridFragment extends Fragment {
                     assert checkUser != null;
                     if (hidden == null)
                         hidden = "false";
-                    if (!checkUser.equals(username) && !hidden.equals(false) && userYear == year) {
-                        profiles.add(new User(checkUser, password));
+                    if (!checkUser.equals(username) && !hidden.equals(false)) {
+                        if(year=="Junior" || year == "Senior") {
+                            if(userYear=="Junior" || userYear=="Senior") {
+                                profiles.add(new User(checkUser, password));
+                            }
+                        }
+                        else if(year.equals(userYear)) {
+                            profiles.add(new User(checkUser, password));
+                        }
                     }
                 }
             }

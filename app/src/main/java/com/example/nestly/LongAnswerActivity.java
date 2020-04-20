@@ -99,6 +99,11 @@ public class LongAnswerActivity extends AppCompatActivity {
                 habit_answers.add(sp.getString("bring_friends", "1"));
                 mainUser.setHabits_answers(habit_answers);
 
+                //add year, gender, major
+                mainUser.setGender(sp.getString("gender","oops"));
+                mainUser.setMajor(sp.getString("major","oops"));
+                mainUser.setYear(sp.getString("year","oops"));
+
                 // add to FireBase
                 DatabaseReference profilesRef = dbref.child("profiles").push();
                 // make child with key username, make its value the User class
