@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -114,6 +116,11 @@ public class MainActivity extends AppCompatActivity
         else if (myID == R.id.delete_acc_tab) {
             String email = myPrefs.getString("email", "ERROR");
             // Remove this account from firebase
+
+            String jhed = email.substring(0, email.indexOf('@'));
+            DatabaseReference myAcc =
+                    FirebaseDatabase.getInstance().getReference().child("profiles").child(jhed);
+            myAcc.removeValue();
 
             SharedPreferences.Editor p_editor = myPrefs.edit();
             p_editor.putBoolean("loggedIn", false);
