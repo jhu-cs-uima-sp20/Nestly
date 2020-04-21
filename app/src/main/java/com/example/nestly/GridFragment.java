@@ -69,7 +69,6 @@ public class GridFragment extends Fragment {
                     String password = (String) curUserMap.get("password");
                     Boolean hidden = (Boolean) curUserMap.get("hidden");
                     String userYear = (String) curUserMap.get("year");
-                    //test
 
                     assert checkUser != null;
                     if (hidden == null)
