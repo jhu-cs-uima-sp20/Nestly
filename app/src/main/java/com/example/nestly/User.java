@@ -70,7 +70,7 @@ class User {
 
     public void setHidden() { hidden = true; }
 
-    public List<String> getBlocked(){ return blocked; }
+    public boolean isBlocked(String name){ return blocked.contains(name); }
 
     public void addBlock(String name){blocked.add(name);}
 
