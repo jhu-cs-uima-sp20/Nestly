@@ -81,9 +81,19 @@ public class ViewProfileActivity extends AppCompatActivity {
 
             // gets user from gridfragments and adds to favorites fragment
             User fav = GridFragment.profiles.get(position);
-            FavoritesFragment.profiles.add(fav);
-            Toast.makeText(getBaseContext(),
-                    "Added to Favorites!", Toast.LENGTH_SHORT).show();
+            boolean isFav = fav.isFavorite();
+
+            // user is added/removed from Favorites
+            if (!isFav){
+                FavoritesFragment.profiles.add(fav);
+                Toast.makeText(getBaseContext(),
+                        "Added to Favorites!", Toast.LENGTH_SHORT).show();
+            } else {
+                FavoritesFragment.profiles.remove(fav);
+                Toast.makeText(getBaseContext(),
+                        "Removed from Favorites!", Toast.LENGTH_SHORT).show();
+            }
+
 
             return true;
         } else if (id == R.id.socials) {

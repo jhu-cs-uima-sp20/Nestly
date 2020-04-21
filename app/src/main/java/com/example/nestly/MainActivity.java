@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity
         if (myID == R.id.home_tab) {
             GridFragment myGridFrag = new GridFragment();
             tr.replace(R.id.home_frag, myGridFrag);
+            setTitle("Home");
             tr.addToBackStack(null);
             tr.commit();
         }

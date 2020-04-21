@@ -47,6 +47,7 @@ public class GridFragment extends Fragment {
         grid = root.findViewById(R.id.grid);
 
         profiles = new ArrayList<>();
+        profiles.clear();
 
         // FireBase database and references
         myBase = FirebaseDatabase.getInstance();
@@ -62,6 +63,7 @@ public class GridFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 myAdapter.notifyDataSetChanged();
+                profiles.clear();
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
                     HashMap<String, Object> curUserMap = (HashMap<String, Object>) snap.getValue();
                     assert curUserMap != null;

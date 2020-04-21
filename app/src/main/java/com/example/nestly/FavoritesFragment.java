@@ -33,6 +33,8 @@ public class FavoritesFragment extends Fragment {
 
         myAdapter = new ProfileAdapter(myContext, R.layout.profile_layout, profiles);
         grid.setAdapter(myAdapter);
+        myAdapter.notifyDataSetChanged();
+
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 main.viewProfile(position);
