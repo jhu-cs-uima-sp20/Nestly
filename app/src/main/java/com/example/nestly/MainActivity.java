@@ -52,6 +52,16 @@ public class MainActivity extends AppCompatActivity
 
         myDrawerLayout = findViewById(R.id.drawer_layout);
 
+        MenuItem hide_account = myDrawerLayout.findViewById(R.id.hide_acc_tab);
+        if (hide_account != null) {
+            boolean hide = myPrefs.getBoolean("hidden", false);
+            if (hide) {
+                hide_account.setTitle("Unhide Account");
+            } else {
+                hide_account.setTitle("Hide Account");
+            }
+        }
+
         // Navigation View
         navView = findViewById(R.id.nav_view);
         navHeader = navView.getHeaderView(0);
@@ -111,6 +121,22 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this, StartActivity.class));
         }
         else if (myID == R.id.hide_acc_tab) {
+            String email = myPrefs.getString("email", "ERROR");
+            SharedPreferences.Editor p_editor = myPrefs.edit();
+            boolean hidden = myPrefs.getBoolean("hidden", false);
+            //change account to hidden or visible on firebase
+            String jhed = email.substring(0, email.indexOf('@'));
+            DatabaseReference myAcc =
+                    FirebaseDatabase.getInstance().getReference().child("profiles").child(jhed).child("hidden");
+
+            if (hidden) {
+                myAcc.setValue(false);
+                p_editor.putBoolean("hidden", false);
+            } else {
+                myAcc.setValue(true);
+                p_editor.putBoolean("hidden", true);
+            }
+            p_editor.commit();
 
         }
         else if (myID == R.id.delete_acc_tab) {
