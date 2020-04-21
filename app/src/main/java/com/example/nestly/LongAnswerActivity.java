@@ -33,12 +33,13 @@ public class LongAnswerActivity extends AppCompatActivity {
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
 
-        final List<String> long_answers = new ArrayList<>();
+        final List<String> long_answers = new ArrayList<String>();
 
         Button button = findViewById(R.id.long_answer_finish);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 EditText editText1 = findViewById(R.id.long_answer1);
                 long_answers.add(editText1.getText().toString());
                 EditText editText2 = findViewById(R.id.long_answer2);
@@ -51,6 +52,7 @@ public class LongAnswerActivity extends AppCompatActivity {
                 for(String s: long_answers) {
                     if(s.equals("")) {
                         Toast.makeText(getApplicationContext(), "You have not completed this page", Toast.LENGTH_LONG).show();
+                        long_answers.removeAll(long_answers);
                         return;
                     }
                 }

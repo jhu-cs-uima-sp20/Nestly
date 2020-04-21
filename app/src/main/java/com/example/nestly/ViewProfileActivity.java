@@ -106,7 +106,7 @@ public class ViewProfileActivity extends AppCompatActivity {
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
-            })
+            });
             Toast.makeText(getBaseContext(),
                     "Added to Favorites!", Toast.LENGTH_SHORT).show();
             return true;

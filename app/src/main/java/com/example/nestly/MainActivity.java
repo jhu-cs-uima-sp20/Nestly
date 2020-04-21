@@ -112,7 +112,16 @@ public class MainActivity extends AppCompatActivity
 
         }
         else if (myID == R.id.delete_acc_tab) {
+            String email = myPrefs.getString("email", "ERROR");
+            // Remove this account from firebase
 
+            SharedPreferences.Editor p_editor = myPrefs.edit();
+            p_editor.putBoolean("loggedIn", false);
+            p_editor.putString("name", null);
+            p_editor.putString("email", null);
+            p_editor.putString("password", null);
+            p_editor.commit();
+            startActivity(new Intent(this, StartActivity.class));
         }
 
         myDrawerLayout.closeDrawers();
