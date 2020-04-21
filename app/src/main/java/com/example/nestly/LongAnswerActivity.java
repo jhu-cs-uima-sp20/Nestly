@@ -76,6 +76,7 @@ public class LongAnswerActivity extends AppCompatActivity {
                 mainUser.setName(myName);
                 mainUser.setLong_answers(long_answers);
                 mainUser.setYear(year);
+                mainUser.setFavorites(new ArrayList<String>());
 
                 // add situation_answers
                 List<String> situation_answers = new ArrayList<>();

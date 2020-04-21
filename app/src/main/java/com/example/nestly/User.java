@@ -55,7 +55,17 @@ class User {
 
     public void setLong_answers(List<String> long_answers) { this.long_answers = long_answers; }
 
+    public void setFavorites(List<String> favorite_list) {this.favorites = favorite_list; }
+
     public void addFavorite(String user) { this.favorites.add(user); }
+
+    public void removeFavorite(String user) {
+        for (int i = 0; i < favorites.size(); i++) {
+            if (favorites.get(i).equals(user)) {
+                favorites.remove(i);
+            }
+        }
+    }
 
     public List<String> getFavorites() { return this.favorites; }
 

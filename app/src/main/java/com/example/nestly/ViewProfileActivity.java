@@ -1,5 +1,6 @@
 package com.example.nestly;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
@@ -11,13 +12,29 @@ import android.view.MenuItem;
 import android.widget.TabHost;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class ViewProfileActivity extends AppCompatActivity {
     private Menu menu;
+    private FirebaseDatabase myBase;
+    private DatabaseReference dbref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profile);
+
+        // setup Firebase
+        myBase = FirebaseDatabase.getInstance();
+        dbref = myBase.getReference();
 
         // Set action bar title
         getSupportActionBar().setTitle("");
@@ -72,9 +89,26 @@ public class ViewProfileActivity extends AppCompatActivity {
                     "User Blocked!", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.add_favorite) {
+            // verify if user has already been favorited
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            String view_email = sp.getString("view_email", "jhed@jhu.edu");
+            String username = sp.getString("email", "jhed@jhu.edu");
+            int i = username.indexOf('@');
+            username = username.substring(0, i);
+            DatabaseReference profilesRef = dbref.child(username).child("favorites");
+            profilesRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            })
             Toast.makeText(getBaseContext(),
                     "Added to Favorites!", Toast.LENGTH_SHORT).show();
-
             return true;
         } else if (id == R.id.socials) {
             return true;
