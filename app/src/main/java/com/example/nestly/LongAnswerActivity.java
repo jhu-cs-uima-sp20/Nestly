@@ -15,7 +15,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class LongAnswerActivity extends AppCompatActivity {
 
@@ -74,6 +76,7 @@ public class LongAnswerActivity extends AppCompatActivity {
                 mainUser.setName(myName);
                 mainUser.setLong_answers(long_answers);
                 mainUser.setYear(year);
+                mainUser.setFavorites(new ArrayList<String>());
 
                 // add situation_answers
                 List<String> situation_answers = new ArrayList<>();
@@ -102,9 +105,15 @@ public class LongAnswerActivity extends AppCompatActivity {
                 mainUser.setHabits_answers(habit_answers);
 
                 // add to FireBase
-                DatabaseReference profilesRef = dbref.child("profiles").push();
+                DatabaseReference profilesRef = dbref.child("profiles");
+                HashMap<String, Object> addProfile = new HashMap<>();
+                int i = user.indexOf('@');
+                user = user.substring(0,i);
+                addProfile.put(user, mainUser);
+                        //.push();
                 // make child with key username, make its value the User class
-                profilesRef.setValue(mainUser);
+                //profilesRef.setValue(mainUser);
+                profilesRef.updateChildren(addProfile);
 
                 // go to main activity stage
                 Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);

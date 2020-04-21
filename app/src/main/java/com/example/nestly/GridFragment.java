@@ -33,7 +33,7 @@ public class GridFragment extends Fragment {
     private DatabaseReference dbref;
     private DatabaseReference profilesRef;
     private ValueEventListener listener;
-    private ArrayList<User> profiles;
+    static ArrayList<User> profiles;
 
     private String username;
     private String year;
@@ -62,6 +62,7 @@ public class GridFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 myAdapter.notifyDataSetChanged();
+                profiles.clear();
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
                     HashMap<String, Object> curUserMap = (HashMap<String, Object>) snap.getValue();
                     assert curUserMap != null;
