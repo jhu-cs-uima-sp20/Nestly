@@ -21,7 +21,7 @@ public class FavoritesFragment extends Fragment {
     private GridView grid;
     private MainActivity main;
 
-    private ArrayList<User> profiles;
+    static ArrayList<User> profiles = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,8 +30,6 @@ public class FavoritesFragment extends Fragment {
         main = (MainActivity) getActivity();
         myContext = getActivity().getApplicationContext();
         grid = root.findViewById(R.id.grid);
-
-        profiles = new ArrayList<>();
 
         myAdapter = new ProfileAdapter(myContext, R.layout.profile_layout, profiles);
         grid.setAdapter(myAdapter);

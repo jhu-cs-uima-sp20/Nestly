@@ -10,7 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8016989c-6656-4701-9e29-b01c8eca8342" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/menu/mymenu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/menu/mymenu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nestly/FavoritesFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nestly/FavoritesFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nestly/GridFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nestly/GridFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/nestly/ViewProfileActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/nestly/ViewProfileActivity.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,12 +57,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="218" />
-    <option name="y" value="23" />
-    <option name="width" value="1222" />
-    <option name="height" value="877" />
   </component>
   <component name="ProjectId" id="1aKiwPvfGgqICeRM8dzuewY3G5Y" />
   <component name="PropertiesComponent">
@@ -262,7 +259,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587440446607</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="added filter by gender option">
+      <created>1587440541163</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1587440541163</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView">
@@ -313,6 +317,7 @@
     <MESSAGE value="fixed an issue that clicking the home tab doesnt do anything" />
     <MESSAGE value="fixed errors regarding accessing firebase values" />
     <MESSAGE value="fixed filter by year error" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed filter by year error" />
+    <MESSAGE value="added filter by gender option" />
+    <option name="LAST_COMMIT_MESSAGE" value="added filter by gender option" />
   </component>
 </project>

@@ -72,6 +72,16 @@ public class ViewProfileActivity extends AppCompatActivity {
                     "User Blocked!", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.add_favorite) {
+            SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            int position = savePrefs.getInt("view_position", -1);
+
+            //if unable to add to favorites
+            if (position == -1)
+                return false;
+
+            // gets user from gridfragments and adds to favorites fragment
+            User fav = GridFragment.profiles.get(position);
+            FavoritesFragment.profiles.add(fav);
             Toast.makeText(getBaseContext(),
                     "Added to Favorites!", Toast.LENGTH_SHORT).show();
 

@@ -33,7 +33,7 @@ public class GridFragment extends Fragment {
     private DatabaseReference dbref;
     private DatabaseReference profilesRef;
     private ValueEventListener listener;
-    private ArrayList<User> profiles;
+    static ArrayList<User> profiles;
 
     private String username;
     private String year;
@@ -97,6 +97,7 @@ public class GridFragment extends Fragment {
                 SharedPreferences.Editor p_editor = myPrefs.edit();
                 User viewProf = profiles.get(position);
                 p_editor.putString("view_email", viewProf.getUsername());
+                p_editor.putInt("view_position", position);
                 p_editor.commit();
                 main.viewProfile(position);
             }

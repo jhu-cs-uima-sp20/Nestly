@@ -13,13 +13,15 @@ class User {
     private List<String> long_answers;
     private List<String> blocked;
     private boolean hidden;
+    private boolean favorite;
 
     private String name;
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        hidden=false;
+        this.hidden = false;
+        this.favorite = false;
     }
 
     public String getUsername() {
@@ -69,4 +71,12 @@ class User {
     public boolean isHidden() {return hidden; }
 
     public void setHidden() { hidden = true; }
+
+    public boolean isFavorite() {return favorite; }
+
+    public void setFavorite() {favorite = true;}
+
+    public void unfavorite() {favorite = false; }
+
+
 }
