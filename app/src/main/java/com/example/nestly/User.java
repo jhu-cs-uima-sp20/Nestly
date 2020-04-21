@@ -1,6 +1,7 @@
 package com.example.nestly;
 
 import java.util.List;
+import java.util.Set;
 
 class User {
     final private String username;
@@ -11,7 +12,7 @@ class User {
     private List<String> habits_answers;
     private List<String> situations_answers;
     private List<String> long_answers;
-    private List<String> blocked;
+    private Set<String> blocked;
     private List<String> favorites;
     private boolean hidden;
 
@@ -73,9 +74,7 @@ class User {
         return habits_answers;
     }
 
-    public List<String> getSituations_answers() {
-        return situations_answers;
-    }
+    public List<String> getSituations_answers() { return situations_answers; }
 
     public List<String> getLong_answers() {
         return long_answers;
@@ -84,4 +83,10 @@ class User {
     public boolean isHidden() {return hidden; }
 
     public void setHidden() { hidden = true; }
+
+    public Set<String> getBlocked(){ return blocked; }
+
+    public void addBlock(String name){blocked.add(name);}
+
+    public void deleteBlock(String name) { blocked.remove(name); }
 }
