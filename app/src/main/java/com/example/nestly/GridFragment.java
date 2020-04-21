@@ -53,7 +53,7 @@ public class GridFragment extends Fragment {
         dbref = myBase.getReference();
         profilesRef = dbref.child("profiles");
 
-        SharedPreferences myPrefs =
+        final SharedPreferences myPrefs =
                 PreferenceManager.getDefaultSharedPreferences(myContext.getApplicationContext());
         username = myPrefs.getString("email", "uh oh");
         year = myPrefs.getString("year","uh oh");
@@ -63,16 +63,20 @@ public class GridFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 myAdapter.notifyDataSetChanged();
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
-                    HashMap<String, String> curUserMap = (HashMap<String, String>) snap.getValue();
+                    HashMap<String, Object> curUserMap = (HashMap<String, Object>) snap.getValue();
                     assert curUserMap != null;
-                    String checkUser = curUserMap.get("username");
-                    String password = curUserMap.get("password");
-                    String hidden = curUserMap.get("hidden");
-                    String userYear = curUserMap.get("year");
+                    String checkUser = (String) curUserMap.get("username");
+                    String password = (String) curUserMap.get("password");
+                    Boolean hidden = (Boolean) curUserMap.get("hidden");
+                    String userYear = (String) curUserMap.get("year");
+                    //test
+
                     assert checkUser != null;
                     if (hidden == null)
-                        hidden = "false";
-                    if (!checkUser.equals(username) && !hidden.equals(false) && userYear == year) {
+                        hidden = false;
+                    if (userYear == null)
+                        userYear = year;
+                    if (!checkUser.equals(username) && !hidden && userYear.equals(year)) {
                         profiles.add(new User(checkUser, password));
                     }
                 }
@@ -90,6 +94,11 @@ public class GridFragment extends Fragment {
         myAdapter.notifyDataSetChanged();
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // get correct email information to display in profile
+                SharedPreferences.Editor p_editor = myPrefs.edit();
+                User viewProf = profiles.get(position);
+                p_editor.putString("view_email", viewProf.getUsername());
+                p_editor.commit();
                 main.viewProfile(position);
             }
         });

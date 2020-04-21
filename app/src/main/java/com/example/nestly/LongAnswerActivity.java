@@ -69,9 +69,11 @@ public class LongAnswerActivity extends AppCompatActivity {
                 String user = sp.getString("email", "ERROR");
                 String pass = sp.getString("password", "ERROR");
                 String myName = sp.getString("name", "ERROR");
+                String year = sp.getString("year", "ERROR");
                 User mainUser = new User(user, pass);
                 mainUser.setName(myName);
                 mainUser.setLong_answers(long_answers);
+                mainUser.setYear(year);
 
                 // add situation_answers
                 List<String> situation_answers = new ArrayList<>();

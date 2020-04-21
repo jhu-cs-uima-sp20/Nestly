@@ -1,7 +1,9 @@
 package com.example.nestly;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +12,7 @@ import android.widget.TabHost;
 import android.widget.Toast;
 
 public class ViewProfileActivity extends AppCompatActivity {
+    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,10 @@ public class ViewProfileActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+        this.menu = menu;
+//        MenuItem email = menu.getItem(R.id.socials);
+//        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+//        email.setTitle(sp.getString("view_email", "jhed@jhu.edu"));
         return true;
     }
 
@@ -58,6 +65,7 @@ public class ViewProfileActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+
 
         if (id == R.id.block) {
             Toast.makeText(getBaseContext(),
