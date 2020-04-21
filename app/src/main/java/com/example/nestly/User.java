@@ -86,7 +86,6 @@ class User {
 
     public Set<String> getBlocked(){ return blocked; }
 
-    public void addBlock(String name){blocked.add(name);}
+    public void setBlock(Set<String> blocked){this.blocked = blocked;}
 
-    public void deleteBlock(String name) { blocked.remove(name); }
 }
