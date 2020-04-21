@@ -169,10 +169,12 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
                 Context context = getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor p_editor = savePrefs.edit();
-                if (position > 0)
+                if (position > 0) {
                     checkedYear = true;
-                else
+                } else {
+                    checkedYear = false;
                     return;
+                }
                 p_editor.putString("year", years[position]);
                 p_editor.putInt("year_index", position);
                 p_editor.commit();
@@ -185,6 +187,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         });
 
         //set up gender spinner
+        final String[] genderOptions = {"M", "F", "Other"};
         adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.gender_options, android.R.layout.simple_spinner_dropdown_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -196,12 +199,14 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor peditor = savePrefs.edit();
 
-                if (position > 0)
+                if (position > 0) {
                     checkedGender = true;
-                else
+                } else {
+                    checkedGender = false;
                     return;
+                }
                 peditor.putInt("gender_index", position);
-
+                peditor.putString("gender", genderOptions[position]);
                 peditor.commit();
             }
 
@@ -224,10 +229,12 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
                 Context context = getApplicationContext();
                 SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(context);
                 SharedPreferences.Editor peditor = savePrefs.edit();
-                if (position > 0)
+                if (position > 0) {
                     checkedMajor = true;
-                else
+                } else {
+                    checkedMajor = false;
                     return;
+                }
                 peditor.putString("major", majors[position]);
                 peditor.putInt("major_index", position);
 

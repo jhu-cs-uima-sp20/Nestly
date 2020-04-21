@@ -16,6 +16,10 @@
                 android:title="None"
                 app:showAsAction="never" />
             <item
+                android:id="@+id/gender_item"
+                android:title="Gender"
+                app:showAsAction="never" />
+            <item
                 android:id="@+id/intro_extro_vert"
                 android:title="Intro/Extrovert"
                 app:showAsAction="never" />
