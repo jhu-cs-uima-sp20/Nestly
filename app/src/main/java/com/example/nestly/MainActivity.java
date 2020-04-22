@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity
     private TextView myName;
     private TextView myYear;
     private SharedPreferences myPrefs;
+    private MenuItem hide_account;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,21 +53,14 @@ public class MainActivity extends AppCompatActivity
 
         myDrawerLayout = findViewById(R.id.drawer_layout);
 
-        MenuItem hide_account = myDrawerLayout.findViewById(R.id.hide_acc_tab);
-        if (hide_account != null) {
-            boolean hide = myPrefs.getBoolean("hidden", false);
-            if (hide) {
-                hide_account.setTitle("Unhide Account");
-            } else {
-                hide_account.setTitle("Hide Account");
-            }
-        }
-
         // Navigation View
         navView = findViewById(R.id.nav_view);
         navHeader = navView.getHeaderView(0);
         navView.setNavigationItemSelectedListener(this);
         navView.bringToFront();
+
+        hide_account = null;
+
 
         toggle = new ActionBarDrawerToggle(this, myDrawerLayout, myBar,
                0, 0);
@@ -88,6 +82,14 @@ public class MainActivity extends AppCompatActivity
         tr.replace(R.id.home_frag, myGridFrag);
         tr.addToBackStack(null);
         tr.commit();
+    }
+
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+
+
     }
 
     @Override
@@ -132,9 +134,17 @@ public class MainActivity extends AppCompatActivity
             if (hidden) { // invert the setting
                 myAcc.setValue(false);
                 p_editor.putBoolean("hidden", false);
+
+                if (hide_account != null) {
+                    hide_account.setTitle("Hide Account");
+                }
+
             } else {
                 myAcc.setValue(true);
                 p_editor.putBoolean("hidden", true);
+                if (hide_account !=null) {
+                    hide_account.setTitle("Unhide Account");
+                }
             }
             p_editor.commit();
 
