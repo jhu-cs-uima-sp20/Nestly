@@ -123,18 +123,18 @@ public class MainActivity extends AppCompatActivity
         else if (myID == R.id.hide_acc_tab) {
             String email = myPrefs.getString("email", "ERROR");
             SharedPreferences.Editor p_editor = myPrefs.edit();
-            boolean hidden = myPrefs.getBoolean("hidden", false);
+            boolean hidden = myPrefs.getBoolean("hidden", true);
             //change account to hidden or visible on firebase
             String jhed = email.substring(0, email.indexOf('@'));
             DatabaseReference myAcc =
                     FirebaseDatabase.getInstance().getReference().child("profiles").child(jhed).child("hidden");
 
             if (hidden) {
-                myAcc.setValue(false);
-                p_editor.putBoolean("hidden", false);
-            } else {
                 myAcc.setValue(true);
                 p_editor.putBoolean("hidden", true);
+            } else {
+                myAcc.setValue(false);
+                p_editor.putBoolean("hidden", false);
             }
             p_editor.commit();
 
