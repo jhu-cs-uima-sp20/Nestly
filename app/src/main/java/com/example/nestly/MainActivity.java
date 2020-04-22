@@ -129,12 +129,12 @@ public class MainActivity extends AppCompatActivity
             DatabaseReference myAcc =
                     FirebaseDatabase.getInstance().getReference().child("profiles").child(jhed).child("hidden");
 
-            if (hidden) {
-                myAcc.setValue(true);
-                p_editor.putBoolean("hidden", true);
-            } else {
+            if (hidden) { // invert the setting
                 myAcc.setValue(false);
                 p_editor.putBoolean("hidden", false);
+            } else {
+                myAcc.setValue(true);
+                p_editor.putBoolean("hidden", true);
             }
             p_editor.commit();
 
