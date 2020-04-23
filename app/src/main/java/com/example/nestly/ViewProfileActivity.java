@@ -32,7 +32,6 @@ public class ViewProfileActivity extends AppCompatActivity {
     private FirebaseDatabase myBase;
     private DatabaseReference dbref;
     private ValueEventListener listener;
-    private ProfileAdapter myAdapter;
 
     private TextView view_name;
     private TextView view_major;
@@ -62,7 +61,6 @@ public class ViewProfileActivity extends AppCompatActivity {
 
         DatabaseReference reference =
                 FirebaseDatabase.getInstance().getReference().child("profiles").child(view_email);
-        //Log.i("testttt","hahahaha");
         listener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

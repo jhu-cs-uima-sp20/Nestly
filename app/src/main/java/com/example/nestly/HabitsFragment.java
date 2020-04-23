@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import androidx.preference.PreferenceManager;
@@ -11,6 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 /**
@@ -27,6 +37,7 @@ public class HabitsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ValueEventListener listener;
 
     private TextView introvert;
     private TextView inTheRoom;
@@ -76,7 +87,10 @@ public class HabitsFragment extends Fragment {
 
         Context context = getActivity();
 
-        myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor peditor = sp.edit();
+        String view_email = sp.getString("view_email", "jhed@jhu.edu");
+        view_email = view_email.substring(0,view_email.indexOf('@'));
 
         introvert = v.findViewById(R.id.introvert);
         inTheRoom = v.findViewById(R.id.inTheRoom);
@@ -85,38 +99,38 @@ public class HabitsFragment extends Fragment {
         wakeUp = v.findViewById(R.id.wakeUp);
         sleep = v.findViewById(R.id.sleep);
 
-        introvert.setText("I consider myself: " + myPrefs.getString("intro/extrovert", "introvert") + "ed");
-        String listActivities = "";
-        boolean activity = myPrefs.getBoolean("check1", false);
-        if (activity) {
-            listActivities += "do general homework, ";
-        }
-        activity = myPrefs.getBoolean("check2", false);
-        if (activity) {
-            listActivities += "hang out with friends, ";
-        }
-        activity = myPrefs.getBoolean("check3", false);
-        if (activity) {
-            listActivities += "cook food, ";
-        }
-        activity = myPrefs.getBoolean("check4", false);
-        if (activity) {
-            listActivities += "eat food, ";
-        }
-        activity = myPrefs.getBoolean("check5", false);
-        if (activity) {
-            listActivities += "study for exams, ";
-        }
-        activity = myPrefs.getBoolean("check6", false);
-        if (activity) {
-            listActivities += "throw parties, ";
-        }
+        DatabaseReference reference =
+                FirebaseDatabase.getInstance().getReference().child("profiles").child(view_email);
+        listener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                HashMap<String, Object> curUserMap = (HashMap<String, Object>) dataSnapshot.getValue();
+                assert curUserMap != null;
+                ArrayList<String> habits_answers= (ArrayList<String>) curUserMap.get("habits_answers");
+                introvert.setText("I consider myself: " + habits_answers.get(0) + "ed");
+                String listActivities = "";
+                String[] activities = new String[]{"do general homework","hang out with friends","cook food","eat food","study for exams","throw parties"};
+                for(int i = 0; i < 6;i++) {
+                    if(habits_answers.get(i+1).equals("checked")) {
+                        listActivities = listActivities + activities[i] + ", ";
+                    }
+                }
+                listActivities = listActivities.substring(0,listActivities.length()-2);
 
-        inTheRoom.setText("I plan to: " + listActivities + " in the room");
-        timeSpent.setText("Not including sleeping, I plan to spend an average of " + myPrefs.getString("room_time", "0") + " hours in the room");
-        bringFriends.setText("I plan to bring friends over an average of " + myPrefs.getString("bring_friends", "0") + " times a week");
-        wakeUp.setText("I usually wake up around " + myPrefs.getString("wakeUp_time", "8am"));
-        sleep.setText("I usually sleep around " + myPrefs.getString("sleep_time", "12am"));
+                inTheRoom.setText("I plan to: " + listActivities + " in the room");
+                timeSpent.setText("Not including sleeping, I plan to spend an average of " + habits_answers.get(7) + " hours in the room");
+                bringFriends.setText("I plan to bring friends over an average of " + habits_answers.get(8) + " times a week");
+                wakeUp.setText("I usually wake up around " + habits_answers.get(9));
+                sleep.setText("I usually sleep around " + habits_answers.get(10));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        reference.addListenerForSingleValueEvent(listener);
+
 
         return v;
     }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import androidx.preference.PreferenceManager;
@@ -11,6 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 /**
@@ -27,6 +37,7 @@ public class LongAnswerFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private ValueEventListener listener;
 
     private TextView typicalDay;
     private TextView worstHabit;
@@ -69,20 +80,40 @@ public class LongAnswerFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_long_answer, container, false);
+        Context context = getActivity();
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor peditor = sp.edit();
+        String view_email = sp.getString("view_email", "jhed@jhu.edu");
+        view_email = view_email.substring(0,view_email.indexOf('@'));
 
         typicalDay = v.findViewById(R.id.typicalDay);
         worstHabit = v.findViewById(R.id.worstHabit);
         hopeRoommate = v.findViewById(R.id.hopeRoommate);
         other = v.findViewById(R.id.other);
 
-        Context context = getActivity();
 
-        SharedPreferences myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        DatabaseReference reference =
+                FirebaseDatabase.getInstance().getReference().child("profiles").child(view_email);
+        listener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                HashMap<String, Object> curUserMap = (HashMap<String, Object>) dataSnapshot.getValue();
+                assert curUserMap != null;
+                ArrayList<String> long_answers= (ArrayList<String>) curUserMap.get("long_answers");
+                typicalDay.setText(long_answers.get(0));
+                worstHabit.setText(long_answers.get(1));
+                hopeRoommate.setText(long_answers.get(2));
+                other.setText(long_answers.get(3));
+            }
 
-        typicalDay.setText(myPrefs.getString("longAnswer1", ""));
-        worstHabit.setText(myPrefs.getString("longAnswer2", ""));
-        hopeRoommate.setText(myPrefs.getString("longAnswer3", ""));
-        other.setText(myPrefs.getString("longAnswer4", ""));
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        reference.addListenerForSingleValueEvent(listener);
+
 
         return v;
     }
