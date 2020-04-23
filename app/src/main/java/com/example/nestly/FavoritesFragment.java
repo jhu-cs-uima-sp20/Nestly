@@ -49,7 +49,7 @@ public class FavoritesFragment extends Fragment {
         // FireBase database and references
         SharedPreferences savePrefs =
                 PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-        String user = savePrefs.getString("email", "uh oh");
+        String user = savePrefs.getString("email", "uh oh@jhu.edu");
         user = user.substring(0, user.indexOf('@'));
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
