@@ -29,6 +29,7 @@ public class ViewProfileActivity extends AppCompatActivity {
     private Menu menu;
     private FirebaseDatabase myBase;
     private DatabaseReference dbref;
+    private ValueEventListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,24 +115,57 @@ public class ViewProfileActivity extends AppCompatActivity {
         } else if (id == R.id.add_favorite) {
             // verify if user has already been favorited
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            SharedPreferences.Editor peditor = sp.edit();
             String view_email = sp.getString("view_email", "jhed@jhu.edu");
             String username = sp.getString("email", "jhed@jhu.edu");
             int i = username.indexOf('@');
-            username = username.substring(0, i);
-            DatabaseReference profilesRef = dbref.child(username).child("favorites");
-            profilesRef.addValueEventListener(new ValueEventListener() {
+            final String user = username.substring(0, i);
+            DatabaseReference profilesRef = dbref.child(user).child("favorites");
+
+            /*
+            // checks if the user has already been added to favorites
+            listener = new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
+                    int i = 0;
+                    String key = i + "";
+                    for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                        HashMap<String, Object> favs = (HashMap<String, Object>) snap.getValue();
+                        assert favs != null;
+                        String view_name = (String) favs.get(key);
+                        if (view_name.equals(view_email)){
+                            DatabaseReference myFav =
+                                    FirebaseDatabase.getInstance()
+                                            .getReference().child("profiles").child(user).child("favorites").child(key);
+                            myFav.removeValue();
+                            Toast.makeText(getBaseContext(),
+                                    "Unfavorited User!", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                        i++;
+                        key = i + "";
+                    }
                 }
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 }
-            });
+            };
+
+             */
+
+            DatabaseReference f =
+                    FirebaseDatabase.getInstance().getReference().child("profiles").child(user).child("favorites");
+            HashMap<String, Object> f1 = new HashMap<>();
+            int count = sp.getInt("numFavs", 1);
+            String key = count + "";
+            count++;
+            peditor.putInt("numFavs", count);
+            f1.put(key, view_email);
+            f.updateChildren(f1);
             Toast.makeText(getBaseContext(),
-                    "Added to Favorites!", Toast.LENGTH_SHORT).show();
+                    "Favorited User!", Toast.LENGTH_SHORT).show();
             return true;
         } else if (id == R.id.socials) {
             return true;

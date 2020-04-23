@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -55,16 +56,24 @@ public class LoginActivity extends AppCompatActivity {
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
 
 
-                    HashMap<String, String> curUserMap = (HashMap<String, String>) snap.getValue();
+                    HashMap<String, Object> curUserMap = (HashMap<String, Object>) snap.getValue();
                     assert curUserMap != null;
-                    String username = curUserMap.get("username");
-                    String password = curUserMap.get("password");
-                    String name = curUserMap.get("name");
-                    String year = curUserMap.get("year");
+                    String username = (String) curUserMap.get("username");
+                    String password = (String) curUserMap.get("password");
+                    String name = (String) curUserMap.get("name");
+                    String year = (String) curUserMap.get("year");
+                    List<String> habits = (List<String>) curUserMap.get("habit_answers");
+                    List<String> situations = (List<String>) curUserMap.get("situation_answers");
+                    List<String> long_answers = (List<String>) curUserMap.get("long_answers");
+                    List<String> favorites = (List<String>) curUserMap.get("favorites");
+
                     User curUser = new User(username, password);
                     curUser.setName(name);
                     curUser.setYear(year);
-
+                    curUser.setFavorites(favorites);
+                    curUser.setHabits_answers(habits);
+                    curUser.setSituations_answers(situations);
+                    curUser.setLong_answers(long_answers);
 
                     profiles.add(curUser);
                 }
@@ -98,6 +107,27 @@ public class LoginActivity extends AppCompatActivity {
                                     p_editor.putString("password", u.getPassword());
                                     p_editor.putBoolean("loggedIn", true);
                                     p_editor.putString("year", u.getYear());
+
+                                    // Add Habits to SharedPreferences
+
+                                    List<String> habits = u.getHabits_answers();
+                                    p_editor.putString("intro/extrovert", habits.get(0));
+                                    for (int i = 1; i <= 6; i++) {
+                                        String key = "check" + i;
+                                        if (habits.get(i).equals("checked"))
+                                            p_editor.putBoolean(key, true);
+                                        else
+                                            p_editor.putBoolean(key, false);
+                                    }
+
+                                    // add number of favorite users
+                                    p_editor.putInt("numFavorites", u.getFavorites().size());
+
+
+
+                                    // Add Situational Answers to SharedPreferences
+
+                                    // Add Long Answers
                                     p_editor.commit();
 
                                     Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);

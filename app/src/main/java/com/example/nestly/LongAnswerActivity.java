@@ -80,7 +80,6 @@ public class LongAnswerActivity extends AppCompatActivity {
                 mainUser.setName(myName);
                 mainUser.setLong_answers(long_answers);
                 mainUser.setYear(year);
-                mainUser.setFavorites(new ArrayList<String>());
                 mainUser.setMajor(major);
                 mainUser.setGender(gender);
 
@@ -110,6 +109,10 @@ public class LongAnswerActivity extends AppCompatActivity {
                 habit_answers.add(sp.getString("bring_friends", "1"));
                 mainUser.setHabits_answers(habit_answers);
 
+                List<String> favorites = new ArrayList<String>();
+                favorites.add("none");
+                mainUser.setFavorites(favorites);
+
                 // add to FireBase
                 DatabaseReference profilesRef = dbref.child("profiles");
                 HashMap<String, Object> addProfile = new HashMap<>();
@@ -120,6 +123,11 @@ public class LongAnswerActivity extends AppCompatActivity {
                 // make child with key username, make its value the User class
                 //profilesRef.setValue(mainUser);
                 profilesRef.updateChildren(addProfile);
+
+                DatabaseReference ref1 = dbref.child("profiles").child(user);
+                HashMap<String, Object> fav = new HashMap<>();
+                fav.put("favorites", favorites);
+                ref1.updateChildren(fav);
 
                 // go to main activity stage
                 Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
