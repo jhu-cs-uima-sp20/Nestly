@@ -7,9 +7,11 @@ import androidx.preference.PreferenceManager;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -30,7 +32,16 @@ public class ViewProfileActivity extends AppCompatActivity {
     private FirebaseDatabase myBase;
     private DatabaseReference dbref;
     private ValueEventListener listener;
+    private ProfileAdapter myAdapter;
 
+    private TextView view_name;
+    private TextView view_major;
+    private TextView view_year;
+    private TextView view_bio;
+
+    private String name;
+    private String major;
+    private String userYear;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +50,41 @@ public class ViewProfileActivity extends AppCompatActivity {
         // setup Firebase
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor peditor = sp.edit();
+        String view_email = sp.getString("view_email", "jhed@jhu.edu");
+        view_email = view_email.substring(0,view_email.indexOf('@'));
+
+        view_name = findViewById(R.id.view_name);
+        view_major = findViewById(R.id.view_major);
+        view_year = findViewById(R.id.view_year);
+        view_bio = findViewById(R.id.view_bio);
+
+        DatabaseReference reference =
+                FirebaseDatabase.getInstance().getReference().child("profiles").child(view_email);
+        //Log.i("testttt","hahahaha");
+        listener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    HashMap<String, Object> curUserMap = (HashMap<String, Object>) dataSnapshot.getValue();
+                    assert curUserMap != null;
+                    name= (String) curUserMap.get("name");
+                    major = (String) curUserMap.get("major");
+                    userYear = (String) curUserMap.get("year");
+                    view_name.setText(name);
+                    view_year.setText(userYear);
+                    view_major.setText(major);
+                    ArrayList<String> habits_answers= (ArrayList<String>) curUserMap.get("habits_answers");
+                    ArrayList<String> situations_answers= (ArrayList<String>) curUserMap.get("situations_answers");
+                    ArrayList<String> long_answers= (ArrayList<String>) curUserMap.get("long_answers");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        reference.addListenerForSingleValueEvent(listener);
 
         // Set action bar title
         getSupportActionBar().setTitle("");
