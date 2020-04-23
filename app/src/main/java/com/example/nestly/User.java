@@ -12,7 +12,7 @@ class User {
     private List<String> habits_answers;
     private List<String> situations_answers;
     private List<String> long_answers;
-    private Set<String> blocked;
+    private List<String> blocked;
     private List<String> favorites;
     private boolean hidden;
 
@@ -86,8 +86,8 @@ class User {
 
     public void setHidden() { hidden = true; }
 
-    public Set<String> getBlocked(){ return blocked; }
+    public List<String> getBlocked(){ return blocked; }
 
-    public void setBlock(Set<String> blocked){this.blocked = blocked;}
+    public void setBlock(List<String> blocked){this.blocked = blocked;}
 
 }

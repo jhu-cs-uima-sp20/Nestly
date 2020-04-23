@@ -89,26 +89,6 @@ public class ViewProfileActivity extends AppCompatActivity {
 
 
         if (id == R.id.block) {
-            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-            String view_email = sp.getString("view_email", "jhed@jhu.edu");
-            String username = sp.getString("email", "jhed@jhu.edu");
-            int i = username.indexOf('@');
-            username = username.substring(0, i);
-            Set<String> empty_set = Collections.emptySet();
-            Set<String> Blocked_list = sp.getStringSet("blocked_list", empty_set);
-            Blocked_list.add(view_email);
-            DatabaseReference profilesRef = dbref.child(username).child("block");
-            profilesRef.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            });
             Toast.makeText(getBaseContext(),
                     "User Blocked!", Toast.LENGTH_SHORT).show();
             return true;
