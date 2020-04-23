@@ -62,18 +62,18 @@ public class LoginActivity extends AppCompatActivity {
                     String password = (String) curUserMap.get("password");
                     String name = (String) curUserMap.get("name");
                     String year = (String) curUserMap.get("year");
-                    List<String> habits = (List<String>) curUserMap.get("habit_answers");
-                    List<String> situations = (List<String>) curUserMap.get("situation_answers");
-                    List<String> long_answers = (List<String>) curUserMap.get("long_answers");
-                    List<String> favorites = (List<String>) curUserMap.get("favorites");
+//                    List<String> habits = (List<String>) curUserMap.get("habit_answers");
+//                    List<String> situations = (List<String>) curUserMap.get("situation_answers");
+//                    List<String> long_answers = (List<String>) curUserMap.get("long_answers");
+//                    List<String> favorites = (List<String>) curUserMap.get("favorites");
 
                     User curUser = new User(username, password);
                     curUser.setName(name);
                     curUser.setYear(year);
-                    curUser.setFavorites(favorites);
-                    curUser.setHabits_answers(habits);
-                    curUser.setSituations_answers(situations);
-                    curUser.setLong_answers(long_answers);
+//                    curUser.setFavorites(favorites);
+//                    curUser.setHabits_answers(habits);
+//                    curUser.setSituations_answers(situations);
+//                    curUser.setLong_answers(long_answers);
 
                     profiles.add(curUser);
                 }
@@ -110,18 +110,18 @@ public class LoginActivity extends AppCompatActivity {
 
                                     // Add Habits to SharedPreferences
 
-                                    List<String> habits = u.getHabits_answers();
-                                    p_editor.putString("intro/extrovert", habits.get(0));
-                                    for (int i = 1; i <= 6; i++) {
-                                        String key = "check" + i;
-                                        if (habits.get(i).equals("checked"))
-                                            p_editor.putBoolean(key, true);
-                                        else
-                                            p_editor.putBoolean(key, false);
-                                    }
+//                                    List<String> habits = u.getHabits_answers();
+//                                    p_editor.putString("intro/extrovert", habits.get(0));
+//                                    for (int i = 1; i <= 6; i++) {
+//                                        String key = "check" + i;
+//                                        if (habits.get(i).equals("checked"))
+//                                            p_editor.putBoolean(key, true);
+//                                        else
+//                                            p_editor.putBoolean(key, false);
+//                                    }
 
                                     // add number of favorite users
-                                    p_editor.putInt("numFavorites", u.getFavorites().size());
+                                    //p_editor.putInt("numFavorites", u.getFavorites().size());
 
 
 
