@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TabHost;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +28,8 @@ import java.util.Set;
 
 public class ViewProfileActivity extends AppCompatActivity {
     private Menu menu;
+    private TextView view_email;
+    private TextView view_name;
     private FirebaseDatabase myBase;
     private DatabaseReference dbref;
     private ValueEventListener listener;
@@ -35,6 +38,13 @@ public class ViewProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profile);
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        String email = sp.getString("view_email", "jhed@jhu.edu");
+        view_email.setText(email);
+        email = email.substring(0, email.indexOf('@'));
+
+        // add user profile information here
 
         // setup Firebase
         myBase = FirebaseDatabase.getInstance();
@@ -74,9 +84,6 @@ public class ViewProfileActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         this.menu = menu;
-//        MenuItem email = menu.getItem(R.id.socials);
-//        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-//        email.setTitle(sp.getString("view_email", "jhed@jhu.edu"));
         return true;
     }
 
@@ -172,8 +179,6 @@ public class ViewProfileActivity extends AppCompatActivity {
                     "Favorited User!", Toast.LENGTH_SHORT).show();
             peditor.commit();
 
-            return true;
-        } else if (id == R.id.socials) {
             return true;
         }
 

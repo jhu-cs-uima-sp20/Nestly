@@ -7482,9 +7482,10 @@ public final class R {
     public static final int search_icon=0x7f0800b1;
     public static final int side_nav_bar=0x7f0800b2;
     public static final int sort=0x7f0800b3;
-    public static final int test_custom_background=0x7f0800b4;
-    public static final int tooltip_frame_dark=0x7f0800b5;
-    public static final int tooltip_frame_light=0x7f0800b6;
+    public static final int star=0x7f0800b4;
+    public static final int test_custom_background=0x7f0800b5;
+    public static final int tooltip_frame_dark=0x7f0800b6;
+    public static final int tooltip_frame_light=0x7f0800b7;
   }
   public static final class id {
     public static final int ALT=0x7f090000;
@@ -7905,20 +7906,21 @@ public final class R {
     public static final int username=0x7f09019f;
     public static final int vertical=0x7f0901a0;
     public static final int view_bio=0x7f0901a1;
-    public static final int view_major=0x7f0901a2;
-    public static final int view_name=0x7f0901a3;
-    public static final int view_offset_helper=0x7f0901a4;
-    public static final int view_year=0x7f0901a5;
-    public static final int visible=0x7f0901a6;
-    public static final int visible_removing_fragment_view_tag=0x7f0901a7;
-    public static final int wakeUp=0x7f0901a8;
-    public static final int wake_time=0x7f0901a9;
-    public static final int wide=0x7f0901aa;
-    public static final int withText=0x7f0901ab;
-    public static final int worstHabit=0x7f0901ac;
-    public static final int wrap=0x7f0901ad;
-    public static final int wrap_content=0x7f0901ae;
-    public static final int year=0x7f0901af;
+    public static final int view_email=0x7f0901a2;
+    public static final int view_major=0x7f0901a3;
+    public static final int view_name=0x7f0901a4;
+    public static final int view_offset_helper=0x7f0901a5;
+    public static final int view_year=0x7f0901a6;
+    public static final int visible=0x7f0901a7;
+    public static final int visible_removing_fragment_view_tag=0x7f0901a8;
+    public static final int wakeUp=0x7f0901a9;
+    public static final int wake_time=0x7f0901aa;
+    public static final int wide=0x7f0901ab;
+    public static final int withText=0x7f0901ac;
+    public static final int worstHabit=0x7f0901ad;
+    public static final int wrap=0x7f0901ae;
+    public static final int wrap_content=0x7f0901af;
+    public static final int year=0x7f0901b0;
   }
   public static final class integer {
     public static final int abc_config_activityDefaultDur=0x7f0a0000;
