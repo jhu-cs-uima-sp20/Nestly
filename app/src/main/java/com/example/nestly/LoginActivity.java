@@ -60,8 +60,12 @@ public class LoginActivity extends AppCompatActivity {
                     String username = curUserMap.get("username");
                     String password = curUserMap.get("password");
                     String name = curUserMap.get("name");
+                    String year = curUserMap.get("year");
                     User curUser = new User(username, password);
                     curUser.setName(name);
+                    curUser.setYear(year);
+
+
                     profiles.add(curUser);
                 }
 
@@ -93,6 +97,7 @@ public class LoginActivity extends AppCompatActivity {
                                     p_editor.putString("email", u.getUsername());
                                     p_editor.putString("password", u.getPassword());
                                     p_editor.putBoolean("loggedIn", true);
+                                    p_editor.putString("year", u.getYear());
                                     p_editor.commit();
 
                                     Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);

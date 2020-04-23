@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -58,6 +59,8 @@ public class GridFragment extends Fragment {
         username = myPrefs.getString("email", "uh oh");
         year = myPrefs.getString("year","uh oh");
 
+
+
         listener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -68,25 +71,36 @@ public class GridFragment extends Fragment {
                     assert curUserMap != null;
                     String checkUser = (String) curUserMap.get("username");
                     String password = (String) curUserMap.get("password");
-                    Boolean hidden = (Boolean) curUserMap.get("hidden");
+                    Boolean hidden = (Boolean) (curUserMap.get("hidden").equals(true));
                     String userYear = (String) curUserMap.get("year");
 
                     assert checkUser != null;
+
+
                     if (hidden == null)
                         hidden = false;
+
+                    hidden = false;
+
                     if (userYear == null)
                         userYear = year;
-                    if (!checkUser.equals(username) && !hidden ) {
-                        if(year=="Junior" || year == "Senior") {
-                            if(userYear=="Junior" || userYear=="Senior") {
+                    if (!(checkUser.equals(username)) && !hidden ) {
+
+                        if(year.equals("Junior") || year.equals("Senior")) {
+                            if(userYear.equals("Junior") || userYear.equals("Senior")) {
                                 profiles.add(new User(checkUser, password));
                             }
                         }
+
+
                         else if(year.equals(userYear)) {
+
                             profiles.add(new User(checkUser, password));
                         }
                     }
                 }
+
+                myAdapter.notifyDataSetChanged();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

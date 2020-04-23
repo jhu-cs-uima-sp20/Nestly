@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(this, StartActivity.class));
         }
 
+        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("profiles");
+
+
         // Set action bar title
         myBar = findViewById(R.id.main_bar);
         myBar.setTitle("Home");
@@ -72,9 +75,13 @@ public class MainActivity extends AppCompatActivity
         myName = navHeader.findViewById(R.id.my_name);
         myYear = navHeader.findViewById(R.id.my_year);
         String name = myPrefs.getString("name", "John Doe");
-        String year = myPrefs.getString("year", "2022");
+        String year = myPrefs.getString("year", "uh oh");
+
+
+
+
         myName.setText(name);
-        myYear.setText("Class of " + year);
+        myYear.setText(year);
 
         // Initialize grid view fragment
         GridFragment myGridFrag = new GridFragment();
@@ -125,13 +132,13 @@ public class MainActivity extends AppCompatActivity
         else if (myID == R.id.hide_acc_tab) {
             String email = myPrefs.getString("email", "ERROR");
             SharedPreferences.Editor p_editor = myPrefs.edit();
-            boolean hidden = myPrefs.getBoolean("hidden", true);
+            boolean hidden = myPrefs.getBoolean("hidden", false);
             //change account to hidden or visible on firebase
             String jhed = email.substring(0, email.indexOf('@'));
             DatabaseReference myAcc =
                     FirebaseDatabase.getInstance().getReference().child("profiles").child(jhed).child("hidden");
 
-            if (hidden) { // invert the setting
+            if (hidden) { // started out hidden, invert the setting
                 myAcc.setValue(false);
                 p_editor.putBoolean("hidden", false);
 

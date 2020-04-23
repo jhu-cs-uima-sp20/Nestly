@@ -158,7 +158,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
 
 
         //set up year spinner
-        final String[] years = new String[]{"", "2023", "2022", "2021", "2020"};
+        final String[] years = new String[]{"", "Freshman", "Sophomore", "Junior", "Senior"};
         adapter1 = ArrayAdapter.createFromResource(this,
                 R.array.year_options, android.R.layout.simple_spinner_dropdown_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
