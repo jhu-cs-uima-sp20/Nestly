@@ -79,13 +79,7 @@ public class GridFragment extends Fragment {
                     String userYear = (String) curUserMap.get("year");
 
                     assert checkUser != null;
-
-
-                    if (hidden == null)
-                        hidden = false;
-
-                    hidden = false;
-
+                    
                     if (userYear == null)
                         userYear = year;
                     if (!(checkUser.equals(username)) && !hidden && !block_list.contains(checkUser)) {
