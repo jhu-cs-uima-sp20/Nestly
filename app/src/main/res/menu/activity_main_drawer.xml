@@ -14,19 +14,25 @@
             android:id="@+id/favorites_tab"
             android:title="Favorites" />
 
+
+
+        <item
+            android:id="@+id/logout_tab"
+            android:title="Log Out" />
+        <item
+            android:id="@+id/hide_acc_tab"
+            android:title="Hide Account" />
+        <item
+            android:id="@+id/delete_acc_tab"
+            android:title="Delete Account" />
+
     </group>
 
-    <item android:title="">
+    <item
+        android:id="@+id/second_group"
+        android:title="">
         <menu>
-            <item
-                android:id="@+id/logout_tab"
-                android:title="Log Out" />
-            <item
-                android:id="@+id/hide_acc_tab"
-                android:title="Hide Account" />
-            <item
-                android:id="@+id/delete_acc_tab"
-                android:title="Delete Account" />
+
         </menu>
     </item>
 

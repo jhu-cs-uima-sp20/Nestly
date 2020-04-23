@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DatabaseReference;
@@ -62,8 +63,8 @@ public class MainActivity extends AppCompatActivity
         navView.setNavigationItemSelectedListener(this);
         navView.bringToFront();
 
-        hide_account = null;
-
+        hide_account = navView.getMenu().getItem(4);
+        Toast.makeText(getApplicationContext(), hide_account.getTitle(), Toast.LENGTH_SHORT).show();
 
         toggle = new ActionBarDrawerToggle(this, myDrawerLayout, myBar,
                0, 0);
@@ -144,6 +145,7 @@ public class MainActivity extends AppCompatActivity
 
                 if (hide_account != null) {
                     hide_account.setTitle("Hide Account");
+                    hide_account.setChecked(false);
                 }
 
             } else {
@@ -151,6 +153,7 @@ public class MainActivity extends AppCompatActivity
                 p_editor.putBoolean("hidden", true);
                 if (hide_account !=null) {
                     hide_account.setTitle("Unhide Account");
+                    hide_account.setChecked(false);
                 }
             }
             p_editor.commit();
