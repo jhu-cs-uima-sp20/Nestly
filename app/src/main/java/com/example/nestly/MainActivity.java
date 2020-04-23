@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity
         navView.bringToFront();
 
         hide_account = navView.getMenu().getItem(4);
-        Toast.makeText(getApplicationContext(), hide_account.getTitle(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), hide_account.getTitle(), Toast.LENGTH_SHORT).show();
 
         toggle = new ActionBarDrawerToggle(this, myDrawerLayout, myBar,
                0, 0);

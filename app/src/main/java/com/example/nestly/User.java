@@ -24,6 +24,8 @@ class User {
         hidden=false;
     }
 
+    //public void setPassword(String password) {this.password = password; }
+
     public String getUsername() {
         return this.username;
     }
