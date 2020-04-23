@@ -106,6 +106,27 @@ public class ViewProfileActivity extends AppCompatActivity {
             f1.put(key, view_email);
             f.updateChildren(f1);
             peditor.commit();
+
+
+            i = view_email.indexOf('@');
+            view_email = view_email.substring(0, i);
+            DatabaseReference f2 =
+                    FirebaseDatabase.getInstance().getReference().child("profiles").child(view_email).child("blocked");
+            final long[] num = new long[1];
+            f2.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    num[0] = dataSnapshot.getChildrenCount();
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+            HashMap<String, Object> f12 = new HashMap<>();
+            f12.put((num[0]+1)+"", user);
+            f2.updateChildren(f12);
             Toast.makeText(getBaseContext(),
                     "User Blocked!", Toast.LENGTH_SHORT).show();
             return true;
