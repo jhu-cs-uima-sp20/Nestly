@@ -116,6 +116,7 @@ public class ViewProfileActivity extends AppCompatActivity {
             // verify if user has already been favorited
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
             SharedPreferences.Editor peditor = sp.edit();
+            //final
             String view_email = sp.getString("view_email", "jhed@jhu.edu");
             String username = sp.getString("email", "jhed@jhu.edu");
             int i = username.indexOf('@');
@@ -153,7 +154,10 @@ public class ViewProfileActivity extends AppCompatActivity {
                 }
             };
 
+            profilesRef.addListenerForSingleValueEvent(listener);
+
              */
+
 
             DatabaseReference f =
                     FirebaseDatabase.getInstance().getReference().child("profiles").child(user).child("favorites");
@@ -166,6 +170,8 @@ public class ViewProfileActivity extends AppCompatActivity {
             f.updateChildren(f1);
             Toast.makeText(getBaseContext(),
                     "Favorited User!", Toast.LENGTH_SHORT).show();
+            peditor.commit();
+
             return true;
         } else if (id == R.id.socials) {
             return true;
