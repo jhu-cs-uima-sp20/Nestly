@@ -89,6 +89,23 @@ public class ViewProfileActivity extends AppCompatActivity {
 
 
         if (id == R.id.block) {
+            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+            SharedPreferences.Editor peditor = sp.edit();
+            String view_email = sp.getString("view_email", "jhed@jhu.edu");
+            String username = sp.getString("email", "jhed@jhu.edu");
+            int i = username.indexOf('@');
+            final String user = username.substring(0, i);
+
+            DatabaseReference f =
+                    FirebaseDatabase.getInstance().getReference().child("profiles").child(user).child("blocked");
+            HashMap<String, Object> f1 = new HashMap<>();
+            int count = sp.getInt("numblocked", 1);
+            String key = count + "";
+            count++;
+            peditor.putInt("numblocked", count);
+            f1.put(key, view_email);
+            f.updateChildren(f1);
+            peditor.commit();
             Toast.makeText(getBaseContext(),
                     "User Blocked!", Toast.LENGTH_SHORT).show();
             return true;

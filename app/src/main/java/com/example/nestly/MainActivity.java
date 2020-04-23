@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity
         int myID = item.getItemId();
         FragmentTransaction tr = getSupportFragmentManager().beginTransaction();
         if (myID == R.id.home_tab) {
+            myBar.setTitle("Home");
             GridFragment myGridFrag = new GridFragment();
             tr.replace(R.id.home_frag, myGridFrag);
             tr.addToBackStack(null);

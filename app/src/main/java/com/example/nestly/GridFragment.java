@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
@@ -38,6 +36,7 @@ public class GridFragment extends Fragment {
 
     private String username;
     private String year;
+    private ArrayList<String> block_list;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,16 +47,21 @@ public class GridFragment extends Fragment {
         grid = root.findViewById(R.id.grid);
 
         profiles = new ArrayList<>();
+        block_list = new ArrayList<>();
+        block_list.add("sdfasdfs");
 
         // FireBase database and references
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
+        getBlocked();
         profilesRef = dbref.child("profiles");
 
         final SharedPreferences myPrefs =
                 PreferenceManager.getDefaultSharedPreferences(myContext.getApplicationContext());
         username = myPrefs.getString("email", "uh oh");
         year = myPrefs.getString("year","uh oh");
+
+
 
 
 
@@ -84,7 +88,7 @@ public class GridFragment extends Fragment {
 
                     if (userYear == null)
                         userYear = year;
-                    if (!(checkUser.equals(username)) && !hidden ) {
+                    if (!(checkUser.equals(username)) && !hidden && !block_list.contains(checkUser)) {
 
                         if(year.equals("Junior") || year.equals("Senior")) {
                             if(userYear.equals("Junior") || userYear.equals("Senior")) {
@@ -125,6 +129,38 @@ public class GridFragment extends Fragment {
         });
 
         return root;
+    }
+
+    private void getBlocked() {
+        final SharedPreferences myPrefs =
+                PreferenceManager.getDefaultSharedPreferences(myContext.getApplicationContext());
+        String user = myPrefs.getString("email", "uh oh");
+        user = user.substring(0, user.indexOf('@'));
+        profilesRef = dbref.child("profiles").child(user).child("blocked");
+        listener = new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                myAdapter.notifyDataSetChanged();
+                profiles.clear();
+                for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                    String blocked_user = (String) snap.getValue();
+                    assert blocked_user != null;
+                    int index = blocked_user.indexOf('@');
+                    if (index > -1) {
+                        block_list.add(blocked_user);
+                    }
+                }
+                myAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        profilesRef.addListenerForSingleValueEvent(listener);
+        return;
     }
 
 }

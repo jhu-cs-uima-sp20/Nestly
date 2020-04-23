@@ -1,7 +1,4 @@
-#Thu Apr 23 00:30:01 EDT 2020
-base.0=C\:\\Users\\emilyzeng\\AndroidStudioProjects\\Nestly\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
-path.1=classes.dex
-renamed.1=classes2.dex
+#Thu Apr 23 01:02:40 EDT 2020
+base.0=C\:\\Users\\19236\\Downloads\\Nestly\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\19236\\Downloads\\Nestly\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
