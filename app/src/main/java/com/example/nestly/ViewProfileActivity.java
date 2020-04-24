@@ -118,7 +118,7 @@ public class ViewProfileActivity extends AppCompatActivity {
                         HashMap<String, Object> favsMap = (HashMap<String, Object>) myMap.get("favorites");
 
 
-                        if (favsMap == null) {
+                        if (favsMap == null || favsMap.get(view_username) == null) {
                             f.child(view_username).setValue(true);
                             Toast.makeText(getBaseContext(), "Favorited User", Toast.LENGTH_SHORT).show();
                             return;

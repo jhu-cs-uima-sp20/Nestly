@@ -157,7 +157,7 @@ public final class R {
         public static final int text2 = 0x7f090177;
         public static final int time = 0x7f090181;
         public static final int title = 0x7f090184;
-        public static final int visible_removing_fragment_view_tag = 0x7f09019e;
+        public static final int visible_removing_fragment_view_tag = 0x7f09019f;
     }
     public static final class integer {
         private integer() {}

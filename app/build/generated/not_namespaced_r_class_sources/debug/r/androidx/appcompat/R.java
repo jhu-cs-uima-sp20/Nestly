@@ -791,7 +791,7 @@ public final class R {
         public static final int unchecked = 0x7f090190;
         public static final int uniform = 0x7f090191;
         public static final int up = 0x7f090193;
-        public static final int wrap_content = 0x7f0901a5;
+        public static final int wrap_content = 0x7f0901a6;
     }
     public static final class integer {
         private integer() {}
