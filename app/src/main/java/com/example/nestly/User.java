@@ -14,6 +14,7 @@ class User {
     private List<String> long_answers;
     private List<String> blocked;
     private List<String> favorites;
+    private String bio;
     private boolean hidden;
 
     private String name;
@@ -22,6 +23,7 @@ class User {
         this.username = username;
         this.password = password;
         hidden=false;
+        bio="[insert bio]";
     }
 
     //public void setPassword(String password) {this.password = password; }
@@ -36,11 +38,15 @@ class User {
 
     public String getPassword() { return this.password; }
 
+    public String getBio() { return this.bio; }
+
     public void setName(String name) {
         this.name = name;
     }
 
     public void setYear(String year) { this.year=year; }
+
+    public void setBio(String bio) { this.bio=bio; }
 
     public String getYear() { return year; }
 

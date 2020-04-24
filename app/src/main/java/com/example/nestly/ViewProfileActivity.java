@@ -41,6 +41,7 @@ public class ViewProfileActivity extends AppCompatActivity {
     private String name;
     private String major;
     private String userYear;
+    private String userBio;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,9 +70,11 @@ public class ViewProfileActivity extends AppCompatActivity {
                     name= (String) curUserMap.get("name");
                     major = (String) curUserMap.get("major");
                     userYear = (String) curUserMap.get("year");
+                    userBio = (String) curUserMap.get("bio");
                     view_name.setText(name);
                     view_year.setText(userYear);
                     view_major.setText(major);
+                    view_bio.setText(userBio);
                     ArrayList<String> habits_answers= (ArrayList<String>) curUserMap.get("habits_answers");
                     ArrayList<String> situations_answers= (ArrayList<String>) curUserMap.get("situations_answers");
                     ArrayList<String> long_answers= (ArrayList<String>) curUserMap.get("long_answers");
