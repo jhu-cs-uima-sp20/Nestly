@@ -53,12 +53,13 @@ public class GridFragment extends Fragment {
         // FireBase database and references
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
-        getBlocked();
-        profilesRef = dbref.child("profiles");
-
         final SharedPreferences myPrefs =
                 PreferenceManager.getDefaultSharedPreferences(myContext.getApplicationContext());
         username = myPrefs.getString("email", "uh oh");
+
+        if(username!="uh oh") {
+        getBlocked();
+        profilesRef = dbref.child("profiles");
         year = myPrefs.getString("year","uh oh");
 
 
@@ -120,7 +121,7 @@ public class GridFragment extends Fragment {
                 p_editor.commit();
                 main.viewProfile(position);
             }
-        });
+        });}
 
         return root;
     }
