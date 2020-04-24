@@ -20,6 +20,10 @@
                 android:title="Gender"
                 app:showAsAction="never" />
             <item
+                android:id="@+id/major"
+                android:title="Major"
+                app:showAsAction="never" />
+            <item
                 android:id="@+id/intro_extro_vert"
                 android:title="Intro/Extrovert"
                 app:showAsAction="never" />

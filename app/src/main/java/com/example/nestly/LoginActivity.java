@@ -45,9 +45,9 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-        username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
-        login = findViewById(R.id.login_btn);
+        username = (TextView) findViewById(R.id.username);
+        password = (TextView) findViewById(R.id.password);
+        login = (Button) findViewById(R.id.login_btn);
 
         listener = new ValueEventListener() {
             @Override
@@ -171,7 +171,10 @@ public class LoginActivity extends AppCompatActivity {
      * Checks if the information inputted is valid
      * @return true if valid, false otherwise
      */
+
     public boolean checkFields() {
+        username = (TextView) findViewById(R.id.username);
+        password = (TextView) findViewById(R.id.password);
         String emailText = username.getText().toString();
         String pass = password.getText().toString();
         if (!emailText.contains("@jhu.edu")) {

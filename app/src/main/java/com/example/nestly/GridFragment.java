@@ -69,6 +69,8 @@ public class GridFragment extends Fragment {
         listener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                String filter = myPrefs.getString("filter", "none");
+                String myfilter = myPrefs.getString(filter, "none");
                 myAdapter.notifyDataSetChanged();
                 profiles.clear();
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
@@ -78,12 +80,16 @@ public class GridFragment extends Fragment {
                     String password = (String) curUserMap.get("password");
                     Boolean hidden = (Boolean) (curUserMap.get("hidden").equals(true));
                     String userYear = (String) curUserMap.get("year");
+                    String checkFilter = (String) curUserMap.get(filter);
+                    if (checkFilter == null)
+                        checkFilter = "none";
 
                     assert checkUser != null;
                     
                     if (userYear == null)
                         userYear = year;
-                    if (!(checkUser.equals(username)) && !hidden && !block_list.contains(checkUser)) {
+                    if (!(checkUser.equals(username)) && !hidden && !block_list.contains(checkUser)
+                            && checkFilter.equals(myfilter)) {
 
                         if(year.equals("Junior") || year.equals("Senior")) {
                             if(userYear.equals("Junior") || userYear.equals("Senior")) {

@@ -1874,7 +1874,6 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
-id socials
 id spacer
 id spinner
 id spinner1
@@ -1946,6 +1945,7 @@ id useLogo
 id username
 id vertical
 id view_bio
+id view_email
 id view_major
 id view_name
 id view_offset_helper

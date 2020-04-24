@@ -198,11 +198,20 @@ public class MainActivity extends AppCompatActivity
     // handle button activities
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor p_editor = prefs.edit();
         int id = item.getItemId();
         if (id == R.id.none) {
-            //do nothing
+            //change filter to none
+            p_editor.putString("filter", "none");
+        } else if (id == R.id.major) {
+            p_editor.putString("filter", "major");
+        } else if (id == R.id.gender_item) {
+            p_editor.putString("filter", "gender");
         } else if (id == R.id.sleep_time) {
             //do something
+        } else if (id == R.id.intro_extro_vert) {
+            //p_editor.putString("filter", "none");
         } else if (id == R.id.wake_time) {
             //sort by wake time
         } else if (id == R.id.situations) {
@@ -210,6 +219,14 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.time_spent) {
 
         }
+
+        p_editor.commit();
+        // Initialize grid view fragment
+        GridFragment myGridFrag = new GridFragment();
+        FragmentTransaction tr = getSupportFragmentManager().beginTransaction();
+        tr.replace(R.id.home_frag, myGridFrag);
+        tr.addToBackStack(null);
+        tr.commit();
         return super.onOptionsItemSelected(item);
     }
 }
