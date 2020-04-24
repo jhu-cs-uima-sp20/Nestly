@@ -2,10 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/add_favorite"
-        android:orderInCategory="100"
-        android:title="Favorite"
-        app:showAsAction="never" />
+    android:id="@+id/socials"
+    android:orderInCategory="100"
+    android:title="jhed@jhu.edu"
+    app:showAsAction="never" />
     <item
         android:id="@+id/block"
         android:orderInCategory="100"
