@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,15 +34,21 @@ public class ViewProfileActivity extends AppCompatActivity {
     private FirebaseDatabase myBase;
     private DatabaseReference dbref;
     private ValueEventListener listener;
+    private ValueEventListener l2;
 
     private TextView view_name;
     private TextView view_major;
     private TextView view_year;
     private TextView view_bio;
+    private TextView v_email;
+    private ImageButton star;
 
     private String name;
     private String major;
     private String userYear;
+    private boolean isFavorite;
+    private int fav_index;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,13 +59,14 @@ public class ViewProfileActivity extends AppCompatActivity {
         dbref = myBase.getReference();
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor peditor = sp.edit();
-        String view_email = sp.getString("view_email", "jhed@jhu.edu");
-        view_email = view_email.substring(0,view_email.indexOf('@'));
+        final String view_email = sp.getString("view_email", "jhed@jhu.edu");
 
         view_name = findViewById(R.id.view_name);
         view_major = findViewById(R.id.view_major);
         view_year = findViewById(R.id.view_year);
         view_bio = findViewById(R.id.view_bio);
+        v_email = (TextView) findViewById(R.id.view_email);
+        v_email.setText(view_email);
 
         DatabaseReference reference =
                 FirebaseDatabase.getInstance().getReference().child("profiles").child(view_email);
@@ -83,6 +92,42 @@ public class ViewProfileActivity extends AppCompatActivity {
             }
         };
         reference.addListenerForSingleValueEvent(listener);
+
+        DatabaseReference ref =
+                FirebaseDatabase.getInstance().getReference().child("profiles").child("favorites");
+        l2 = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                isFavorite = false;
+                int i = 0;
+                String key = i + "";
+                for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                    HashMap<String, Object> favUserMap = (HashMap<String, Object>) dataSnapshot.getValue();
+                    assert favUserMap != null;
+                    String email = (String) favUserMap.get(key);
+                    if (email.equals(view_email)) {
+                        isFavorite = true;
+                        fav_index = i;
+                        return;
+                    }
+
+                    i++;
+                    key = i + "";
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        ref.addValueEventListener(l2);
+
+        if (isFavorite) {
+            star.setBackgroundResource(android.R.drawable.btn_star_big_on);
+        } else {
+            star.setBackgroundResource(android.R.drawable.btn_star_big_off);
+        }
 
         // Set action bar title
         getSupportActionBar().setTitle("");
@@ -235,10 +280,50 @@ public class ViewProfileActivity extends AppCompatActivity {
             peditor.commit();
 
             return true;
-        } else if (id == R.id.socials) {
-            return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void addFavorites(View view) {
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor peditor = sp.edit();
+        String username = sp.getString("email", "jhed@jhu.edu");
+        String view_email = sp.getString("view_email", "jhed@jhu.edu");
+        int count = sp.getInt("numFavs", 1);
+        int i = username.indexOf('@');
+        String user = username.substring(0, i);
+
+        if (isFavorite) {
+            isFavorite = false;
+            String key = fav_index + "";
+            DatabaseReference f =
+                    FirebaseDatabase.getInstance().getReference().child("profiles").child(user).child("favorites").child(key);
+            f.removeValue();
+            count--;
+            peditor.putInt("numFavs", count);
+            peditor.commit();
+
+            Toast.makeText(getBaseContext(),
+                    "Unfavorited User!", Toast.LENGTH_SHORT).show();
+            star.setBackgroundResource(android.R.drawable.btn_star_big_off);
+
+        } else {
+            isFavorite = true;
+            DatabaseReference f =
+                    FirebaseDatabase.getInstance().getReference().child("profiles").child(user).child("favorites");
+            HashMap<String, Object> f1 = new HashMap<>();
+            String key = count + "";
+            count++;
+            peditor.putInt("numFavs", count);
+            f1.put(key, view_email);
+            f.updateChildren(f1);
+            Toast.makeText(getBaseContext(),
+                    "Favorited User!", Toast.LENGTH_SHORT).show();
+            peditor.commit();
+
+            star.setBackgroundResource(android.R.drawable.btn_star_big_on);
+        }
+
     }
 }
