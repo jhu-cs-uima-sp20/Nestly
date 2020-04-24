@@ -37,6 +37,7 @@ public class ViewProfileActivity extends AppCompatActivity {
     private TextView view_major;
     private TextView view_year;
     private TextView view_bio;
+    private TextView v_email;
 
     private String name;
     private String major;
@@ -53,6 +54,9 @@ public class ViewProfileActivity extends AppCompatActivity {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor peditor = sp.edit();
         String view_email = sp.getString("view_email", "jhed@jhu.edu");
+        v_email = findViewById(R.id.view_email);
+        v_email.setText(view_email);
+
         view_email = view_email.substring(0,view_email.indexOf('@'));
 
         view_name = findViewById(R.id.view_name);
@@ -237,8 +241,6 @@ public class ViewProfileActivity extends AppCompatActivity {
                     "Favorited User!", Toast.LENGTH_SHORT).show();
             peditor.commit();
 
-            return true;
-        } else if (id == R.id.socials) {
             return true;
         }
 
