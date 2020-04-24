@@ -62,7 +62,7 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
 
         my_name.setText(name);
         my_major.setText(major);
-        my_year.setText("Class Of " + year);
+        my_year.setText(year);
         my_bio.setText(bio);
 
         uploadPic.setOnClickListener(this);
