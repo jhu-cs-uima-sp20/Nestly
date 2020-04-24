@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,22 +52,29 @@ public class ViewProfileActivity extends AppCompatActivity {
         // setup Firebase
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        final SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor peditor = sp.edit();
-        String view_email = sp.getString("view_email", "jhed@jhu.edu");
-        view_email = view_email.substring(0,view_email.indexOf('@'));
+
 
         view_name = findViewById(R.id.view_name);
         view_major = findViewById(R.id.view_major);
         view_year = findViewById(R.id.view_year);
         view_bio = findViewById(R.id.view_bio);
 
+        // email being viewed reference
         DatabaseReference reference =
-                FirebaseDatabase.getInstance().getReference().child("profiles").child(view_email);
+                FirebaseDatabase.getInstance().getReference().child("profiles");
+
         listener = new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    HashMap<String, Object> curUserMap = (HashMap<String, Object>) dataSnapshot.getValue();
+            public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
+
+                    String view_email = sp.getString("view_email", "jhed@jhu.edu");
+                    view_email = view_email.substring(0,view_email.indexOf('@'));
+
+
+                    final HashMap<String, Object> allUsers = (HashMap<String, Object>) dataSnapshot.getValue();
+                    HashMap<String, Object> curUserMap = (HashMap<String, Object>) allUsers.get(view_email);
                     assert curUserMap != null;
                     name= (String) curUserMap.get("name");
                     major = (String) curUserMap.get("major");
@@ -78,14 +87,85 @@ public class ViewProfileActivity extends AppCompatActivity {
                     ArrayList<String> habits_answers= (ArrayList<String>) curUserMap.get("habits_answers");
                     ArrayList<String> situations_answers= (ArrayList<String>) curUserMap.get("situations_answers");
                     ArrayList<String> long_answers= (ArrayList<String>) curUserMap.get("long_answers");
+
+
+                ImageButton favButton = (ImageButton) findViewById(R.id.fav_button);
+
+                favButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+
+
+                        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+                        String view_email = sp.getString("view_email", "jhed@jhu.edu");
+                        String username = sp.getString("email", "jhed@jhu.edu");
+
+
+                        String view_username = view_email.substring(0, view_email.indexOf('@'));
+
+
+                        int i = username.indexOf('@');
+                        final String user = username.substring(0, i);
+
+                        // reference to my favorites
+                        DatabaseReference f =
+                                dataSnapshot.child(user).child("favorites").getRef();
+
+
+                        HashMap<String, Object> myMap = (HashMap<String, Object>) allUsers.get(user);
+                        HashMap<String, Object> favsMap = (HashMap<String, Object>) myMap.get("favorites");
+
+
+                        if (favsMap == null) {
+                            f.child(view_username).setValue(true);
+                            Toast.makeText(getBaseContext(), "Favorited User", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+
+                        boolean wasFaved = (boolean) favsMap.get(view_username);
+
+                        if (!wasFaved) {
+                            f.child(view_username).setValue(true);
+                            Toast.makeText(getBaseContext(), "Favorited User", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            f.child(view_username).setValue(false);
+                            Toast.makeText(getBaseContext(),
+                                    "Unfavorited User", Toast.LENGTH_SHORT).show();
+                        }
+
+
+
+
+
+
+
+
+
+
+
+                    }
+                });
+
+
+
+
+
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
+
         };
         reference.addListenerForSingleValueEvent(listener);
+
+
+
 
         // Set action bar title
         getSupportActionBar().setTitle("");
@@ -177,68 +257,9 @@ public class ViewProfileActivity extends AppCompatActivity {
             Toast.makeText(getBaseContext(),
                     "User Blocked!", Toast.LENGTH_SHORT).show();
             return true;
-        } else if (id == R.id.add_favorite) {
-            // verify if user has already been favorited
-            SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-            SharedPreferences.Editor peditor = sp.edit();
-            //final
-            String view_email = sp.getString("view_email", "jhed@jhu.edu");
-            String username = sp.getString("email", "jhed@jhu.edu");
-            int i = username.indexOf('@');
-            final String user = username.substring(0, i);
-            DatabaseReference profilesRef = dbref.child(user).child("favorites");
+        }
 
-            /*
-            // checks if the user has already been added to favorites
-            listener = new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    int i = 0;
-                    String key = i + "";
-                    for (DataSnapshot snap : dataSnapshot.getChildren()) {
-                        HashMap<String, Object> favs = (HashMap<String, Object>) snap.getValue();
-                        assert favs != null;
-                        String view_name = (String) favs.get(key);
-                        if (view_name.equals(view_email)){
-                            DatabaseReference myFav =
-                                    FirebaseDatabase.getInstance()
-                                            .getReference().child("profiles").child(user).child("favorites").child(key);
-                            myFav.removeValue();
-                            Toast.makeText(getBaseContext(),
-                                    "Unfavorited User!", Toast.LENGTH_SHORT).show();
-                            return;
-                        }
-                        i++;
-                        key = i + "";
-                    }
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                }
-            };
-
-            profilesRef.addListenerForSingleValueEvent(listener);
-
-             */
-
-
-            DatabaseReference f =
-                    FirebaseDatabase.getInstance().getReference().child("profiles").child(user).child("favorites");
-            HashMap<String, Object> f1 = new HashMap<>();
-            int count = sp.getInt("numFavs", 1);
-            String key = count + "";
-            count++;
-            peditor.putInt("numFavs", count);
-            f1.put(key, view_email);
-            f.updateChildren(f1);
-            Toast.makeText(getBaseContext(),
-                    "Favorited User!", Toast.LENGTH_SHORT).show();
-            peditor.commit();
-
-            return true;
-        } else if (id == R.id.socials) {
+        else if (id == R.id.socials) {
             return true;
         }
 

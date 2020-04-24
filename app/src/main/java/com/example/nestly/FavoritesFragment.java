@@ -65,13 +65,12 @@ public class FavoritesFragment extends Fragment {
                 int i = 0;
                 String key = i + "";
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
-                    String favUser = (String) snap.getValue();
+                    String favUser = (String) snap.getKey();
                     assert favUser != null;
                     int index = favUser.indexOf('@');
-                    if (index > -1) {
-                        //favUser = favUser.substring(0, index);
-                        favUsers.add(favUser);
-                    }
+                        if ((boolean)snap.getValue()) {
+                            favUsers.add(favUser);
+                        }
 
                     i++;
                     key = i + "";

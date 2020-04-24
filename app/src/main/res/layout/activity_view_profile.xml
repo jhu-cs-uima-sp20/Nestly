@@ -50,6 +50,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/fav_button"
+        android:layout_width="61dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="320dp"
+        android:layout_marginTop="140dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/btn_star" />
+
     <TabHost
         android:id="@+id/tabHost2"
         android:layout_width="match_parent"
@@ -65,7 +75,9 @@
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content" >
+
+            </TabWidget>
 
             <FrameLayout
                 android:id="@android:id/tabcontent"

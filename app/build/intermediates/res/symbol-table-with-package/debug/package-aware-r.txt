@@ -1485,6 +1485,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable divider_line
+drawable download
 drawable edit_icon
 drawable edit_text_background
 drawable filter_icon
@@ -1601,7 +1602,6 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
-id add_favorite
 id adjust_height
 id adjust_width
 id alertTitle
@@ -1680,6 +1680,7 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fade
+id fav_button
 id favorites_tab
 id fill
 id fill_horizontal
