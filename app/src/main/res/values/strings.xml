@@ -61,5 +61,114 @@
         <item>Applied Math</item>
         <item>Writing Seminars</item>
     </string-array>
+
+    <string-array name="wake_times">
+        <item>4am</item>
+        <item>5am</item>
+        <item>6am</item>
+        <item>7am</item>
+        <item>8am</item>
+        <item>9am</item>
+        <item>10am</item>
+        <item>11am</item>
+        <item>12pm</item>
+        <item>1pm</item>
+        <item>2pm</item>
+    </string-array>
+
+    <integer-array name="time_in_room">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+    </integer-array>
+
+    <string-array name="sleep_times">
+        <item>8pm</item>
+        <item>9pm</item>
+        <item>10pm</item>
+        <item>11pm</item>
+        <item>12am</item>
+        <item>1am</item>
+        <item>2am</item>
+        <item>3am</item>
+        <item>4am</item>
+        <item>5am</item>
+        <item>6am</item>
+    </string-array>
+
+    <string-array name="frequency">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10+</item>
+    </string-array>
+
+    <string-array name="q1">
+        <item>Ignore them; noise doesn’t bother you.</item>
+        <item>Ask them to quiet down, but keep going.</item>
+        <item>Have a stern talk about noise levels.</item>
+        <item>Leave and go to the library.</item>
+    </string-array>
+
+    <string-array name="q2">
+        <item>That is not okay. This is a deal breaker.</item>
+        <item>Forgive your roommate if they apologize.</item>
+        <item>You don’t really care.</item>
+        <item>Request that your roommate replace the item.</item>
+    </string-array>
+
+    <string-array name="q3">
+        <item>Remind your roommate to do the cleaning.</item>
+        <item>Have a talk about staying responsible.</item>
+        <item>Clean everything yourself.</item>
+        <item>Leave it; mess doesn’t bother you.</item>
+    </string-array>
+
+    <string-array name="q4">
+        <item>Sit them down and have a serious talk.</item>
+        <item>Send them a quick text.</item>
+        <item>Mention it over dinner one day.</item>
+        <item>You don’t tell them.</item>
+    </string-array>
+
+    <string-array name="q5">
+        <item>Ask your roommate to wash their dishes.</item>
+        <item>Those are your dishes.</item>
+        <item>Wash all of them, even the ones that are not yours.</item>
+        <item>Have a meeting about chore assignments.</item>
+    </string-array>
+
+    <string-array name="q6">
+        <item>Stay home and watch a movie in bed.</item>
+        <item>Go out partying.</item>
+        <item>Invite friends over to chill at your place.</item>
+        <item>Scream and break a few things.</item>
+    </string-array>
 </resources>
 

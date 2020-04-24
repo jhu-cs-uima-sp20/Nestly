@@ -1,6 +1,8 @@
 package com.example.nestly;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.preference.PreferenceManager;
 
 import java.util.List;
 
@@ -44,7 +47,12 @@ public class ProfileAdapter extends ArrayAdapter<User> {
         username.setText(curProfile.getUsername());
         TextView name = profileView.findViewById(R.id.given_name);
         name.setText(curProfile.getName());
-
+        SharedPreferences myPrefs =
+                PreferenceManager.getDefaultSharedPreferences(getContext());
+        TextView matching = profileView.findViewById(R.id.percent_val);
+        String per = myPrefs.getString(curProfile.getUsername()+" matching","0%");
+        Log.i("Usernames",per+"asd");
+        matching.setText(curProfile.getMatching());
         return profileView;
     }
 }
