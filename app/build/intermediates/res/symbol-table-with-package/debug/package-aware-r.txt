@@ -1484,6 +1484,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable divider_line
 drawable edit_icon
 drawable edit_text_background
 drawable filter_icon
@@ -1722,15 +1723,6 @@ id icon_group
 id icon_only
 id ifRoom
 id image
-id imageView0
-id imageView1
-id imageView10
-id imageView11
-id imageView2
-id imageView3
-id imageView4
-id imageView5
-id imageView9
 id inTheRoom
 id info
 id intro_extro_vert

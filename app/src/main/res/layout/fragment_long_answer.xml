@@ -23,14 +23,6 @@
         android:text="Eat, sleep, repeat.\n"
         android:textSize="18sp" />
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:padding="16dp"
-        android:src="@drawable/bullet_point"
-        android:contentDescription="TODO" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,14 +38,6 @@
         android:gravity="center"
         android:text="Drinks ice water.\n"
         android:textSize="18sp" />
-
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:padding="16dp"
-        android:src="@drawable/bullet_point"
-        android:contentDescription="TODO" />
 
     <TextView
         android:layout_width="match_parent"
@@ -71,18 +55,11 @@
         android:text="Soulmates.\n"
         android:textSize="18sp" />
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:padding="16dp"
-        android:src="@drawable/bullet_point"
-        android:contentDescription="TODO" />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Is there anything else you want to tell your future roommate?"
+        android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -91,6 +68,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Nope."
+        android:textAlignment="center"
         android:textSize="18sp" />
 
 </LinearLayout>
