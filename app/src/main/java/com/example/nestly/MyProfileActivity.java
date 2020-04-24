@@ -1,8 +1,10 @@
 package com.example.nestly;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,9 +18,18 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.util.UUID;
 
 
 public class MyProfileActivity extends AppCompatActivity implements View.OnClickListener {
@@ -34,7 +45,12 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
     private TextView my_major;
     private TextView my_year;
     private TextView my_bio;
+    private String user;
 
+    private Uri selectedImage;
+
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,11 +75,17 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         String year = myPrefs.getString("year", "2022");
         String major = myPrefs.getString("major", "Undeclared");
         String bio = myPrefs.getString("bio", "[insert bio here]");
+        String email = myPrefs.getString("email", "jhed@jhu.edu");
+        int i = email.indexOf('@');
+        user = email.substring(0, i);
 
         my_name.setText(name);
         my_major.setText(major);
         my_year.setText(year);
         my_bio.setText(bio);
+
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
 
         uploadPic.setOnClickListener(this);
         bio_btn.setOnClickListener(bioListener);
@@ -107,8 +129,43 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data != null) {
-            Uri selectedImage = data.getData();
+            selectedImage = data.getData();
             profilePic.setImageURI(selectedImage);
+
+            uploadImage();
+        }
+    }
+
+    private void uploadImage() {
+        if (selectedImage != null) {
+            final ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setTitle("Uploading...");
+            progressDialog.show();
+
+            StorageReference ref = storageReference.child("images/"+ user);
+            ref.putFile(selectedImage)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            progressDialog.dismiss();
+                            Toast.makeText(MyProfileActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            Toast.makeText(MyProfileActivity.this, "Failed "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
+                                    .getTotalByteCount());
+                            progressDialog.setMessage("Uploaded "+(int)progress+"%");
+                        }
+                    });
         }
     }
 
