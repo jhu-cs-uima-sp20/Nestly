@@ -16,6 +16,7 @@ class User {
     private List<String> favorites;
     private String bio;
     private boolean hidden;
+    private String matching="0%";
 
     private String name;
 
@@ -95,5 +96,9 @@ class User {
     public List<String> getBlocked(){ return blocked; }
 
     public void setBlock(List<String> blocked){this.blocked = blocked;}
+
+    public void setMatching(String matching){this.matching = matching;}
+
+    public String getMatching(){ return matching; }
 
 }

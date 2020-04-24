@@ -1,4 +1,4 @@
-#Fri Apr 24 15:50:09 MDT 2020
-base.0=/Users/emilyzeng/AndroidStudioProjects/Nestly/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+#Fri Apr 24 18:29:37 EDT 2020
+base.0=C\:\\Users\\19236\\Documents\\Nestly\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

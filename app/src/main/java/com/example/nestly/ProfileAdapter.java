@@ -44,7 +44,8 @@ public class ProfileAdapter extends ArrayAdapter<User> {
         username.setText(curProfile.getUsername());
         TextView name = profileView.findViewById(R.id.given_name);
         name.setText(curProfile.getName());
-
+        TextView matching = profileView.findViewById(R.id.percent_val);
+        matching.setText(curProfile.getMatching());
         return profileView;
     }
 }
