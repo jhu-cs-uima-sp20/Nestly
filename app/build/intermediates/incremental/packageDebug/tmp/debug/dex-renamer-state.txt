@@ -1,7 +1,4 @@
-#Fri Apr 24 18:52:47 EDT 2020
-base.0=/Users/jhe/Desktop/Nestly/C\:\\Users\\19236\\Documents\\Nestly\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out\\classes.dex
-path.1=classes.dex
-renamed.1=classes2.dex
+#Fri Apr 24 22:37:40 EDT 2020
+base.0=/Users/jhe/Desktop/Nestly/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=/Users/jhe/Desktop/Nestly/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex

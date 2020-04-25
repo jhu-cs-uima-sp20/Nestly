@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +15,7 @@ import android.os.Bundle;
 import androidx.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TabHost;
@@ -29,6 +31,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.HashMap;
 import java.util.UUID;
 
 
@@ -59,6 +62,8 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
 
         myBase = FirebaseDatabase.getInstance();
         dbref = myBase.getReference();
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
 
         profilePic = findViewById(R.id.profilePic);
         uploadPic = findViewById(R.id.uploadPic);
@@ -83,9 +88,6 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         my_major.setText(major);
         my_year.setText(year);
         my_bio.setText(bio);
-
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
 
         uploadPic.setOnClickListener(this);
         bio_btn.setOnClickListener(bioListener);
@@ -136,19 +138,30 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         }
     }
 
+    private String getImageExtension(Uri uri) {
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(cr.getType(uri));
+    }
+
     private void uploadImage() {
         if (selectedImage != null) {
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            StorageReference ref = storageReference.child("images/"+ user);
+            StorageReference ref = storageReference.child("images/" + user + "." + getImageExtension(selectedImage));
             ref.putFile(selectedImage)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressDialog.dismiss();
                             Toast.makeText(MyProfileActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+
+                            DatabaseReference r = dbref.child("profiles").child(user);
+                            HashMap<String, Object> im = new HashMap<>();
+                            im.put("url", taskSnapshot.getDownloadUrl().toString());
+                            r.updateChildren(im);
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -166,6 +179,8 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
                             progressDialog.setMessage("Uploaded "+(int)progress+"%");
                         }
                     });
+        } else {
+            Toast.makeText(this, "No image selected", Toast.LENGTH_SHORT).show();
         }
     }
 

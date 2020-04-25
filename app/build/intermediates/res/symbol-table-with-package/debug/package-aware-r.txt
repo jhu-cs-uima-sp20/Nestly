@@ -1828,6 +1828,7 @@ id percent
 id percent_val
 id pin
 id profilePic
+id profile_pic
 id progress_circular
 id progress_horizontal
 id radio

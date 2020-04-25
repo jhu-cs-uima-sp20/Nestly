@@ -19,12 +19,14 @@ class User {
     private String matching="0%";
 
     private String name;
+    private String url;
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
         hidden=false;
         bio="[insert bio]";
+        url="https://firebasestorage.googleapis.com/v0/b/nestly-database.appspot.com/o/images%2Fdefault.webp?alt=media&token=a5b1a8b3-82ef-4126-b011-74a008cad6bb";
     }
 
     //public void setPassword(String password) {this.password = password; }
@@ -40,6 +42,10 @@ class User {
     public String getPassword() { return this.password; }
 
     public String getBio() { return this.bio; }
+
+    public String getUrl() { return this.url; }
+
+    public void setPfpUrl(String url) { this.url = url; }
 
     public void setName(String name) {
         this.name = name;
