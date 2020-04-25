@@ -95,7 +95,11 @@ public class ViewProfileActivity extends AppCompatActivity {
                     view_major.setText(major);
                     view_bio.setText(userBio);
 
-                Picasso.with(context)
+                    if (userUrl.equals("")) {
+                        userUrl = "https://firebasestorage.googleapis.com/v0/b/nestly-database.appspot.com/o/images%2Fdefault.webp?alt=media&token=a5b1a8b3-82ef-4126-b011-74a008cad6bb";
+                    }
+
+                    Picasso.with(context)
                         .load(userUrl)
                         .fit()
                         .centerCrop()
