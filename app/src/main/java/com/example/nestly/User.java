@@ -9,6 +9,7 @@ class User {
     private String year;
     private String major;
     private String gender;
+    private String jhed;
     private List<String> habits_answers;
     private List<String> situations_answers;
     private List<String> long_answers;
@@ -44,6 +45,10 @@ class User {
     public String getBio() { return this.bio; }
 
     public String getUrl() { return this.url; }
+
+    public String getJhed() { return this.jhed; }
+
+    public void setJhed(String jhed) { this.jhed = jhed; }
 
     public void setUrl(String url) { this.url = url; }
 

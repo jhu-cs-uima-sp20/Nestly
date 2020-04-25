@@ -123,6 +123,8 @@ public class LongAnswerActivity extends AppCompatActivity {
                 int i = user.indexOf('@');
                 user = user.substring(0,i);
                 addProfile.put(user, mainUser);
+
+                p_editor.putString("my_jhed", user);
                         //.push();
                 // make child with key username, make its value the User class
                 //profilesRef.setValue(mainUser);
