@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import androidx.preference.PreferenceManager;
@@ -11,6 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 /**
@@ -34,6 +44,7 @@ public class SituationFragmentUser extends Fragment {
     private TextView onNerves;
     private TextView dishes;
     private TextView badDay;
+    private ValueEventListener listener;
 
     private SharedPreferences myPrefs;
 
@@ -72,10 +83,11 @@ public class SituationFragmentUser extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_situation_user, container, false);
+        View v = inflater.inflate(R.layout.fragment_situation, container, false);
 
         Context context = getActivity();
-        myPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences.Editor peditor = sp.edit();
 
         callFriends = v.findViewById(R.id.callFriends);
         brokeStuff = v.findViewById(R.id.brokeStuff);
@@ -84,12 +96,30 @@ public class SituationFragmentUser extends Fragment {
         dishes = v.findViewById(R.id.dishes);
         badDay = v.findViewById(R.id.badDay);
 
-        callFriends.setText(myPrefs.getString("situation1", ""));
-        brokeStuff.setText(myPrefs.getString("situation2", ""));
-        cleanRoom.setText(myPrefs.getString("situation3", ""));
-        onNerves.setText(myPrefs.getString("situation4", ""));
-        dishes.setText(myPrefs.getString("situation5", ""));
-        badDay.setText(myPrefs.getString("situation6", ""));
+        DatabaseReference reference =
+                FirebaseDatabase.getInstance().getReference().child("profiles").child(sp.getString("my_jhed", "jhed"));
+        listener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                HashMap<String, Object> curUserMap = (HashMap<String, Object>) dataSnapshot.getValue();
+                assert curUserMap != null;
+                ArrayList<String> situations_answers= (ArrayList<String>) curUserMap.get("situations_answers");
+                callFriends.setText(situations_answers.get(0));
+                brokeStuff.setText(situations_answers.get(1));
+                cleanRoom.setText(situations_answers.get(2));
+                onNerves.setText(situations_answers.get(3));
+                dishes.setText(situations_answers.get(4));
+                badDay.setText(situations_answers.get(5));
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        };
+        reference.addListenerForSingleValueEvent(listener);
+
 
         return v;
     }
