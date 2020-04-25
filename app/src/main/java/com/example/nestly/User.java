@@ -45,7 +45,7 @@ class User {
 
     public String getUrl() { return this.url; }
 
-    public void setPfpUrl(String url) { this.url = url; }
+    public void setUrl(String url) { this.url = url; }
 
     public void setName(String name) {
         this.name = name;

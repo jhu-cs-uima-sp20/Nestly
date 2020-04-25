@@ -30,6 +30,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -39,6 +40,7 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
 
     private FirebaseDatabase myBase;
     private DatabaseReference dbref;
+    private DatabaseReference r;
 
     private static final int RESULT_LOAD_IMAGE = 1;
     private ImageView profilePic;
@@ -83,6 +85,14 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         String email = myPrefs.getString("email", "jhed@jhu.edu");
         int i = email.indexOf('@');
         user = email.substring(0, i);
+
+        r = dbref.child("profiles").child(user);
+
+        Picasso.with(this)
+                .load(myPrefs.getString("my_url", "https://firebasestorage.googleapis.com/v0/b/nestly-database.appspot.com/o/images%2Fdefault.webp?alt=media&token=a5b1a8b3-82ef-4126-b011-74a008cad6bb"))
+                .fit()
+                .centerCrop()
+                .into(profilePic);
 
         my_name.setText(name);
         my_major.setText(major);
@@ -158,7 +168,6 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
                             progressDialog.dismiss();
                             Toast.makeText(MyProfileActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
 
-                            DatabaseReference r = dbref.child("profiles").child(user);
                             HashMap<String, Object> im = new HashMap<>();
                             im.put("url", taskSnapshot.getDownloadUrl().toString());
                             r.updateChildren(im);
