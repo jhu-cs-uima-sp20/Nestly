@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -44,6 +47,10 @@ public class ViewProfileActivity extends AppCompatActivity {
     private String major;
     private String userYear;
     private String userBio;
+    private String userUrl;
+
+    private ImageView profilePic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +67,7 @@ public class ViewProfileActivity extends AppCompatActivity {
         view_major = findViewById(R.id.view_major);
         view_year = findViewById(R.id.view_year);
         view_bio = findViewById(R.id.view_bio);
+        profilePic = findViewById(R.id.profile_pic);
 
         // email being viewed reference
         DatabaseReference reference =
@@ -72,6 +80,7 @@ public class ViewProfileActivity extends AppCompatActivity {
                     String view_email = sp.getString("view_email", "jhed@jhu.edu");
                     view_email = view_email.substring(0,view_email.indexOf('@'));
 
+                    Context context = getApplicationContext();
 
                     final HashMap<String, Object> allUsers = (HashMap<String, Object>) dataSnapshot.getValue();
                     HashMap<String, Object> curUserMap = (HashMap<String, Object>) allUsers.get(view_email);
@@ -80,10 +89,18 @@ public class ViewProfileActivity extends AppCompatActivity {
                     major = (String) curUserMap.get("major");
                     userYear = (String) curUserMap.get("year");
                     userBio = (String) curUserMap.get("bio");
+                    userUrl = (String) curUserMap.get("url");
                     view_name.setText(name);
                     view_year.setText(userYear);
                     view_major.setText(major);
                     view_bio.setText(userBio);
+
+                Picasso.with(context)
+                        .load(userUrl)
+                        .fit()
+                        .centerCrop()
+                        .into(profilePic);
+
                     ArrayList<String> habits_answers= (ArrayList<String>) curUserMap.get("habits_answers");
                     ArrayList<String> situations_answers= (ArrayList<String>) curUserMap.get("situations_answers");
                     ArrayList<String> long_answers= (ArrayList<String>) curUserMap.get("long_answers");

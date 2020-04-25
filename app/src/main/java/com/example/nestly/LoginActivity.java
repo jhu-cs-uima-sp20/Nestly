@@ -64,6 +64,8 @@ public class LoginActivity extends AppCompatActivity {
                     String year = (String) curUserMap.get("year");
                     String major = (String) curUserMap.get("major");
                     String gender = (String) curUserMap.get("gender");
+                    String bio = (String) curUserMap.get("bio");
+                    String url = (String) curUserMap.get("url");
 //                    List<String> habits = (List<String>) curUserMap.get("habit_answers");
 //                    List<String> situations = (List<String>) curUserMap.get("situation_answers");
 //                    List<String> long_answers = (List<String>) curUserMap.get("long_answers");
@@ -74,6 +76,8 @@ public class LoginActivity extends AppCompatActivity {
                     curUser.setYear(year);
                     curUser.setGender(gender);
                     curUser.setMajor(major);
+                    curUser.setBio(bio);
+                    curUser.setUrl(url);
 //                    curUser.setFavorites(favorites);
 //                    curUser.setHabits_answers(habits);
 //                    curUser.setSituations_answers(situations);
@@ -113,6 +117,8 @@ public class LoginActivity extends AppCompatActivity {
                                     p_editor.putString("year", u.getYear());
                                     p_editor.putString("gender", u.getGender());
                                     p_editor.putString("major", u.getMajor());
+                                    p_editor.putString("bio", u.getBio());
+                                    p_editor.putString("my_url", u.getUrl());
 
                                     // Add Habits to SharedPreferences
 

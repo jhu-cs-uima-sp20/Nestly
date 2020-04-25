@@ -8,6 +8,7 @@ MERGED from [com.google.android.material:material:1.1.0] /Users/jhe/.gradle/cach
 MERGED from [androidx.preference:preference:1.1.0] /Users/jhe/.gradle/caches/transforms-2/files-2.1/a6ae4030b52671595dfce90719dd71e8/preference-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/jhe/.gradle/caches/transforms-2/files-2.1/fb8f7031ef66b8147647717c2aecca12/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/jhe/.gradle/caches/transforms-2/files-2.1/81a362b35962fa2496d450cbee5c4ecc/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
+MERGED from [com.squareup.picasso:picasso:2.6.0-SNAPSHOT] /Users/jhe/.gradle/caches/transforms-2/files-2.1/644d9c91cbf34830116d9c5170ab0987/jetified-picasso-2.6.0-SNAPSHOT/AndroidManifest.xml:2:1-8:12
 MERGED from [com.google.firebase:firebase-analytics:12.0.1] /Users/jhe/.gradle/caches/transforms-2/files-2.1/560e96cbf0fb809e950f5460af46b8e0/jetified-firebase-analytics-12.0.1/AndroidManifest.xml:17:1-54:12
 MERGED from [com.google.firebase:firebase-database:12.0.1] /Users/jhe/.gradle/caches/transforms-2/files-2.1/182e2d45a8ba572ca874caa9cf7fe485/jetified-firebase-database-12.0.1/AndroidManifest.xml:2:1-8:12
 MERGED from [com.google.firebase:firebase-auth:12.0.1] /Users/jhe/.gradle/caches/transforms-2/files-2.1/f12eb7183a604831cfafcef8ab8fcd6f/jetified-firebase-auth-12.0.1/AndroidManifest.xml:17:1-32:12
@@ -262,6 +263,8 @@ MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/jhe/.gradle/caches/trans
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/jhe/.gradle/caches/transforms-2/files-2.1/fb8f7031ef66b8147647717c2aecca12/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/jhe/.gradle/caches/transforms-2/files-2.1/81a362b35962fa2496d450cbee5c4ecc/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/jhe/.gradle/caches/transforms-2/files-2.1/81a362b35962fa2496d450cbee5c4ecc/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [com.squareup.picasso:picasso:2.6.0-SNAPSHOT] /Users/jhe/.gradle/caches/transforms-2/files-2.1/644d9c91cbf34830116d9c5170ab0987/jetified-picasso-2.6.0-SNAPSHOT/AndroidManifest.xml:6:5-44
+MERGED from [com.squareup.picasso:picasso:2.6.0-SNAPSHOT] /Users/jhe/.gradle/caches/transforms-2/files-2.1/644d9c91cbf34830116d9c5170ab0987/jetified-picasso-2.6.0-SNAPSHOT/AndroidManifest.xml:6:5-44
 MERGED from [com.google.firebase:firebase-analytics:12.0.1] /Users/jhe/.gradle/caches/transforms-2/files-2.1/560e96cbf0fb809e950f5460af46b8e0/jetified-firebase-analytics-12.0.1/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-analytics:12.0.1] /Users/jhe/.gradle/caches/transforms-2/files-2.1/560e96cbf0fb809e950f5460af46b8e0/jetified-firebase-analytics-12.0.1/AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-database:12.0.1] /Users/jhe/.gradle/caches/transforms-2/files-2.1/182e2d45a8ba572ca874caa9cf7fe485/jetified-firebase-database-12.0.1/AndroidManifest.xml:6:5-44
