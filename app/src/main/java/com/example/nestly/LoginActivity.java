@@ -78,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     curUser.setMajor(major);
                     curUser.setBio(bio);
                     curUser.setUrl(url);
+                    curUser.setJhed(username.substring(0,username.indexOf("@")));
 //                    curUser.setFavorites(favorites);
 //                    curUser.setHabits_answers(habits);
 //                    curUser.setSituations_answers(situations);
@@ -119,27 +120,8 @@ public class LoginActivity extends AppCompatActivity {
                                     p_editor.putString("major", u.getMajor());
                                     p_editor.putString("bio", u.getBio());
                                     p_editor.putString("my_url", u.getUrl());
+                                    p_editor.putString("my_jhed", u.getJhed());
 
-                                    // Add Habits to SharedPreferences
-
-//                                    List<String> habits = u.getHabits_answers();
-//                                    p_editor.putString("intro/extrovert", habits.get(0));
-//                                    for (int i = 1; i <= 6; i++) {
-//                                        String key = "check" + i;
-//                                        if (habits.get(i).equals("checked"))
-//                                            p_editor.putBoolean(key, true);
-//                                        else
-//                                            p_editor.putBoolean(key, false);
-//                                    }
-
-                                    // add number of favorite users
-                                    //p_editor.putInt("numFavorites", u.getFavorites().size());
-
-
-
-                                    // Add Situational Answers to SharedPreferences
-
-                                    // Add Long Answers
                                     p_editor.commit();
 
                                     Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
