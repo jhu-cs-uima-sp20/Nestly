@@ -113,7 +113,9 @@ public class HabitsFragmentUser extends Fragment {
                         listActivities = listActivities + activities[i] + ", ";
                     }
                 }
-                listActivities = listActivities.substring(0,listActivities.length()-2);
+                if (listActivities.length() != 0) {
+                    listActivities = listActivities.substring(0, listActivities.length() - 2);
+                }
 
                 inTheRoom.setText("I plan to: " + listActivities + " in the room");
                 timeSpent.setText("Not including sleeping, I plan to spend an average of " + habits_answers.get(7) + " hours in the room");
