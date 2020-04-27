@@ -120,9 +120,9 @@ public class HabitsFragment extends Fragment {
                 }
                 inTheRoom.setText("I plan to: " + listActivities + " in the room");
                 timeSpent.setText("Not including sleeping, I plan to spend an average of " + habits_answers.get(7) + " hours in the room");
-                bringFriends.setText("I plan to bring friends over an average of " + habits_answers.get(8) + " times a week");
+                bringFriends.setText("I plan to bring friends over an average of " + habits_answers.get(10) + " times a week");
                 wakeUp.setText("I usually wake up around " + habits_answers.get(9));
-                sleep.setText("I usually sleep around " + habits_answers.get(10));
+                sleep.setText("I usually sleep around " + habits_answers.get(8));
             }
 
             @Override
