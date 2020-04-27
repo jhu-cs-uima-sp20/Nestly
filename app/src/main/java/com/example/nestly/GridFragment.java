@@ -20,6 +20,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -35,6 +36,9 @@ public class GridFragment extends Fragment {
     private DatabaseReference profilesRef;
     private ValueEventListener listener;
     static ArrayList<User> profiles;
+
+    private int my;
+    private int check;
 
     private String username;
     private String year;
@@ -74,7 +78,7 @@ public class GridFragment extends Fragment {
                 myAdapter.notifyDataSetChanged();
                 profiles.clear();
                 String filter = myPrefs.getString("filter", "none");
-                String myfilter = myPrefs.getString(filter, "none");
+                String myfilter = myPrefs.getString(filter, "none"); //major, gender, etc.
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
                     HashMap<String, Object> curUserMap = (HashMap<String, Object>) snap.getValue();
                     assert curUserMap != null;
@@ -89,30 +93,113 @@ public class GridFragment extends Fragment {
                         checkFilter = "none";
 
                     assert checkUser != null;
-                    
+
                     if (userYear == null)
                         userYear = year;
-                    if (!hidden && !block_list.contains(checkUser)
-                            && checkFilter.equals(myfilter)) {
+                    if (!hidden && !block_list.contains(checkUser)) {
 
-                        if(year.equals("Junior") || year.equals("Senior")) {
-                            if(userYear.equals("Junior") || userYear.equals("Senior")) {
+                        if ((filter.equals("gender") || filter.equals("major"))
+                                && checkFilter.equals(myfilter)) {
+
+                            if (year.equals("Junior") || year.equals("Senior")) {
+                                if (userYear.equals("Junior") || userYear.equals("Senior")) {
+                                    User temp = new User(checkUser, password);
+                                    temp.setHabits_answers(habits_answers);
+                                    temp.setSituations_answers(situations_answers);
+                                    profiles.add(temp);
+                                }
+                            } else if (year.equals(userYear)) {
                                 User temp = new User(checkUser, password);
                                 temp.setHabits_answers(habits_answers);
                                 temp.setSituations_answers(situations_answers);
                                 profiles.add(temp);
                             }
-                        }
+                        } else if (filter.equals("introvert")) {
+                            checkFilter = habits_answers.get(0);
+                            myfilter = myPrefs.getString("intro/extrovert", "introvert");
+                            if (checkFilter.equals(myfilter)) {
+                                if (year.equals("Junior") || year.equals("Senior")) {
+                                    if (userYear.equals("Junior") || userYear.equals("Senior")) {
+                                        User temp = new User(checkUser, password);
+                                        temp.setHabits_answers(habits_answers);
+                                        temp.setSituations_answers(situations_answers);
+                                        profiles.add(temp);
+                                    }
+                                } else if (year.equals(userYear)) {
+                                    User temp = new User(checkUser, password);
+                                    temp.setHabits_answers(habits_answers);
+                                    temp.setSituations_answers(situations_answers);
+                                    profiles.add(temp);
+                                }
+                            }
+                        } else if (filter.equals("sleep") || filter.equals("wake") ||
+                                filter.equals("time_spent") || filter.equals("people_over")) {
+                            if (filter.equals("sleep")) {
+                                checkFilter = habits_answers.get(9);
+                                myfilter = myPrefs.getString("sleep_time", "12am");
+                            } else if (filter.equals("wake")) {
+                                checkFilter = habits_answers.get(8);
+                                myfilter = myPrefs.getString("wakeUp_time", "8am");
+                            } else if (filter.equals("people_over")) {
+                                checkFilter = habits_answers.get(10);
+                                myfilter = myPrefs.getString("bring_friends", "5");
+                            } else {
+                                checkFilter = habits_answers.get(7);
+                                myfilter = myPrefs.getString("room_time", "5");
+                            }
 
+                            int mindex = myfilter.indexOf("m");
+                            int cindex = checkFilter.indexOf("m");
 
-                        else if(year.equals(userYear)) {
-                            User temp = new User(checkUser, password);
-                            temp.setHabits_answers(habits_answers);
-                            temp.setSituations_answers(situations_answers);
-                            profiles.add(temp);
+                            if (mindex != -1) {
+                                my = Integer.parseInt(myfilter.substring(0, mindex - 1));
+                                if (myfilter.substring(mindex - 1, myfilter.length()).equals("pm")) {
+                                    my = 0 + (12 - my);
+                                }
+                            } else {
+                                mindex = myfilter.indexOf("+");
+                                if (mindex != -1) {
+                                    my = Integer.parseInt(myfilter.substring(0, mindex));
+                                } else {
+                                    my = Integer.parseInt(myfilter);
+                                }
+                            }
+                            if (cindex != -1) {
+                                check = Integer.parseInt(checkFilter.substring(0, cindex - 1));
+                                if (checkFilter.substring(cindex - 1, checkFilter.length()).equals("pm")) {
+                                    check = 0 + (12 - check);
+                                }
+                            } else {
+                                cindex = checkFilter.indexOf("+");
+                                if (cindex != -1) {
+                                    check = Integer.parseInt(checkFilter.substring(0, cindex));
+                                } else {
+                                    check = Integer.parseInt(checkFilter);
+                                }
+                            }
+
+                            if (year.equals("Junior") || year.equals("Senior")) {
+                                if (userYear.equals("Junior") || userYear.equals("Senior")) {
+                                    User temp = new User(checkUser, password);
+                                    temp.setHabits_answers(habits_answers);
+                                    temp.setSituations_answers(situations_answers);
+                                    temp.setFilter(Math.abs(my - check));
+                                    profiles.add(temp);
+                                }
+                            } else if (year.equals(userYear)) {
+                                User temp = new User(checkUser, password);
+                                temp.setHabits_answers(habits_answers);
+                                temp.setSituations_answers(situations_answers);
+                                temp.setFilter(Math.abs(my - check));
+                                profiles.add(temp);
+                            }
                         }
                     }
+
                 }
+
+                Collections.sort(profiles);
+
                 calculate_percentage(profiles);
                 myAdapter.notifyDataSetChanged();
             }

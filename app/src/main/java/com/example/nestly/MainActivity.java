@@ -209,15 +209,17 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.gender_item) {
             p_editor.putString("filter", "gender");
         } else if (id == R.id.sleep_time) {
-            //do something
+            p_editor.putString("filter", "sleep");
         } else if (id == R.id.intro_extro_vert) {
             p_editor.putString("filter", "introvert");
         } else if (id == R.id.wake_time) {
-            //sort by wake time
-        } else if (id == R.id.situations) {
-            //sort by situations
+            p_editor.putString("filter", "wake");
+//        } else if (id == R.id.situations) {
+//            //sort by situations
         } else if (id == R.id.time_spent) {
-            //sort by time spent in dorm
+            p_editor.putString("filter", "time_spent");
+        } else if (id == R.id.people_over) {
+            p_editor.putString("filter", "people_over");
         }
 
         p_editor.commit();

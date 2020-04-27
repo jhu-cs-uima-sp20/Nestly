@@ -1837,7 +1837,6 @@ id recycler_view
 id right
 id right_icon
 id right_side
-id room_use
 id rounded
 id s_spinner1
 id s_spinner2
@@ -1876,7 +1875,6 @@ id showTitle
 id signup_btn
 id signup_button
 id situation_continue
-id situations
 id skipCollapsed
 id sleep
 id sleep_time
