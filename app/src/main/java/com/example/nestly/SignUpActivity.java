@@ -185,7 +185,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
 
 
         //set up year spinner
-        final String[] years = new String[]{"", "Freshman", "Sophomore", "Junior", "Senior"};
+        final String[] years = new String[]{"Gender", "Freshman", "Sophomore", "Junior", "Senior"};
         adapter1 = ArrayAdapter.createFromResource(this,
                 R.array.year_options, android.R.layout.simple_spinner_dropdown_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -214,7 +214,7 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         });
 
         //set up gender spinner
-        final String[] genderOptions = {"M", "F", "Other"};
+        final String[] genderOptions = {"", "M", "F", "Other"};
         adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.gender_options, android.R.layout.simple_spinner_dropdown_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
