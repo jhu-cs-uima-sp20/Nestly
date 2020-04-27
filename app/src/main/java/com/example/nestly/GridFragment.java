@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 public class GridFragment extends Fragment {
@@ -36,6 +37,9 @@ public class GridFragment extends Fragment {
     private DatabaseReference profilesRef;
     private ValueEventListener listener;
     static ArrayList<User> profiles;
+
+    private String gender;
+    private String major;
 
     private int my;
     private int check;
@@ -86,6 +90,8 @@ public class GridFragment extends Fragment {
                     String password = (String) curUserMap.get("password");
                     Boolean hidden = (Boolean) (curUserMap.get("hidden").equals(true));
                     String userYear = (String) curUserMap.get("year");
+                    gender = (String) curUserMap.get("gender");
+                    major = (String) curUserMap.get("major");
                     String checkFilter = (String) curUserMap.get(filter);
                     ArrayList<String> habits_answers= (ArrayList<String>) curUserMap.get("habits_answers");
                     ArrayList<String> situations_answers= (ArrayList<String>) curUserMap.get("situations_answers");
@@ -98,23 +104,24 @@ public class GridFragment extends Fragment {
                         userYear = year;
                     if (!hidden && !block_list.contains(checkUser)) {
 
-                        if ((filter.equals("gender") || filter.equals("major"))
-                                && checkFilter.equals(myfilter)) {
-
-                            if (year.equals("Junior") || year.equals("Senior")) {
-                                if (userYear.equals("Junior") || userYear.equals("Senior")) {
-                                    User temp = new User(checkUser, password);
-                                    temp.setHabits_answers(habits_answers);
-                                    temp.setSituations_answers(situations_answers);
-                                    profiles.add(temp);
-                                }
-                            } else if (year.equals(userYear)) {
-                                User temp = new User(checkUser, password);
-                                temp.setHabits_answers(habits_answers);
-                                temp.setSituations_answers(situations_answers);
-                                profiles.add(temp);
-                            }
-                        } else if (filter.equals("introvert")) {
+//                        if ((filter.equals("gender") || filter.equals("major"))
+//                                && checkFilter.equals(myfilter)) {
+//
+//                            if (year.equals("Junior") || year.equals("Senior")) {
+//                                if (userYear.equals("Junior") || userYear.equals("Senior")) {
+//                                    User temp = new User(checkUser, password);
+//                                    temp.setHabits_answers(habits_answers);
+//                                    temp.setSituations_answers(situations_answers);
+//                                    profiles.add(temp);
+//                                }
+//                            } else if (year.equals(userYear)) {
+//                                User temp = new User(checkUser, password);
+//                                temp.setHabits_answers(habits_answers);
+//                                temp.setSituations_answers(situations_answers);
+//                                profiles.add(temp);
+//                            }
+//                        } else
+                        if (filter.equals("introvert")) {
                             checkFilter = habits_answers.get(0);
                             myfilter = myPrefs.getString("intro/extrovert", "introvert");
                             if (checkFilter.equals(myfilter)) {
@@ -123,12 +130,16 @@ public class GridFragment extends Fragment {
                                         User temp = new User(checkUser, password);
                                         temp.setHabits_answers(habits_answers);
                                         temp.setSituations_answers(situations_answers);
+                                        temp.setGender(gender);
+                                        temp.setMajor(major);
                                         profiles.add(temp);
                                     }
                                 } else if (year.equals(userYear)) {
                                     User temp = new User(checkUser, password);
                                     temp.setHabits_answers(habits_answers);
                                     temp.setSituations_answers(situations_answers);
+                                    temp.setGender(gender);
+                                    temp.setMajor(major);
                                     profiles.add(temp);
                                 }
                             }
@@ -184,6 +195,8 @@ public class GridFragment extends Fragment {
                                     temp.setHabits_answers(habits_answers);
                                     temp.setSituations_answers(situations_answers);
                                     temp.setFilter(Math.abs(my - check));
+                                    temp.setGender(gender);
+                                    temp.setMajor(major);
                                     profiles.add(temp);
                                 }
                             } else if (year.equals(userYear)) {
@@ -191,15 +204,20 @@ public class GridFragment extends Fragment {
                                 temp.setHabits_answers(habits_answers);
                                 temp.setSituations_answers(situations_answers);
                                 temp.setFilter(Math.abs(my - check));
+                                temp.setGender(gender);
+                                temp.setMajor(major);
                                 profiles.add(temp);
                             }
-                        } else {
+                        }
+                        else {
                             if (year.equals("Junior") || year.equals("Senior")) {
                                 if (userYear.equals("Junior") || userYear.equals("Senior")) {
                                     User temp = new User(checkUser, password);
                                     temp.setHabits_answers(habits_answers);
                                     temp.setSituations_answers(situations_answers);
                                     temp.setFilter(Math.abs(my - check));
+                                    temp.setGender(gender);
+                                    temp.setMajor(major);
                                     profiles.add(temp);
                                 }
                             } else if (year.equals(userYear)) {
@@ -207,11 +225,30 @@ public class GridFragment extends Fragment {
                                 temp.setHabits_answers(habits_answers);
                                 temp.setSituations_answers(situations_answers);
                                 temp.setFilter(Math.abs(my - check));
+                                temp.setGender(gender);
+                                temp.setMajor(major);
                                 profiles.add(temp);
                             }
                         }
                     }
 
+                }
+
+
+                if (filter.equals("major")) {
+                    for (Iterator<User> iterator = profiles.iterator(); iterator.hasNext(); ) {
+                        User u = iterator.next();
+                        if (!u.getMajor().equals(myPrefs.getString("major", "undeclared"))) {
+                            iterator.remove();
+                        }
+                    }
+                } else if (filter.equals("gender")) {
+                    for (Iterator<User> iterator = profiles.iterator(); iterator.hasNext(); ) {
+                        User u = iterator.next();
+                        if (!u.getGender().equals(myPrefs.getString("gender", "Other"))) {
+                            iterator.remove();
+                        }
+                    }
                 }
 
                 Collections.sort(profiles);
