@@ -152,9 +152,7 @@ public class LongAnswerActivity extends AppCompatActivity {
                     return;
                 }
 
-                List<String> favorites = new ArrayList<String>();
-                favorites.add("none");
-                mainUser.setFavorites(favorites);
+
 
                 List<String> blocked = new ArrayList<String>();
                 blocked.add("none");
@@ -175,7 +173,6 @@ public class LongAnswerActivity extends AppCompatActivity {
 
                 DatabaseReference ref1 = dbref.child("profiles").child(user);
                 HashMap<String, Object> fav = new HashMap<>();
-                fav.put("favorites", favorites);
                 fav.put("blocked",blocked);
                 ref1.updateChildren(fav);
 
