@@ -217,6 +217,11 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         p_editor.commit();
 
         // delete user from firebase
+//        String email = prefs.getString("email", "ERROR");
+//        String jhed = email.substring(0, email.indexOf('@'));
+//        DatabaseReference myAcc =
+//                FirebaseDatabase.getInstance().getReference().child("profiles").child(jhed);
+//        myAcc.removeValue();
 
         // go to sign up activity for info change
         Intent signup_intent = new Intent(getApplicationContext(), SignUpActivity.class);

@@ -1,4 +1,4 @@
-#Mon Apr 27 01:13:35 MDT 2020
+#Mon Apr 27 02:23:12 MDT 2020
 base.0=/Users/emilyzeng/AndroidStudioProjects/Nestly/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex
