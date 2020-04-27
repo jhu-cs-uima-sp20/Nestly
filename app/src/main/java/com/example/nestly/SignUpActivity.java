@@ -105,6 +105,29 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
         year = findViewById(R.id.year);
         gender = findViewById(R.id.gender);
 
+        SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        boolean editMode = savePrefs.getBoolean("edit", false);
+        if (editMode) {
+            sign_up.setText("EDIT");
+            name.setText(savePrefs.getString("name", "user"));
+            email.setText(savePrefs.getString("email", "jhed@jhu.edu"));
+            password.setText(savePrefs.getString("password", ""));
+
+            int major_index = savePrefs.getInt("major_index", 0);
+            int year_index = savePrefs.getInt("year_index", 0);
+            int gender_index = savePrefs.getInt("gender_index", 0);
+
+            major.setSelection(major_index);
+            year.setSelection(year_index);
+            gender.setSelection(gender_index);
+
+            checkedYear = true;
+            checkedMajor = true;
+            checkedGender = true;
+        } else {
+            sign_up.setText("SIGN UP");
+        }
+
 
         listener = new ValueEventListener() {
             @Override
@@ -129,14 +152,18 @@ public class SignUpActivity extends AppCompatActivity implements AdapterView.OnI
                         if (!checkValid()) {
                             return;
                         }
-
-                        for (User u : profiles) {
-                            if (u.getUsername().equals(email.getText().toString())) {
-                                Toast.makeText(getApplicationContext(),
-                                        "Account already exists for this email!", Toast.LENGTH_SHORT).show();
-                                return;
+                        SharedPreferences savePrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                        boolean editMode = savePrefs.getBoolean("edit", false);
+                        if (!editMode) {
+                            for (User u : profiles) {
+                                if (u.getUsername().equals(email.getText().toString())) {
+                                    Toast.makeText(getApplicationContext(),
+                                            "Account already exists for this email!", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
                             }
                         }
+
 
                         // add to firebase
                         savePreferences();

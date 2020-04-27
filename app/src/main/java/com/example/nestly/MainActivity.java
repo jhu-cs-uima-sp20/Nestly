@@ -211,13 +211,13 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.sleep_time) {
             //do something
         } else if (id == R.id.intro_extro_vert) {
-            //p_editor.putString("filter", "none");
+            p_editor.putString("filter", "introvert");
         } else if (id == R.id.wake_time) {
             //sort by wake time
         } else if (id == R.id.situations) {
-
+            //sort by situations
         } else if (id == R.id.time_spent) {
-
+            //sort by time spent in dorm
         }
 
         p_editor.commit();

@@ -23,6 +23,11 @@ public class LongAnswerActivity extends AppCompatActivity {
 
     private FirebaseDatabase myBase;
     private DatabaseReference dbref;
+    private EditText editText1;
+    private EditText editText2;
+    private EditText editText3;
+    private EditText editText4;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +40,34 @@ public class LongAnswerActivity extends AppCompatActivity {
 
         final List<String> long_answers = new ArrayList<String>();
 
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        boolean isEdit = sp.getBoolean("edit", false);
+
+        if (isEdit) {
+            editText1 = findViewById(R.id.long_answer1);
+            editText2 = findViewById(R.id.long_answer2);
+            editText3 = findViewById(R.id.long_answer3);
+            editText4 = findViewById(R.id.long_answer4);
+
+            editText1.setText(sp.getString("longAnswer1", ""));
+            editText2.setText(sp.getString("longAnswer2", ""));
+            editText3.setText(sp.getString("longAnswer3", ""));
+            editText4.setText(sp.getString("longAnswer4", ""));
+        }
+
+
         Button button = findViewById(R.id.long_answer_finish);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                EditText editText1 = findViewById(R.id.long_answer1);
+                editText1 = findViewById(R.id.long_answer1);
                 long_answers.add(editText1.getText().toString());
-                EditText editText2 = findViewById(R.id.long_answer2);
+                editText2 = findViewById(R.id.long_answer2);
                 long_answers.add(editText2.getText().toString());
-                EditText editText3 = findViewById(R.id.long_answer3);
+                editText3 = findViewById(R.id.long_answer3);
                 long_answers.add(editText3.getText().toString());
-                EditText editText4 = findViewById(R.id.long_answer4);
+                editText4 = findViewById(R.id.long_answer4);
                 long_answers.add(editText4.getText().toString());
 
                 for(String s: long_answers) {
@@ -108,6 +129,28 @@ public class LongAnswerActivity extends AppCompatActivity {
                 habit_answers.add(sp.getString("sleep_time", "11pm"));
                 habit_answers.add(sp.getString("bring_friends", "1"));
                 mainUser.setHabits_answers(habit_answers);
+
+                // if is in Edit mode
+                boolean isEdit = sp.getBoolean("edit", false);
+                if (isEdit) {
+                    String username = sp.getString("email", "jhed@jhu.edu");
+                    username = username.substring(0, username.indexOf('@'));
+                    DatabaseReference profilesRef = dbref.child("profiles").child(username);
+                    profilesRef.child("long_answers").setValue(long_answers);
+                    profilesRef.child("situations_answers").setValue(situation_answers);
+                    profilesRef.child("habits_answers").setValue(habit_answers);
+                    profilesRef.child("year").setValue(year);
+                    profilesRef.child("password").setValue(pass);
+                    profilesRef.child("name").setValue(myName);
+                    profilesRef.child("major").setValue(major);
+                    profilesRef.child("gender").setValue(gender);
+
+
+                    // go to main activity stage
+                    Intent intent = new Intent(getApplicationContext(), MyProfileActivity.class);
+                    startActivity(intent);
+                    return;
+                }
 
                 List<String> favorites = new ArrayList<String>();
                 favorites.add("none");

@@ -1679,6 +1679,7 @@ id disableHome
 id dishes
 id drawer_layout
 id dropdown_menu
+id edit
 id editText
 id edit_query
 id email
@@ -1864,7 +1865,6 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
-id second_group
 id seekbar
 id seekbar_value
 id select_dialog_listview
@@ -1886,7 +1886,6 @@ id snackbar_action
 id snackbar_text
 id snap
 id snapMargins
-id socials
 id spacer
 id spinner
 id spinner1
@@ -2149,6 +2148,7 @@ layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
 menu activity_main_drawer
+menu edit_menu
 menu main
 menu mymenu
 mipmap ic_launcher

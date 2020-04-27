@@ -28,13 +28,5 @@
 
     </group>
 
-    <item
-        android:id="@+id/second_group"
-        android:title="">
-        <menu>
-
-        </menu>
-    </item>
-
 
 </menu>
