@@ -3,7 +3,7 @@ package com.example.nestly;
 import java.util.List;
 import java.util.Set;
 
-class User {
+class User implements Comparable<User> {
     final private String username;
     final private String password;
     private String year;
@@ -117,4 +117,8 @@ class User {
 
     public String getMatching(){ return matching; }
 
+    @Override
+    public int compareTo(User o) {
+        return this.filter - o.getFilter();
+    }
 }

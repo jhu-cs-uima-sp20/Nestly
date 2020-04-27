@@ -1876,7 +1876,6 @@ id showTitle
 id signup_btn
 id signup_button
 id situation_continue
-id situations
 id skipCollapsed
 id sleep
 id sleep_time
