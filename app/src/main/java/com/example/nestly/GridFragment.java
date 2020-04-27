@@ -111,31 +111,27 @@ public class GridFragment extends Fragment {
                                 profiles.add(temp);
                             }
                         } else {
+                            int my = Integer.parseInt(myfilter.substring(0, 0));
+                            int check = Integer.parseInt(checkFilter.substring(0,0));
+
                             if (year.equals("Junior") || year.equals("Senior")) {
                                 if (userYear.equals("Junior") || userYear.equals("Senior")) {
                                     User temp = new User(checkUser, password);
                                     temp.setHabits_answers(habits_answers);
                                     temp.setSituations_answers(situations_answers);
+                                    temp.setFilter(Math.abs(my - check));
                                     profiles.add(temp);
                                 }
                             } else if (year.equals(userYear)) {
                                 User temp = new User(checkUser, password);
                                 temp.setHabits_answers(habits_answers);
                                 temp.setSituations_answers(situations_answers);
+                                temp.setFilter(Math.abs(my - check));
                                 profiles.add(temp);
                             }
                         }
                     }
 
-                    if (filter.equals("sleep")) {
-                        // calculate and store value for sleep in filter
-                    } else if (filter.equals("wake")) {
-                        // calculate and store value for wake in filter
-                    } else if (filter.equals("situations")) {
-                        // calculate and store value for situations in filter
-                    } else if (filter.equals("time_spent")) {
-                        // calculate and store value for time spent in filter
-                    }
                 }
 
                 // write comparator for user class
