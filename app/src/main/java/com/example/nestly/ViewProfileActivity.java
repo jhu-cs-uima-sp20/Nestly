@@ -160,13 +160,6 @@ public class ViewProfileActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
-
                     }
                 });
 
@@ -221,10 +214,6 @@ public class ViewProfileActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
-        this.menu = menu;
-//        MenuItem email = menu.getItem(R.id.socials);
-//        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-//        email.setTitle(sp.getString("view_email", "jhed@jhu.edu"));
         return true;
     }
 
@@ -277,10 +266,6 @@ public class ViewProfileActivity extends AppCompatActivity {
             f2.updateChildren(f12);
             Toast.makeText(getBaseContext(),
                     "User Blocked!", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-
-        else if (id == R.id.socials) {
             return true;
         }
 

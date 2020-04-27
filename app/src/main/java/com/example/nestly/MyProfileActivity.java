@@ -12,8 +12,12 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+
+import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.ImageButton;
@@ -191,6 +195,34 @@ public class MyProfileActivity extends AppCompatActivity implements View.OnClick
         } else {
             Toast.makeText(this, "No image selected", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.edit_menu, menu);
+        return true;
+    }
+
+    // handle button activities
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor p_editor = prefs.edit();
+        int id = item.getItemId();
+        if (id == R.id.edit) {
+            p_editor.putBoolean("edit", true);
+        }
+
+        p_editor.commit();
+
+        // delete user from firebase
+
+        // go to sign up activity for info change
+        Intent signup_intent = new Intent(getApplicationContext(), SignUpActivity.class);
+        startActivity(signup_intent);
+
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
