@@ -116,6 +116,9 @@ public class MainActivity extends AppCompatActivity
         }
         else if (myID == R.id.favorites_tab) {
             // Change to Favorites fragment
+
+
+
             myBar.setTitle("Favorites");
             FavoritesFragment myFavsFrag = new FavoritesFragment();
             tr.replace(R.id.home_frag, myFavsFrag);
@@ -198,6 +201,11 @@ public class MainActivity extends AppCompatActivity
     // handle button activities
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (myBar.getTitle().toString().equals("Favorites")) {
+            return super.onOptionsItemSelected(item);
+        }
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         SharedPreferences.Editor p_editor = prefs.edit();
         int id = item.getItemId();

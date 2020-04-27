@@ -17,8 +17,8 @@
 
     <TextView
         android:id="@+id/typicalDay"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
         android:gravity="center"
         android:text="Eat, sleep, repeat.\n"
         android:textSize="18sp" />
@@ -27,14 +27,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="What’s your worst habit?"
+        android:text="\nWhat’s your worst habit?"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/worstHabit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="362dp"
+        android:layout_height="105dp"
         android:gravity="center"
         android:text="Drinks ice water.\n"
         android:textSize="18sp" />
@@ -43,14 +43,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="What are you hoping for in a roommate?"
+        android:text="\nWhat are you hoping for in a roommate?"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/hopeRoommate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="362dp"
+        android:layout_height="84dp"
         android:gravity="center"
         android:text="Soulmates.\n"
         android:textSize="18sp" />
@@ -58,15 +58,15 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Is there anything else you want to tell your future roommate?"
+        android:text="\nIs there anything else you want to tell your future roommate?"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/other"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="362dp"
+        android:layout_height="80dp"
         android:text="Nope."
         android:textAlignment="center"
         android:textSize="18sp" />

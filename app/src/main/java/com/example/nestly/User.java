@@ -17,7 +17,7 @@ class User implements Comparable<User> {
     private List<String> favorites;
     private String bio;
     private boolean hidden;
-    private String matching="0%";
+    private String matching="";
     private int filter;
 
     private String name;

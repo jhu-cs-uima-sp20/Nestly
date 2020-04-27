@@ -97,11 +97,11 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
-            android:paddingTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:text="Not including sleeping, I plan to spend an average of                     hours in the room everyday."
             android:textSize="20sp"
-            android:text="Not including sleeping, I plan to spend an average of              hours in the room everyday."
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -152,11 +152,11 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="I plan to bring people over an average of                     times per week."
             android:textSize="20sp"
-            android:text="I plan to bring people over an average of              times per week."
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

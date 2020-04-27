@@ -69,7 +69,7 @@ public class FavoritesFragment extends Fragment {
                     assert favUser != null;
                     int index = favUser.indexOf('@');
                         if ((boolean)snap.getValue()) {
-                            favUsers.add(favUser);
+                            favUsers.add(favUser + "@jhu.edu");
                         }
 
                     i++;
