@@ -74,7 +74,7 @@ public class GridFragment extends Fragment {
                 myAdapter.notifyDataSetChanged();
                 profiles.clear();
                 String filter = myPrefs.getString("filter", "none");
-                String myfilter = myPrefs.getString(filter, "none");
+                String myfilter = myPrefs.getString(filter, "none"); //major, gender, etc.
                 for (DataSnapshot snap : dataSnapshot.getChildren()) {
                     HashMap<String, Object> curUserMap = (HashMap<String, Object>) snap.getValue();
                     assert curUserMap != null;
@@ -89,30 +89,58 @@ public class GridFragment extends Fragment {
                         checkFilter = "none";
 
                     assert checkUser != null;
-                    
+
                     if (userYear == null)
                         userYear = year;
-                    if (!hidden && !block_list.contains(checkUser)
-                            && checkFilter.equals(myfilter)) {
+                    if (!hidden && !block_list.contains(checkUser)) {
 
-                        if(year.equals("Junior") || year.equals("Senior")) {
-                            if(userYear.equals("Junior") || userYear.equals("Senior")) {
+                        if ((filter.equals("gender") || filter.equals("major") || filter.equals("introvert"))
+                                && checkFilter.equals(myfilter)) {
+
+                            if (year.equals("Junior") || year.equals("Senior")) {
+                                if (userYear.equals("Junior") || userYear.equals("Senior")) {
+                                    User temp = new User(checkUser, password);
+                                    temp.setHabits_answers(habits_answers);
+                                    temp.setSituations_answers(situations_answers);
+                                    profiles.add(temp);
+                                }
+                            } else if (year.equals(userYear)) {
+                                User temp = new User(checkUser, password);
+                                temp.setHabits_answers(habits_answers);
+                                temp.setSituations_answers(situations_answers);
+                                profiles.add(temp);
+                            }
+                        } else {
+                            if (year.equals("Junior") || year.equals("Senior")) {
+                                if (userYear.equals("Junior") || userYear.equals("Senior")) {
+                                    User temp = new User(checkUser, password);
+                                    temp.setHabits_answers(habits_answers);
+                                    temp.setSituations_answers(situations_answers);
+                                    profiles.add(temp);
+                                }
+                            } else if (year.equals(userYear)) {
                                 User temp = new User(checkUser, password);
                                 temp.setHabits_answers(habits_answers);
                                 temp.setSituations_answers(situations_answers);
                                 profiles.add(temp);
                             }
                         }
+                    }
 
-
-                        else if(year.equals(userYear)) {
-                            User temp = new User(checkUser, password);
-                            temp.setHabits_answers(habits_answers);
-                            temp.setSituations_answers(situations_answers);
-                            profiles.add(temp);
-                        }
+                    if (filter.equals("sleep")) {
+                        // calculate and store value for sleep in filter
+                    } else if (filter.equals("wake")) {
+                        // calculate and store value for wake in filter
+                    } else if (filter.equals("situations")) {
+                        // calculate and store value for situations in filter
+                    } else if (filter.equals("time_spent")) {
+                        // calculate and store value for time spent in filter
                     }
                 }
+
+                // write comparator for user class
+                // sort array
+
                 calculate_percentage(profiles);
                 myAdapter.notifyDataSetChanged();
             }

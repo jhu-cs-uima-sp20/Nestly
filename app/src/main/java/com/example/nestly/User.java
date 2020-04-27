@@ -18,6 +18,7 @@ class User {
     private String bio;
     private boolean hidden;
     private String matching="0%";
+    private int filter;
 
     private String name;
     private String url;
@@ -47,6 +48,10 @@ class User {
     public String getUrl() { return this.url; }
 
     public String getJhed() { return this.jhed; }
+
+    public int getFilter() { return this.filter; }
+
+    public void setFilter(int filter) { this.filter = filter; }
 
     public void setJhed(String jhed) { this.jhed = jhed; }
 

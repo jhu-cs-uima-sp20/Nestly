@@ -48,10 +48,10 @@
                 android:title="People Over"
                 app:showAsAction="never" />
 
-            <item
-                android:id="@+id/situations"
-                android:title="Situations"
-                app:showAsAction="never" />
+<!--            <item-->
+<!--                android:id="@+id/situations"-->
+<!--                android:title="Situations"-->
+<!--                app:showAsAction="never" />-->
         </menu>
 
     </item>
