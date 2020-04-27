@@ -193,6 +193,22 @@ public class GridFragment extends Fragment {
                                 temp.setFilter(Math.abs(my - check));
                                 profiles.add(temp);
                             }
+                        } else {
+                            if (year.equals("Junior") || year.equals("Senior")) {
+                                if (userYear.equals("Junior") || userYear.equals("Senior")) {
+                                    User temp = new User(checkUser, password);
+                                    temp.setHabits_answers(habits_answers);
+                                    temp.setSituations_answers(situations_answers);
+                                    temp.setFilter(Math.abs(my - check));
+                                    profiles.add(temp);
+                                }
+                            } else if (year.equals(userYear)) {
+                                User temp = new User(checkUser, password);
+                                temp.setHabits_answers(habits_answers);
+                                temp.setSituations_answers(situations_answers);
+                                temp.setFilter(Math.abs(my - check));
+                                profiles.add(temp);
+                            }
                         }
                     }
 
