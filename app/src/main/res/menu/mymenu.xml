@@ -27,10 +27,10 @@
                 android:id="@+id/intro_extro_vert"
                 android:title="Intro/Extrovert"
                 app:showAsAction="never" />
-            <item
-                android:id="@+id/room_use"
-                android:title="Room Use"
-                app:showAsAction="never" />
+<!--            <item-->
+<!--                android:id="@+id/room_use"-->
+<!--                android:title="Room Use"-->
+<!--                app:showAsAction="never" />-->
             <item
                 android:id="@+id/sleep_time"
                 android:title="Sleep Time"

@@ -133,13 +133,16 @@ public class GridFragment extends Fragment {
                                 }
                             }
                         } else if (filter.equals("sleep") || filter.equals("wake") ||
-                                filter.equals("time_spent")) {
+                                filter.equals("time_spent") || filter.equals("people_over")) {
                             if (filter.equals("sleep")) {
                                 checkFilter = habits_answers.get(9);
                                 myfilter = myPrefs.getString("sleep_time", "12am");
                             } else if (filter.equals("wake")) {
                                 checkFilter = habits_answers.get(8);
                                 myfilter = myPrefs.getString("wakeUp_time", "8am");
+                            } else if (filter.equals("people_over")) {
+                                checkFilter = habits_answers.get(10);
+                                myfilter = myPrefs.getString("bring_friends", "5");
                             } else {
                                 checkFilter = habits_answers.get(7);
                                 myfilter = myPrefs.getString("room_time", "5");
@@ -148,23 +151,31 @@ public class GridFragment extends Fragment {
                             int mindex = myfilter.indexOf("m");
                             int cindex = checkFilter.indexOf("m");
 
-                            System.out.println(myfilter + " " + checkFilter + ": " + mindex + " " + cindex);
-
                             if (mindex != -1) {
                                 my = Integer.parseInt(myfilter.substring(0, mindex - 1));
                                 if (myfilter.substring(mindex - 1, myfilter.length()).equals("pm")) {
                                     my = 0 + (12 - my);
                                 }
                             } else {
-                                my = Integer.parseInt(myfilter);
+                                mindex = myfilter.indexOf("+");
+                                if (mindex != -1) {
+                                    my = Integer.parseInt(myfilter.substring(0, mindex));
+                                } else {
+                                    my = Integer.parseInt(myfilter);
+                                }
                             }
                             if (cindex != -1) {
                                 check = Integer.parseInt(checkFilter.substring(0, cindex - 1));
-                                if (checkFilter.substring(mindex - 1, checkFilter.length()).equals("pm")) {
+                                if (checkFilter.substring(cindex - 1, checkFilter.length()).equals("pm")) {
                                     check = 0 + (12 - check);
                                 }
                             } else {
-                                check = Integer.parseInt(checkFilter);
+                                cindex = checkFilter.indexOf("+");
+                                if (cindex != -1) {
+                                    check = Integer.parseInt(checkFilter.substring(0, cindex));
+                                } else {
+                                    check = Integer.parseInt(checkFilter);
+                                }
                             }
 
                             if (year.equals("Junior") || year.equals("Senior")) {

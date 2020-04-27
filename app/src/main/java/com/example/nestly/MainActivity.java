@@ -218,6 +218,8 @@ public class MainActivity extends AppCompatActivity
 //            //sort by situations
         } else if (id == R.id.time_spent) {
             p_editor.putString("filter", "time_spent");
+        } else if (id == R.id.people_over) {
+            p_editor.putString("filter", "people_over");
         }
 
         p_editor.commit();

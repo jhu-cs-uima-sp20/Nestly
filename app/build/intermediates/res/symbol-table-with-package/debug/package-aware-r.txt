@@ -1837,7 +1837,6 @@ id recycler_view
 id right
 id right_icon
 id right_side
-id room_use
 id rounded
 id s_spinner1
 id s_spinner2
